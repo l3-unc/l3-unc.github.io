@@ -66,3 +66,12 @@
     start: 2022
   title: bachelors
   email: mlaney@cs.unc.edu
+
+- name: Pradyun Ramesh
+  link: https://www.linkedin.com/in/pradyun-ramesh-017307171/
+  photo: pradyun.jpg
+  info: BS Student
+  period:
+    start: 2022
+  title: bachelors
+  email: pradyun@email.unc.edu
