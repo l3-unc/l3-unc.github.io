@@ -75,3 +75,12 @@
     start: 2022
   title: bachelors
   email: pradyun@email.unc.edu
+
+- name: Kerem Zaman
+  link: https://www.keremzaman.com/
+  photo: kerem.jpg
+  info: PhD Student
+  period:
+    start: 2022
+  title: phd
+  email: kzaman@cs.unc.edu
