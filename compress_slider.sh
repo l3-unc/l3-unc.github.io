@@ -10,6 +10,6 @@ for filename in "images/slider"/*.{jpg,png,jpeg}
 do
     basename=$(basename ${filename%.*})
     echo "$basename"
-    convert -define jpeg:size=200x200 $filename -quality 100 \
-        -background white -gravity center -extent 380x260 "images/slider_compressed/$basename.jpg"
+    convert -define jpeg:size=1920x1080 $filename -thumbnail '1920x1080>' -quality 100 \
+        -background white -gravity center -extent 1920x1080 "images/slider_compressed/$basename.jpg"
 done
