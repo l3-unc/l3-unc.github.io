@@ -14,12 +14,11 @@ permalink: /team/
 {% include people.html people = pis %}
 <div class='row'></div>
 
-## PhD Students 
+## Students 
 {% assign phds = site.data.people | where: "title", "phd"  %}
 {% include people.html people = phds %}
-<div class='row'></div>
-
-## Masters and Bachelors Students
+<!-- <div class='row'></div> -->
+<!-- ## Masters and Bachelors Students -->
 {% assign masters = site.data.people | where: "title", "masters"  %}
 {% assign bachelors = site.data.people | where: "title", "bachelors"  %}
 {% include people.html people = masters %}
