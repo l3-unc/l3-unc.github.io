@@ -12,6 +12,6 @@ for filename in "images/teampic"/*.{jpg,png,jpeg}
 do
     basename=$(basename ${filename%.*})
     echo "$basename"
-    convert -define jpeg:size=200x200 $filename -thumbnail '195x195>' -quality 85 \
+    convert -define jpeg:size=200x200 $filename -thumbnail '200x200>' -quality 85 \
         -background white -gravity center -extent 200x200 "images/bios_compressed/$basename.jpg"
 done
