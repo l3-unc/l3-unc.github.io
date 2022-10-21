@@ -1,6 +1,6 @@
 # This file contains all news.
 # The date is specified in the format DD Mmm YYYY.
-# Add in most recent first. Only the first 5 news items will be displayed on the home page.
+# Add in most recent first. Only the first 4 news items will be displayed on the home page.
 # Others will automatically get truncated.
 # Note: Any links will have to be provided in html format. Kindly look at examples below for reference or the web admin.
 
