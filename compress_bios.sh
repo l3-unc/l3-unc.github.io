@@ -3,8 +3,6 @@
 # https://github.com/marketplace/actions/image-actions looks promising but doesn't
 # support resizeing yet and overwrites the existing image.
 
-# {jpg,png,jpeg,webp}
-
 rm -rf "images/bios_compressed"
 mkdir -p "images/bios_compressed"
 
