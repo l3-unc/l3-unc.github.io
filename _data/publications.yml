@@ -21,6 +21,19 @@
 #    code: https://github.com/{username}/{id} -- Link to github
 #  hihlight: 0/1 If you want to showcase your work on the the Recent Work section
 
+- title: "What do Large Language Models Learn beyond Language? "
+  image: nilm.jpg
+  description: "In this paper, we investigate if pre-training on text also confers these models with helpful `inductive biases' for non-linguistic reasoning. On a set of 19 diverse non-linguistic tasks involving quantitative computations, recognizing regular expressions and reasoning over strings."
+  authors: 
+    - Avinash Madasu
+    - Shashank Srivastava
+  date: 2022-12-07
+  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  links:
+    # pdf: https://aclanthology.org/2022.wnu-1.2.pdf
+    code: https://github.com/avinashsai/NILM
+  highlight: 0
+
 - title: "Compositional Generalization for Kinship Prediction through Data Augmentation"
   image: clutrr_kangda.jpg
   description: "Transformer-based models have shown promising performance in numerous NLP tasks. However, recent work has shown the limitation of such models in showing compositional generalization, which requires models to generalize to novel compositions of known concepts. In this work, we explore two strategies for compositional generalization on the task of kinship prediction from stories,(1) data augmentation and (2) predicting and using intermediate structured representation (in form of kinship graphs). Our experiments show that data augmentation boosts generalization performance by around 20% on average relative to a baseline model from prior work not using these strategies. However, predicting and using intermediate kinship graphs leads to a deterioration in the generalization of kinship prediction by around 50% on average relative to models that only leverage data augmentation."
