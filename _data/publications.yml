@@ -30,7 +30,8 @@
   date: 2022-12-07
   venue: Findings of Empirical Methods in Natural Language Processing (EMNLP)
   links:
-    # pdf: https://aclanthology.org/2022.wnu-1.2.pdf
+    pdf: https://arxiv.org/pdf/2210.12302.pdf
+    arxiv: https://arxiv.org/abs/2210.12302
     code: https://github.com/avinashsai/NILM
   highlight: 0
 
