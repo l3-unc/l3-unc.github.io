@@ -48,7 +48,7 @@ permalink: /publications/
       {%- endif -%}
       {%- if forloop.rindex > 2 -%}, {% endif %}
       {%- if forloop.rindex == 2 and forloop.length > 2 -%}, {% endif %}
-      {%- if forloop.rindex == 2 -%} and {% endif %}
+      {%- if forloop.rindex == 2 -%}&nbsp;and {% endif %}
     {% endfor %}
   </p>
   <p>{{publi.venue}}, {{ publi.date | date: '%Y' }}.<br></p>
