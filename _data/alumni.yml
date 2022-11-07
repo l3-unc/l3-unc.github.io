@@ -16,14 +16,6 @@
     start: Jan 2020
     end: Nov 2020
 
-- name: Anisha Mascarenhas
-  info: Masters Student
-  title: masters
-  link: https://anisham197.github.io/
-  duration: 
-    start: Jan 2021
-    end: May 2021
-
 - name: Ayush Jain
   info: Intern
   title: intern
@@ -32,14 +24,6 @@
     start: Feb 2020
     end: Sep 2021
 
-- name: Avinash Madasu
-  info: Masters Student
-  title: masters
-  link: https://avinashsai.github.io/
-  duration: 
-    start: Aug 2021
-    end: Nov 2021
-    
 - name: Graham Caron
   info: Bachelors Student
   title: bachelors
