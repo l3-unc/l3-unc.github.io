@@ -24,7 +24,7 @@
       {%- endif -%}
       {%- if forloop.rindex > 2 -%}, {% endif %}
       {%- if forloop.rindex == 2 and forloop.length > 2 -%}, {% endif %}
-      {% if forloop.rindex == 2 %} and {% endif %}
+      {% if forloop.rindex == 2 %}&nbsp;and {% endif %}
     {% endfor %}
 <br>
 {{include.venue}}, {{include.date | date: '%Y' }}.<br>
