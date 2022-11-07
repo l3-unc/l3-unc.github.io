@@ -107,7 +107,7 @@
     pdf: https://aclanthology.org/2022.acl-short.15.pdf
     code: https://github.com/ByrdOfAFeather/pred_irt
     dataset: https://github.com/ByrdOfAFeather/pred_irt
-  highlight: 1
+  highlight: 0
 
 
 - title: "Improving and Simplifying Pattern Exploiting Training"
@@ -501,7 +501,7 @@
   highlight: 0
 
 - title: "Does Social Pressure Drive Persuasion in Online Fora?"
-  image: ""
+  image: "cmv.jpg"
   description: ""
   authors:
     - Ayush Jain
@@ -510,4 +510,4 @@
   venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
   links:
     pdf: https://aclanthology.org/2021.emnlp-main.725.pdf
-  highlight: 0
+  highlight: 1
