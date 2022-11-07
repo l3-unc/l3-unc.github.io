@@ -23,7 +23,7 @@
 
 - title: "What do Large Language Models Learn beyond Language? "
   image: nilm.jpg
-  description: "In this paper, we investigate if pre-training on text also confers these models with helpful `inductive biases' for non-linguistic reasoning. On a set of 19 diverse non-linguistic tasks involving quantitative computations, recognizing regular expressions and reasoning over strings."
+  description: "In this paper, we investigate if pre-training on text also confers these models with helpful `inductive biases' for non-linguistic reasoning. On a set of 19 diverse non-linguistic tasks involving quantitative computations, recognizing regular expressions and reasoning over strings. We find that pretrained models significantly outper- form comparable non-pretrained neural mod- els. This remains true also in experiments with training non-pretrained models with fewer pa- rameters to account for model regularization effects."
   authors: 
     - Avinash Madasu
     - Shashank Srivastava
