@@ -24,10 +24,21 @@
       {%- endif -%}
       {%- if forloop.rindex > 2 -%}, {% endif %}
       {%- if forloop.rindex == 2 and forloop.length > 2 -%}, {% endif %}
-      {% if forloop.rindex == 2 %}&nbsp;and {% endif %}
+      {% if forloop.rindex == 2 %} and {% endif %}
     {% endfor %}
 <br>
 {{include.venue}}, {{include.date | date: '%Y' }}.<br>
+{% if include.topics != "" and include.topics != nil %}
+{% for topic in include.topics %}
+  {%- assign topic_style = nil -%}
+  {%- assign topic_name = topic -%}
+  {%- if site.data.topics[topic_name].color != blank -%}
+    {%- assign topic_style = site.data.topics[topic_name].color | prepend: 'style="background-color:' | append: '"' -%}
+  {%- endif -%}
+  <abbr class="badge" {% if topic_style %}{{topic_style}}{% endif %}><a href="/topicwise_publications#{{site.data.topics[topic_name].url}}" style="color:#FFFF">{{topic_name}}</a></abbr>
+{% endfor %}
+<br>
+{% endif %}
 {% if include.links != "" and include.links != nil %}
   {% for link in include.links %}
     [<a href="{{link[1]}}">{{link[0]}}</a>]{% unless forloop.last %}, {% endunless %}

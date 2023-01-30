@@ -26,6 +26,15 @@ permalink: /publications/
 <div class="col-sm-6 clearfix">
  <div class="well">
   <pubtit>{{ publi.title }}</pubtit>
+  <p>
+  {% for topic in publi.topics %}
+  {%- assign topic_style = nil -%}
+  {%- if site.data.topics[topic].color != blank -%}
+    {%- assign topic_style = site.data.topics[topic].color | prepend: 'style="background-color:' | append: '"' -%}
+  {%- endif -%}
+  <abbr class="badge" {% if topic_style %}{{topic_style}}{% endif %}><a href="/topicwise_publications#{{site.data.topics[topic].url}}" style="color:#FFFF">{{topic}}</a></abbr>
+  {% endfor %}
+  </p>
   <img src="{{ site.url }}{{ site.baseurl }}/images/pubpic/{{ publi.image }}" class="img-responsive" width="33%" style="float: left" />
   <p>{{ publi.description }}</p>
   <p>
@@ -48,7 +57,7 @@ permalink: /publications/
       {%- endif -%}
       {%- if forloop.rindex > 2 -%}, {% endif %}
       {%- if forloop.rindex == 2 and forloop.length > 2 -%}, {% endif %}
-      {%- if forloop.rindex == 2 -%} and {% endif %}
+      {%- if forloop.rindex == 2 -%}&nbsp;and {% endif %}
     {% endfor %}
   </p>
   <p>{{publi.venue}}, {{ publi.date | date: '%Y' }}.<br></p>
@@ -72,33 +81,41 @@ permalink: /publications/
 
 <p> &nbsp; </p>
 
-## Full List of publications
+## Full List of Publications
+
+Tags:
+{% for topic in site.data.topics %}
+{%- assign topic_style = topic[1].color | prepend: 'style="background-color:' | append: '"' -%}
+<abbr class="badge" {% if topic_style %}{{topic_style}}{% endif %}><a href="/topicwise_publications#{{topic[1].url}}" style="color:#FFFF">{{topic[0]}}</a></abbr>
+{% endfor %}
 
 {% assign publications = site.data.publications | where: "preprint", nil | sort: 'date' | reverse %}
 {% if publications.size > 0 %}
 {% assign year_lastpaper = nil %}
 {% for paper in publications %}
-{% assign year_thispaper = paper.date | date: '%Y' %}
+  {% assign year_thispaper = paper.date | date: '%Y' %}
 
-{% if year_lastpaper != year_thispaper %}
-{% unless forloop.first %}
-</ol>
-{% endunless %}
-<h3>{{ year_thispaper }}</h3>
-<ol reversed start="{{ forloop.rindex }}">
-{% endif %}
+  {% if year_lastpaper != year_thispaper %}
+  {% unless forloop.first %}
+  </ol>
+  {% endunless %}
+  <h3>{{ year_thispaper }}</h3>
+  <ol reversed start="{{ forloop.rindex }}">
+  {% endif %}
 
-<li>
-{% include paper.html
-    title=paper.title
-    authors=paper.authors
-    venue=paper.venue
-    date=paper.date
-    links=paper.links
-%}
-</li>
+  <li>
+    {% include paper.html
+        title=paper.title
+        authors=paper.authors
+        venue=paper.venue
+        date=paper.date
+        links=paper.links
+        topics=paper.topics
+    %}
+  </li>
 
-{% assign year_lastpaper = year_thispaper %}
+  {% assign year_lastpaper = year_thispaper %}
+
 {% endfor %}
 </ol>
 {% endif %}

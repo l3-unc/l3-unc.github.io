@@ -1,0 +1,11 @@
+"Learning from Explanations":
+  url: "lnl"
+  color: "#987284"
+
+"Datasets and Benchmarks":
+  url: "db"
+  color: "#75B9BE"
+
+"Few-shot Learning":
+  url: "fsl"
+  color: "#EA9E8D"
