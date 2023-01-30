@@ -1,4 +1,4 @@
-"Learning from Explanations":
+"Learning from Language":
   url: "lnl"
   color: "#987284"
 
@@ -6,6 +6,22 @@
   url: "db"
   color: "#75B9BE"
 
-"Few-shot Learning":
-  url: "fsl"
+"Learning from Limited Labels":
+  url: "lll"
   color: "#EA9E8D"
+
+"Neuro-symbolic Learning":
+  url: "nsl"
+  color: "#A3C4BC"
+
+"Fairness and Social Applications":
+  url: "fsa"
+  color: "#75704E" #DB9065"
+
+"Language Understanding, Reasoning, and Generation":
+  url: "lurg"
+  color: "#797596"
+
+"Syntax and Semantics":
+  url: "ss"
+  color: "#BBADA0"
