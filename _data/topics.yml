@@ -1,4 +1,4 @@
-"Learning from Language":
+"Learning and Language":
   url: "lnl"
   color: "#987284"
 
@@ -25,3 +25,7 @@
 "Syntax and Semantics":
   url: "ss"
   color: "#BBADA0"
+
+"Miscellaneous":
+  url: "misc"
+  color: "#7C9885"
