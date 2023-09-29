@@ -25,6 +25,25 @@
 #     - {topic 2}
 #     - {topic 3}
 
+- title: "LaSQuE: Improved Zero-Shot Classification from Explanations Through Quantifier Modeling and Curriculum Learning"
+  image:
+  description: A hallmark of human intelligence is the ability to learn new concepts purely from language. Several recent approaches have explored training machine learning models via natural language supervision. However, these approaches fall short in leveraging linguistic quantifiers (such as 'always' or 'rarely') and mimicking humans in compositionally learning complex tasks. Here, we present LaSQuE, a method that can learn zero-shot classifiers from language explanations by using three new strategies - (1) modeling the semantics of linguistic quantifiers in explanations (including exploiting ordinal strength relationships, such as 'always’ > ‘likely’), (2) aggregating information from multiple explanations using an attention-based mechanism, and (3) model training via curriculum learning
+  authors: 
+    - show: Sayan Ghosh*
+      link: Sayan Ghosh
+    - show: Rakesh R Menon*
+      link: Rakesh R Menon
+    - Shashank Srivastava
+  date: 2023-07-10
+  venue: Findings of Association for Computational Linguistics (ACL)
+  links:
+    pdf: https://aclanthology.org/2023.findings-acl.467.pdf
+    arxiv:  https://arxiv.org/abs/2212.09104
+    code:  https://github.com/sgdgp/LaSQuE
+  topics: 
+    - "Learning and Language"
+  highlight: 0
+
 - title: "What do Large Language Models Learn beyond Language? "
   image: nilm.jpg
   description: "In this paper, we investigate if pre-training on text also confers these models with helpful `inductive biases' for non-linguistic reasoning. On a set of 19 diverse non-linguistic tasks involving quantitative computations, recognizing regular expressions and reasoning over strings. We find that pretrained models significantly outper- form comparable non-pretrained neural mod- els. This remains true also in experiments with training non-pretrained models with fewer pa- rameters to account for model regularization effects."
@@ -62,10 +81,12 @@
   description: "Language models demonstrate both quantitative improvement and new qualitative capabilities with increasing scale. Despite their potentially transformative impact, these new capabilities are as yet poorly characterized. In order to inform future research, prepare for disruptive new model capabilities, and ameliorate socially harmful effects, it is vital that we understand the present and near-future capabilities and limitations of language models. To address this challenge, we introduce the Beyond the Imitation Game benchmark (BIG-bench). BIG-bench currently consists of 204 tasks, contributed by 442 authors across 132 institutions. Task topics are diverse, drawing problems from linguistics, childhood development, math, common-sense reasoning, biology, physics, social bias, software development, and beyond. BIG-bench focuses on tasks that are believed to be beyond the capabilities of current language models. We evaluate the behavior of OpenAI's GPT models, Google-internal dense transformer architectures, and Switch-style sparse transformers on BIG-bench, across model sizes spanning millions to hundreds of billions of parameters."
   authors: 
     - Big-Bench Collaboration
-  date: 2022-06-10
-  venue: Under submission at TMLR
+  date: 2023-05-01
+  venue: Transactions of Machine Learning Research (TMLR)
   links:
-    pdf: https://arxiv.org/abs/2206.04615
+    openreview: https://openreview.net/forum?id=uyTL5Bvosj
+    pdf: https://openreview.net/pdf?id=uyTL5Bvosj
+    arxiv: https://arxiv.org/abs/2206.04615
     code: https://github.com/google/BIG-bench
     dataset: https://github.com/google/BIG-bench
   topics: 

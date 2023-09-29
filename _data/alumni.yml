@@ -31,3 +31,30 @@
   duration: 
     start: Jan 2022
     end: May 2022
+
+- name: Kangda Wei
+  info: BS/MS Student
+  title: masters
+  link: https://www.linkedin.com/in/kangdawei-40ab541b4/
+  duration:
+    start: Aug 2021
+    end: May 2023
+  
+
+- name: Matthew Byrd
+  info: BS/MS Student
+  title: masters
+  link: https://byrdofafeather.github.io
+  duration:
+    start: Jan 2020
+    end: Dec 2022
+  
+
+- name: Mason Laney
+  info: BS Student
+  title: bachelors
+  link: https://www.linkedin.com/in/mason-laney-1504b5208/
+  duration:
+    start: Aug 2022
+    end: May 2023
+  

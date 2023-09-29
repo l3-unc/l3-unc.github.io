@@ -39,33 +39,6 @@
     start: 2020
   title: phd
   email: rrmenon@cs.unc.edu
-  
-- name: Kangda Wei
-  link: https://www.linkedin.com/in/kangdawei-40ab541b4/
-  photo: kangda.jpg
-  info: BS/MS Student
-  period:
-    start: 2021
-  title: masters
-  email: kangda@cs.unc.edu
-
-- name: Matthew Byrd
-  link: https://byrdofafeather.github.io
-  photo: matthew.jpg
-  info: BS/MS Student
-  period:
-    start: 2020
-  title: masters
-  email: byrdof@live.unc.edu
-
-- name: Mason Laney
-  link: https://www.linkedin.com/in/mason-laney-1504b5208/
-  photo: mason.jpg
-  info: BS Student
-  period:
-    start: 2022
-  title: bachelors
-  email: mlaney@cs.unc.edu
 
 - name: Pradyun Ramesh
   link: https://www.linkedin.com/in/pradyun-ramesh-017307171/
@@ -84,3 +57,39 @@
     start: 2022
   title: phd
   email: kzaman@cs.unc.edu
+
+- name: Aum Kendapadi
+  link: https://www.aumken.com/
+  photo: 
+  info: BS Student
+  period:
+    start: 2023
+  title: bachelors
+  email: aum@unc.edu
+
+- name: Tianyi Niu
+  link: https://www.linkedin.com/in/tianyi-niu
+  photo: 
+  info: BS Student
+  period:
+    start: 2023
+  title: bachelors
+  email: tianyin4@email.unc.edu
+
+- name: Anika Sharma
+  link: https://www.linkedin.com/in/anika-sharma-69b005257/
+  photo: 
+  info: BS Student
+  period:
+    start: 2023
+  title: bachelors
+  email: anika17@email.unc.edu
+
+- name: Peifeng He
+  link: https://www.linkedin.com/in/peifenghe/
+  photo: 
+  info: BS Student
+  period:
+    start: 2023
+  title: bachelors
+  email: anika17@email.unc.edu
