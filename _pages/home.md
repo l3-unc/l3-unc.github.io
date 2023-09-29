@@ -1,7 +1,7 @@
 ---
-title: "GRAIL Lab"
+title: "Language and Learning Lab"
 layout: homelay
-excerpt: "GRAIL Lab at UNC"
+excerpt: "Language and Learning Lab at UNC"
 sitemap: false
 permalink: /
 ---

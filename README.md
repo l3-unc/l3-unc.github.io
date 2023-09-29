@@ -1,4 +1,4 @@
-# GRAIL Lab Website
+# Language and Learning Lab Website
 
 This is the website of our academic research group at UNC Chapel Hill.
 
