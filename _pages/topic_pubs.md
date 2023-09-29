@@ -1,7 +1,7 @@
 ---
-title: "GRAIL Lab - Publications"
+title: "Learning and Language Lab - Publications"
 layout: gridlay
-excerpt: "GRAIL Lab -- Publications."
+excerpt: "Learning and Language Lab -- Publications."
 sitemap: false
 permalink: /topicwise_publications/
 ---

@@ -1,7 +1,7 @@
 ---
-title: "GRAIL Lab - Team"
+title: "Learning and Language Lab - Team"
 layout: gridlay
-excerpt: "GRAIL Lab: Team members"
+excerpt: "Learning and Language Lab: Team members"
 sitemap: false
 permalink: /team/
 ---
