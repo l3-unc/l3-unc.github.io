@@ -25,6 +25,101 @@
 #     - {topic 2}
 #     - {topic 3}
 
+
+- title: "Pragmatic Reasoning Unlocks Quantifier Semantics for Foundation Models"
+  image: presque.jpg
+  description: Generalized quantifiers (e.g., few, most) are used to indicate the proportions predicates are satisfied (for example, some apples are red). One way to interpret quantifier semantics is to explicitly bind these satisfactions with percentage scopes (e.g., 30%-40% of apples are red). This approach can be helpful for tasks like logic formalization and surface-form quantitative reasoning (Gordon and Schubert, 2010; Roy et al., 2015). However, it remains unclear if recent foundation models possess this ability, as they lack direct training signals. To explore this, we introduce QuRe, a crowd-sourced dataset of human-annotated generalized quantifiers in Wikipedia sentences featuring percentage-equipped predicates. We explore quantifier comprehension in language models using PRESQUE, a framework that combines natural language inference and the Rational Speech Acts framework. Experimental results on the HVD dataset and QuRe illustrate that PRESQUE, employing pragmatic reasoning, performs 20% better than a literal reasoning baseline when predicting quantifier percentage scopes, with no additional training required.
+  authors: 
+    - Yiyuan Li
+    - Rakesh R Menon
+    - Sayan Ghosh
+    - Shashank Srivastava
+  date: 2023-12-06
+  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  links:
+    pdf: https://arxiv.org/pdf/2311.04659.pdf
+    arxiv:  https://arxiv.org/abs/2311.04659
+    code:  https://github.com/Nativeatom/PRESQUE
+  topics: 
+    - "Learning and Language"
+    - "Datasets and Benchmarks"
+  highlight: 1
+
+- title: "MaNtLE: Model-agnostic Natural Language Explainer"
+  image: mantle.jpg
+  description: Understanding the internal reasoning behind the predictions of machine learning systems is increasingly vital, given their rising adoption and acceptance. While previous approaches, such as LIME, generate algorithmic explanations by attributing importance to input features for individual examples, recent research indicates that practitioners prefer examining language explanations that explain sub-groups of examples (Lakkaraju et al., 2022). In this paper, we introduce MaNtLE, a model-agnostic natural language explainer that analyzes multiple classifier predictions and generates faithful natural language explanations of classifier rationale for structured classification tasks. MaNtLE uses multi-task training on thousands of synthetic classification tasks to generate faithful explanations. Simulated user studies indicate that, on average, MaNtLE-generated explanations are at least 11% more faithful compared to LIME and Anchors explanations across three tasks. Human evaluations demonstrate that users can better predict model behavior using explanations from MaNtLE compared to other techniques.
+  authors: 
+    - Rakesh R Menon
+    - Kerem Zaman
+    - Shashank Srivastava
+  date: 2023-12-06
+  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  links: 
+    pdf: /data/pdfs/MaNtLE_menon23.pdf
+    arxiv:  https://arxiv.org/abs/2305.12995
+    code:  https://github.com/rrmenon10/MaNtLE
+  topics: 
+    - "Learning and Language"
+  highlight: 1
+
+- title: "Identifying and Manipulating the Personality Traits of Language Models"
+  image: personality_traits.jpg
+  description: Psychology research has long explored aspects of human personality such as extroversion, agreeableness and emotional stability. Categorizations like the 'Big Five' personality traits are commonly used to assess and diagnose personality types. In this work, we explore the question of whether the perceived personality in language models is exhibited consistently in their language generation. For example, is a language model such as GPT2 likely to respond in a consistent way if asked to go out to a party? We also investigate whether such personality traits can be controlled. We show that when provided different types of contexts (such as personality descriptions, or answers to diagnostic questions about personality traits), language models such as BERT and GPT2 can consistently identify and reflect personality markers in those contexts. This behavior illustrates an ability to be manipulated in a highly predictable way, and frames them as tools for identifying personality traits and controlling personas in applications such as dialog systems. We also contribute a crowd-sourced data-set of personality descriptions of human subjects paired with their "Big Five" personality assessment data, and a data-set of personality descriptions collated from Reddit.
+  authors: 
+    - Graham Caron
+    - Shashank Srivastava
+  date: 2023-12-06
+  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP)
+  links:
+    pdf: /data/pdfs/personality_traits_caron23.pdf
+    arxiv:  https://arxiv.org/abs/2212.10276
+  topics: 
+    - "Fairness and Social Applications"
+    - "Datasets and Benchmarks"
+  highlight: 1
+
+- title: "Leveraging Multiple Teachers for Test-Time Adaptation of Language-Guided Classifiers"
+  image:
+  description: Recent approaches have explored language-guided classifiers capable of classifying examples from novel tasks when provided with task-specific natural language explanations, instructions or prompts (Sanh et al., 2022; R. Menon et al., 2022). While these classifiers can generalize in zero-shot settings, their task performance often varies substantially between different language explanations in unpredictable ways (Lu et al., 2022; Gonen et al., 2022). Also, current approaches fail to leverage unlabeled examples that may be available in many scenarios. Here, we introduce TALC, a framework that uses data programming to adapt a language-guided classifier for a new task during inference when provided with explanations from multiple teachers and unlabeled test examples. Our results show that TALC consistently outperforms a competitive baseline from prior work by an impressive 9.3% (relative improvement). Further, we demonstrate the robustness of TALC to variations in the quality and quantity of provided explanations, highlighting its potential in scenarios where learning from multiple teachers or a crowd is involved.
+  authors: 
+    - Kangda Wei
+    - Sayan Ghosh
+    - Rakesh R Menon
+    - Shashank Srivastava
+  date: 2023-12-06
+  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP)
+  links:
+    pdf: https://arxiv.org/pdf/2311.07538.pdf
+    arxiv:  https://arxiv.org/abs/2311.07538
+    code:  https://github.com/WeiKangda/TALC
+  topics: 
+    - "Learning and Language"
+  highlight: 0
+
+- title: "Beyond Labels: Empowering Human Annotators with Natural Language Explanations through a Novel Active-Learning Architecture "
+  image:
+  description: Real-world domain experts (e.g., doctors) rarely annotate only a decision label in their day-to-day workflow without providing explanations. Yet, existing low-resource learning techniques, such as Active Learning (AL), that aim to support human annotators mostly focus on the label while neglecting the natural language explanation of a data point. This work proposes a novel AL architecture to support experts real-world need for label and explanation annotations in low-resource scenarios. Our AL architecture leverages an explanation-generation model to produce explanations guided by human explanations, a prediction model that utilizes generated explanations toward prediction faithfully, and a novel data diversity-based AL sampling strategy that benefits from the explanation annotations. Automated and human evaluations demonstrate the effectiveness of incorporating explanations into AL sampling and the improved human annotation efficiency and trustworthiness with our AL architecture. Additional ablation studies illustrate the potential of our AL architecture for transfer learning, generalizability, and integration with large language models (LLMs). While LLMs exhibit exceptional explanation-generation capabilities for relatively simple tasks, their effectiveness in complex real-world tasks warrants further in-depth study.
+  authors: 
+    - Bingsheng Yao
+    - Ishan Jindal
+    - Lucian Popa
+    - Yannis Katsis
+    - Sayan Ghosh
+    - Lihong He
+    - Yuxuan Lu
+    - Shashank Srivastava
+    - Yunyao Li
+    - James Hendler
+    - Dakuo Wang
+  date: 2023-12-06
+  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP)
+  links:
+    pdf: https://arxiv.org/pdf/2305.12710.pdf
+    arxiv:  https://arxiv.org/abs/2305.12710
+  topics: 
+    - "Active Learning"
+  highlight: 0
+
 - title: "LaSQuE: Improved Zero-Shot Classification from Explanations Through Quantifier Modeling and Curriculum Learning"
   image:
   description: A hallmark of human intelligence is the ability to learn new concepts purely from language. Several recent approaches have explored training machine learning models via natural language supervision. However, these approaches fall short in leveraging linguistic quantifiers (such as 'always' or 'rarely') and mimicking humans in compositionally learning complex tasks. Here, we present LaSQuE, a method that can learn zero-shot classifiers from language explanations by using three new strategies - (1) modeling the semantics of linguistic quantifiers in explanations (including exploiting ordinal strength relationships, such as 'always’ > ‘likely’), (2) aggregating information from multiple explanations using an attention-based mechanism, and (3) model training via curriculum learning
@@ -56,7 +151,7 @@
     pdf: https://arxiv.org/pdf/2210.12302.pdf
     arxiv: https://arxiv.org/abs/2210.12302
     code: https://github.com/avinashsai/NILM
-  highlight: 1
+  highlight: 0
   topics:
     - "Learning and Language"
 
@@ -113,7 +208,7 @@
   topics: 
     - "Learning and Language"
     - "Datasets and Benchmarks"
-  highlight: 1
+  highlight: 0
 
 - title: "ePiC: Employing Proverbs in Context as a Benchmark for Abstract Language Understanding"
   image: epic.png
@@ -132,7 +227,7 @@
     - "Datasets and Benchmarks"
     - "Language Understanding, Reasoning, and Generation"
     - "Fairness and Social Applications"
-  highlight: 1
+  highlight: 0
 
 - title: "Predicting Difficulty and Discrimination of Natural Language Questions"
   image: pred_irt.png

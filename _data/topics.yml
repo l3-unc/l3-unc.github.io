@@ -16,7 +16,11 @@
 
 "Fairness and Social Applications":
   url: "fsa"
-  color: "#75704E" #DB9065"
+  color: "#75704E"
+
+"Active Learning":
+  url: "al"
+  color: "#DB9065"
 
 "Language Understanding, Reasoning, and Generation":
   url: "lurg"
