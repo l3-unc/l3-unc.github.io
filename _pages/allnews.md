@@ -1,7 +1,7 @@
 ---
 title: "News"
 layout: textlay
-excerpt: "Learning and Language Lab at UNC"
+excerpt: "Learning from Language Lab at UNC"
 sitemap: false
 permalink: /allnews.html
 ---

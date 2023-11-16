@@ -1,7 +1,7 @@
 ---
-title: "Learning and Language Lab - Publications"
+title: "Learning from Language Lab - Publications"
 layout: gridlay
-excerpt: "Learning and Language Lab -- Publications."
+excerpt: "Learning from Language Lab -- Publications."
 sitemap: false
 permalink: /publications/
 ---
