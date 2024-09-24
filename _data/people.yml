@@ -94,6 +94,15 @@
   title: bachelors
   email: jxing@unc.edu
 
+- name: Wisdom Okwen
+  link: wisdom-okwen.github.io/website
+  photo: wisdom.jpg
+  info: BS Student
+  period:
+    start: 2024
+  title: bachelors
+  email: 
+
 - name: Advaith Malladi
   link: https://www.linkedin.com/in/advaith-malladi-30175326b/
   photo: advaith.jpg
