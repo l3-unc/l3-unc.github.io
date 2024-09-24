@@ -39,7 +39,6 @@
   duration:
     start: Aug 2021
     end: May 2023
-  
 
 - name: Matthew Byrd
   info: BS/MS Student
@@ -49,7 +48,6 @@
     start: Jan 2020
     end: Dec 2022
   
-
 - name: Mason Laney
   info: BS Student
   title: bachelors
@@ -57,4 +55,21 @@
   duration:
     start: Aug 2022
     end: May 2023
-  
+
+- name: Pradyun Ramesh
+  link: https://www.linkedin.com/in/pradyun-ramesh-017307171/
+  photo: Pradyun.jpg
+  info: BS Student
+  period:
+    start: 2022
+  title: bachelors
+  email: pradyun@email.unc.edu
+
+- name: Sayan Ghosh
+  link: https://sgdgp.github.io
+  photo: sayan.jpg
+  info: PhD Student
+  period:
+    start: 2019
+  title: phd
+  email: sayghosh@cs.unc.edu

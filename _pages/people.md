@@ -17,11 +17,12 @@ permalink: /team/
 ## Graduate Students 
 {% assign phds = site.data.people | where: "title", "phd"  %}
 {% include people.html people = phds %}
-<div class='row'></div>
-## Undergraduate Students
 {% assign masters = site.data.people | where: "title", "masters"  %}
-{% assign bachelors = site.data.people | where: "title", "bachelors"  %}
 {% include people.html people = masters %}
+<div class='row'></div>
+
+## Undergraduate Students
+{% assign bachelors = site.data.people | where: "title", "bachelors"  %}
 {% include people.html people = bachelors %}
 <div class='row'></div>
 
