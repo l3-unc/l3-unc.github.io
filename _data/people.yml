@@ -22,15 +22,6 @@
   title: pi
   email: ssrivastava@cs.unc.edu
 
-- name: Sayan Ghosh
-  link: https://sgdgp.github.io
-  photo: sayan.jpg
-  info: PhD Student
-  period:
-    start: 2019
-  title: phd
-  email: sayghosh@cs.unc.edu
-
 - name: Rakesh R Menon
   link: https://cs.unc.edu/~rrmenon
   photo: rakesh.jpg
