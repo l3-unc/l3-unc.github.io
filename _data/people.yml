@@ -60,6 +60,12 @@
 
 - name: Chidaksh Ravuru
   link: https://chidaksh.github.io/
+  photo: chidaksh.jpg
+  info: MS student
+  period:
+    start: 2024
+  title: masters
+  email: chidaksh@unc.edu
 
 - name: Aum Kendapadi
   link: https://www.linkedin.com/in/aumkendapadi/
