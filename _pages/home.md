@@ -6,14 +6,11 @@ sitemap: false
 permalink: /
 ---
 
-LLMs have emerged as transformative tools -- yet they remain enigmatic, their working shrouded in a mist that we have not yet built the math and tools to fully pierce. At the same time, they echo the emergent complexity we see in the evolution of human cognition, economic systems and cellular structures.
+LLMs are transformative yet enigmatic, their emergent abilities echoing the complexity we see in the evolution of human cognition, economic systems, and cellular structures.
 
-Our lab investigates what governs these emergent behaviors? How can we harness these to create agents that learn, reason and interact with the world in ways that are interpretable and aligned with human values?
+Our research explores how intelligence ermerges from language, not as a static process, but an evolving, interactive phenomenon. People use language not just to communicate, but to think, to plan and collaborate. While we have been interested in the connection between machine learning and human language for long, LLMs have made this space fundamentally more interesting. Chain-of-Thought prompting, for example, unlocks complex abilities in LLMs, allowing models to circumvent architectural limitations (e.g., computational budgets due to fixed Transformer depth) much like humans externalize cognitive burdens through writing, structured reasoning, and collaborative problem-solving.
 
-Our research fundamentally explores how intelligence ermerges from language, not as a static process, but an evolving, interactive phenomenon. People use language not just to communicate, but to think, to plan and collaborate. While we have been interested in the connection between machine learning and human language for long, LLMs have made this space fundamentally more exciting. For example, LLMs exhibit similar cognitive scaffolding effects—for example, Chain-of-Thought prompting enables models to overcome architectural constraints (e.g., fixed Transformer depth), much like humans externalize cognition through writing, structured reasoning, and dialogue.
-
-What does this reveal about the fundamental role of language in both artificial and human thought?
-How do we design AI that engages in reasoning—not just imitation?
+What does this reveal about the fundamental role of language in thought and learning? And can we harness this understanding to create agents that learn, and interact with the world in ways that are interpretable and aligned with human values?
 
 
 <div markdown="0" id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="hover" >
