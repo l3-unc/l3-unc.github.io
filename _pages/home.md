@@ -6,7 +6,15 @@ sitemap: false
 permalink: /
 ---
 
-We are a dynamic research group at [UNC Chapel Hill](http://unc.edu/) led by [Prof. Shashank Srivastava](https://www.ssriva.com/). Our research lies in the intersection of machine learning and natural language processing with special interests in grounding language in perception, neuro-symbolic methods, and interactive machine learning. We are also a part of the larger [UNC-NLP](https://nlp.cs.unc.edu/) group at [UNC CS](https://cs.unc.edu/).
+LLMs have emerged as transformative tools -- yet they remain enigmatic, their working shrouded in a mist that we have not yet built the math and tools to fully pierce. At the same time, they echo the emergent complexity we see in the evolution of human cognition, economic systems and cellular structures.
+
+Our lab investigates what governs these emergent behaviors? How can we harness these to create agents that learn, reason and interact with the world in ways that are interpretable and aligned with human values?
+
+Our research fundamentally explores how intelligence ermerges from language, not as a static process, but an evolving, interactive phenomenon. People use language not just to communicate, but to think, to plan and collaborate. While we have been interested in the connection between machine learning and human language for long, LLMs have made this space fundamentally more exciting. For example, LLMs exhibit similar cognitive scaffolding effects—for example, Chain-of-Thought prompting enables models to overcome architectural constraints (e.g., fixed Transformer depth), much like humans externalize cognition through writing, structured reasoning, and dialogue.
+
+What does this reveal about the fundamental role of language in both artificial and human thought?
+How do we design AI that engages in reasoning—not just imitation?
+
 
 <div markdown="0" id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="hover" >
     <!-- Menu -->
