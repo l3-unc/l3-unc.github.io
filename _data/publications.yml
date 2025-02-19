@@ -26,42 +26,42 @@
 #     - {topic 3}
 
 
-
-
-- title: "SOCIALGAZE: Improving the Integration of Human Social Norms in Large Language Models"
-  image: socialgaze.png
-  description: "Large language models struggle to align with human social norms, particularly when evaluating social acceptability in everyday situations. SOCIALGAZE is a multi-step prompting framework that improves LLMs' reasoning by encouraging them to verbalize social scenarios from multiple perspectives before making judgments. Experiments on social conflict narratives from the r/AITA subreddit show that SOCIALGAZE improves model alignment with human judgments by up to 11 F1 points. The study also uncovers several interesting biases in LLM social acceptability judgments -- for example, women are much less likely than men to be called out on r/AITA."
+- title: "DISCERN: Decoding Systematic Errors in Natural Language for Text Classifiers"
+  image: discern.png
+  description: "Machine learning classifiers often exhibit systematic biases due to dataset artifacts or class imbalances. DISCERN is a framework that generates natural language explanations for these biases, using an interactive loop between two large language models—one that identifies error patterns and another that refines them. The explanations improve classifier debugging and can be used to augment training data through synthetic instances or active learning. DISCERN consistently improves classification accuracy and helps humans interpret systematic biases 25% more effectively than cluster-based methods."
   authors: 
-    - Anvesh Rao Vijjini
     - Rakesh R Menon
-    - Jiayi Fu
     - Shashank Srivastava
-    - Snigdha Chaturvedi
   date: 2024-11-12
-  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP Findings)
+  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
   links:
-    pdf: https://aclanthology.org/2024.findings-emnlp.962.pdf
-    code:  https://github.com/nvshrao/social_gaze
+    pdf: https://aclanthology.org/2024.emnlp-main.1091.pdf
+    code:  https://github.com/rrmenon10/DISCERN
   topics: 
+    - "Learning and Language"
+    - "Fairness and Social Applications"
+    - "Learning from Limited Labels"
+  highlight: 1
+
+
+- title: "Fuse to Forget: Bias Reduction and Selective Memorization through Model Fusion"
+  image: fuse-to-forget.png
+  description: "Model fusion research aims to aggregate the knowledge of multiple individual models to enhance performance by combining their weights. In this work, we study the inverse problem -- investigating whether model fusion can be used to reduce unwanted knowledge. We investigate the effects of model fusion in three scenarios -- the learning of shortcuts, social biases, and memorization of training data in fine-tuned language models. Through experiments covering classification and generation tasks, our analysis highlights that shared knowledge among models is enhanced during model fusion, while unshared knowledge is usually forgotten. Based on this observation, we demonstrate the potential of model fusion as a debiasing tool and showcase its efficacy in addressing privacy concerns associated with language models."
+  authors: 
+    - Kerem Zaman
+    - Leshem Chosen
+    - Shashank Srivastava
+  date: 2024-11-12
+  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  links:
+    pdf: https://aclanthology.org/2024.emnlp-main.1045.pdf
+    code:  https://github.com/KeremZaman/FuseToForget
+  topics: 
+    - "Learning and Language"
     - "Fairness and Social Applications"
   highlight: 1
 
-- title: "Online Reinforcement Learning-Based Pedagogical Planning for Narrative-Centered Learning Environments"
-  image: ncl.png
-  description: "Adaptive learning environments benefit from reinforcement learning-based pedagogical planners, but data scarcity limits their effectiveness. This paper introduces INSIGHT, an online RL framework that simulates student interactions in narrative-centered learning environments to train pedagogical policies dynamically. INSIGHT leverages a simulated student agent and a deep Q-learning-based planner to optimize educational interventions. Results show that online RL outperforms offline RL approaches in generating effective teaching policies, making INSIGHT a promising tool for AI-driven personalized learning."
-  authors: 
-    - Fahmid Morshed Fahid
-    - Jonathan Rowe
-    - Yeojin Kim
-    - Shashank Srivastava
-    - James Lester
-  date: 2024
-  venue: AAAI Conference on Artificial Intelligence (AAAI-24)
-  links:
-    pdf: https://ojs.aaai.org/index.php/AAAI/article/view/30365
-  topics: 
-    - "Miscellaneous"
-  highlight: 0
+
 
 
 - title: "MaNtLE: Model-agnostic Natural Language Explainer"
