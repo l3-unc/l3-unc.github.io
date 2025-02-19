@@ -61,7 +61,23 @@
     - "Fairness and Social Applications"
   highlight: 1
 
-
+- title: "SOCIALGAZE: Improving the Integration of Human Social Norms in Large Language Models"
+  image: socialgaze.png
+  description: "Large language models struggle to align with human social norms, particularly when evaluating social acceptability in everyday situations. SOCIALGAZE is a multi-step prompting framework that improves LLMs' reasoning by encouraging them to verbalize social scenarios from multiple perspectives before making judgments. Experiments on social conflict narratives from the r/AITA subreddit show that SOCIALGAZE improves model alignment with human judgments by up to 11 F1 points. The study also uncovers several interesting biases in LLM social acceptability judgments -- for example, women are much less likely than men to be called out on r/AITA."
+  authors: 
+    - Anvesh Rao Vijjini
+    - Rakesh R Menon
+    - Jiayi Fu
+    - Shashank Srivastava
+    - Snigdha Chaturvedi
+  date: 2024-11-12
+  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP Findings)
+  links:
+    pdf: https://aclanthology.org/2024.findings-emnlp.962.pdf
+    code:  https://github.com/nvshrao/social_gaze
+  topics: 
+    - "Fairness and Social Applications"
+  highlight: 1
 
 
 - title: "MaNtLE: Model-agnostic Natural Language Explainer"
