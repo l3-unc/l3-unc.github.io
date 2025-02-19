@@ -41,7 +41,7 @@
     code:  https://github.com/rrmenon10/DISCERN
   topics: 
     - "Learning and Language"
-    - "Fairness & Social Applications"
+    - "Fairness and Social Applications"
     - "Learning from Limited Labels"
   highlight: 1
 
@@ -60,7 +60,7 @@
     code:  https://github.com/KeremZaman/FuseToForget
   topics: 
     - "Learning and Language"
-    - "Fairness & Social Applications"
+    - "Fairness and Social Applications"
   highlight: 1
 
 - title: "SOCIALGAZE: Improving the Integration of Human Social Norms in Large Language Models"
@@ -78,7 +78,7 @@
     pdf: https://aclanthology.org/2024.findings-emnlp.962.pdf
     code:  https://github.com/nvshrao/social_gaze
   topics: 
-    - "Fairness & Social Applications"
+    - "Fairness and Social Applications"
   highlight: 1
 
 - title: "Online Reinforcement Learning-Based Pedagogical Planning for Narrative-Centered Learning Environments"
