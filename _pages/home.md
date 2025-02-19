@@ -6,11 +6,11 @@ sitemap: false
 permalink: /
 ---
 
-LLMs are transformative yet enigmatic, their emergent abilities echoing the complexity we see in the evolution of human cognition, economic systems, and cellular structures.
+We are interested in understanding the connections between language, interaction, and intelligence. Our lab develops methods for interactive machine learning, explainability and interpretability of LLMs, and impactful interdisciplinary applications of NLP.
 
-Our research explores how intelligence ermerges from language, not as a static process, but an evolving, interactive phenomenon. People use language not just to communicate, but to think, to plan and collaborate. While we have been interested in the connection between machine learning and human language for long, LLMs have made this space fundamentally more interesting. Chain-of-Thought prompting, for example, unlocks complex abilities in LLMs, allowing models to circumvent architectural limitations (e.g., computational budgets due to fixed Transformer depth) much like humans externalize cognitive burdens through writing, structured reasoning, and collaborative problem-solving.
+Our research explores how intelligence emerges from language, not as a static process, but an evolving, interactive phenomenon. People use language not just to communicate, but to think, to plan and collaborate. While we have been interested in the connection between machine learning and human language for long, LLMs have made this space fundamentally more interesting. Their emergent abilities echo the complexity we see in the evolution of human cognition, economic systems, and cellular structures.Chain-of-Thought prompting, for example, unlocks complex abilities in LLMs, allowing models to circumvent architectural limitations (e.g., computational budgets due to fixed Transformer depth) much like humans externalize cognitive burdens through writing, structured reasoning, and collaborative problem-solving. We believe these analogies reveal something about the fundamental role of language in thought and learning.
 
-What does this reveal about the fundamental role of language in thought and learning? And can we harness this understanding to create agents that learn, and interact with the world in ways that are interpretable and aligned with human values?
+
 
 
 <div markdown="0" id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="hover" >
