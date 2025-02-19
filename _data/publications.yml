@@ -109,13 +109,12 @@
   date: 2023-12-06
   venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
   links: 
-    pdf: /data/pdfs/MaNtLE_menon23.pdf
-    arxiv:  https://arxiv.org/abs/2305.12995
-    code:  https://github.com/rrmenon10/MaNtLE
+    pdf: https://aclanthology.org/2023.emnlp-main.832.pdf
+    arxiv: https://arxiv.org/abs/2305.12995
+    code: https://github.com/rrmenon10/MaNtLE
   topics: 
     - "Learning and Language"
   highlight: 1
-
 
 - title: "Identifying and Manipulating the Perceived Personality Traits of Language Models"
   image: personality_traits.jpg
