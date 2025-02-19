@@ -28,6 +28,42 @@
 
 
 
+- title: "SOCIALGAZE: Improving the Integration of Human Social Norms in Large Language Models"
+  image: socialgaze.png
+  description: "Large language models struggle to align with human social norms, particularly when evaluating social acceptability in everyday situations. SOCIALGAZE is a multi-step prompting framework that improves LLMs' reasoning by encouraging them to verbalize social scenarios from multiple perspectives before making judgments. Experiments on social conflict narratives from the r/AITA subreddit show that SOCIALGAZE improves model alignment with human judgments by up to 11 F1 points. The study also uncovers several interesting biases in LLM social acceptability judgments -- for example, women are much less likely than men to be called out on r/AITA."
+  authors: 
+    - Anvesh Rao Vijjini
+    - Rakesh R Menon
+    - Jiayi Fu
+    - Shashank Srivastava
+    - Snigdha Chaturvedi
+  date: 2024-11-12
+  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP Findings)
+  links:
+    pdf: https://aclanthology.org/2024.findings-emnlp.962.pdf
+    code:  https://github.com/nvshrao/social_gaze
+  topics: 
+    - "Fairness and Social Applications"
+  highlight: 1
+
+- title: "Online Reinforcement Learning-Based Pedagogical Planning for Narrative-Centered Learning Environments"
+  image: ncl.png
+  description: "Adaptive learning environments benefit from reinforcement learning-based pedagogical planners, but data scarcity limits their effectiveness. This paper introduces INSIGHT, an online RL framework that simulates student interactions in narrative-centered learning environments to train pedagogical policies dynamically. INSIGHT leverages a simulated student agent and a deep Q-learning-based planner to optimize educational interventions. Results show that online RL outperforms offline RL approaches in generating effective teaching policies, making INSIGHT a promising tool for AI-driven personalized learning."
+  authors: 
+    - Fahmid Morshed Fahid
+    - Jonathan Rowe
+    - Yeojin Kim
+    - Shashank Srivastava
+    - James Lester
+  date: 2024
+  venue: AAAI Conference on Artificial Intelligence (AAAI-24)
+  links:
+    pdf: https://ojs.aaai.org/index.php/AAAI/article/view/30365
+  topics: 
+    - "Miscellaneous"
+  highlight: 0
+
+
 - title: "MaNtLE: Model-agnostic Natural Language Explainer"
   image: mantle.jpg
   description: "Understanding the internal reasoning behind the predictions of machine learning systems is increasingly vital, given their rising adoption and acceptance. While previous approaches, such as LIME, generate algorithmic explanations by attributing importance to input features for individual examples, recent research indicates that practitioners prefer examining language explanations that explain sub-groups of examples (Lakkaraju et al., 2022). In this paper, we introduce MaNtLE, a model-agnostic natural language explainer that analyzes multiple classifier predictions and generates faithful natural language explanations of classifier rationale for structured classification tasks. MaNtLE uses multi-task training on thousands of synthetic classification tasks to generate faithful explanations. Simulated user studies indicate that, on average, MaNtLE-generated explanations are at least 11% more faithful compared to LIME and Anchors explanations across three tasks. Human evaluations demonstrate that users can better predict model behavior using explanations from MaNtLE compared to other techniques."
