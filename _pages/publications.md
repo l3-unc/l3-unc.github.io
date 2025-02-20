@@ -7,8 +7,6 @@ permalink: /publications/
 ---
 
 
-# Publications
-
 ## Recent Works
 
 (For a full list of publications, see [below](#full-list-of-publications))

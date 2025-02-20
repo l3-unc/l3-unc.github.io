@@ -6,8 +6,6 @@ sitemap: false
 permalink: /team/
 ---
 
-# Group Members
-
 
 ## Principal Investigator
 {% assign pis = site.data.people | where: "title", "pi"  %}
