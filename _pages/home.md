@@ -6,10 +6,11 @@ sitemap: false
 permalink: /
 ---
 
+<div style="text-align: justify;">
 We study the connections between *language, interaction, and intelligence*. Our lab develops methods for interactive machine learning, explainability and interpretability of LLMs, and impactful interdisciplinary applications of NLP.
 
 Intelligence does not arise in isolation, it is an evolving, interactive phenomenon. People use language not just to communicate, but to think, to plan and collaborate. While we have been interested in the connection between machine learning and human language for long, LLMs have made this space fundamentally more interesting. For example, Chain-of-Thought prompting unlocks complex abilities in LLMs, allowing them to circumvent architectural limitations (e.g., computational budgets due to fixed Transformer depth) much like humans externalize cognitive burdens through writing, structured reasoning, and collaboration. We believe these analogies reveal something about the fundamental role of language in thought and learning.
-
+</div>
 
 
 
