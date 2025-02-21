@@ -7,25 +7,25 @@ permalink: /team/
 ---
 
 
-## Principal Investigator
+### Principal Investigator
 {% assign pis = site.data.people | where: "title", "pi"  %}
 {% include people.html people = pis %}
 <div class='row'></div>
 
-## Graduate Students 
+### Graduate Students 
 {% assign phds = site.data.people | where: "title", "phd"  %}
 {% include people.html people = phds %}
 {% assign masters = site.data.people | where: "title", "masters"  %}
 {% include people.html people = masters %}
 <div class='row'></div>
 
-## Undergraduate Students
+### Undergraduate Students
 {% assign bachelors = site.data.people | where: "title", "bachelors"  %}
 {% include people.html people = bachelors %}
 <div class='row'></div>
 
 
-## Alumni
+### Alumni
 
 
 <ul>

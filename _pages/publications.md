@@ -7,7 +7,7 @@ permalink: /publications/
 ---
 
 
-## Recent Works
+### Recent Works
 
 (For a full list of publications, see [below](#full-list-of-publications))
 
@@ -79,7 +79,7 @@ permalink: /publications/
 
 <p> &nbsp; </p>
 
-## Full List of Publications
+### Full List of Publications
 
 Tags:
 {% for topic in site.data.topics %}
