@@ -8,6 +8,38 @@
 # Add in the duration of stay in the lab.
 # The website field is optional
 
+- name: Rakesh R Menon
+  info: PhD Student
+  title: phd
+  link: https://www.linkedin.com/in/rakesh-r-menon-9a32509a/
+  duration: 
+    start: Aug 2020
+    end: May 2025
+
+- name: Tianyi Niu
+  info: MS Student
+  title: masters
+  link: https://www.linkedin.com/in/tianyi-niu
+  duration: 
+    start: May 2023
+    end: May 2025
+
+- name: Jane Xing
+  info: Bachelors Student
+  title: bachelors
+  link: https://www.linkedin.com/in/jane-xing/
+  duration: 
+    start: Aug 2024
+    end: May 2025
+
+- name: Aum Kendapadi
+  info: Bachelors Student
+  title: bachelors
+  link: https://www.linkedin.com/in/aumkendapadi/
+  duration: 
+    start: May 2023
+    end: May 2025
+
 - name: Zheng Qi
   info: Bachelors Student
   title: bachelors
