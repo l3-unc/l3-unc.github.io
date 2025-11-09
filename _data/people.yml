@@ -22,15 +22,6 @@
   title: pi
   email: ssrivastava@cs.unc.edu
 
-- name: Rakesh R Menon
-  link: https://cs.unc.edu/~rrmenon
-  photo: rakesh.jpg
-  info: PhD Student
-  period:
-    start: 2020
-  title: phd
-  email: rrmenon@cs.unc.edu
-
 - name: Kerem Zaman
   link: https://www.keremzaman.com/
   photo: kerem.jpg
@@ -39,6 +30,15 @@
     start: 2022
   title: phd
   email: kzaman@cs.unc.edu
+
+- name: Scott Merrill
+  link: https://www.linkedin.com/in/scott-merrill-13048a120/
+  photo: scott.jpg
+  info: PhD Student
+  period:
+    start: 2025
+  title: phd
+  email: smerrill@cs.unc.edu
 
 - name: Rajeev Ambati
   link: https://www.arajeev.com/
@@ -49,15 +49,6 @@
   title: phd
   email: ambati@cs.unc.edu
 
-- name: Tianyi Niu
-  link: https://www.linkedin.com/in/tianyi-niu
-  photo: tianyi_niu.jpg
-  info: MS Student
-  period:
-    start: 2023
-  title: masters
-  email: tianyin4@email.unc.edu
-
 - name: Chidaksh Ravuru
   link: https://chidaksh.github.io/
   photo: chidaksh.jpg
@@ -67,14 +58,23 @@
   title: masters
   email: chidaksh@unc.edu
 
-- name: Aum Kendapadi
-  link: https://www.linkedin.com/in/aumkendapadi/
-  photo: aum.jpg
-  info: BS Student
+- name: Yuvraj Jain
+  link: https://www.linkedin.com/in/jain-yuvraj/
+  photo: yuvraj.jpg
+  info: MS Student
   period:
-    start: 2023
-  title: bachelors
-  email: aum@unc.edu
+    start: 2024
+  title: masters
+  email: yjain@unc.edu
+
+- name: Grace Wang
+  link: https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit
+  photo: grace.jpg
+  info: MS Student
+  period:
+    start: 2024
+  title: masters
+  email: yxwang@unc.edu
 
 - name: Anika Sharma
   link: https://www.linkedin.com/in/anika-sharma26/
@@ -85,26 +85,8 @@
   title: bachelors
   email: anika17@unc.edu
 
-- name: Yuvraj Jain
-  link: https://www.linkedin.com/in/jain-yuvraj/
-  photo: yuvraj.jpg
-  info: BS Student
-  period:
-    start: 2024
-  title: bachelors
-  email: yjain@unc.edu
-
-- name: Jane Xing
-  link: https://www.linkedin.com/in/jane-xing/
-  photo: jane.jpg
-  info: BS Student
-  period:
-    start: 2024
-  title: bachelors
-  email: jxing@unc.edu
-
 - name: Wisdom Okwen
-  link: https://wisdom-okwen.github.io/website/
+  link: https://wisdom-okwen.github.io/
   photo: wisdom.jpg
   info: BS Student
   period:
@@ -115,10 +97,10 @@
 - name: Advaith Malladi
   link: https://www.linkedin.com/in/advaith-malladi-30175326b/
   photo: advaith.jpg
-  info: BS Student
+  info: MS Student
   period: 
     start: 2024
-  title: bachelors
+  title: masters
   email: advaithmalladi02@gmail.com
 
 - name: Akshan Sameullah

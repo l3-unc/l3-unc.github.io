@@ -17,5 +17,8 @@
     <div class="row"></div>
     {% endif %}
     {% endfor %}
+    {% if people.size | modulo: 2 != 0 %}
+    <div class="row"></div>
+    {% endif %}
 </ul>
 {% endif %}
