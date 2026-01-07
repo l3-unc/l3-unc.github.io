@@ -25,6 +25,38 @@
 #     - {topic 2}
 #     - {topic 3}
 
+- title: "Chameleon LLMs: User Personas Influence Chatbot Personality Shifts"
+  image: chameleon.png
+  description: "As large language models (LLMs) integrate into society, their ability to adapt to users is as critical as their accuracy. While prior work has used personality tests to examine the perceived personalities of LLMs, little research has explored whether LLMs adapt their perceived personalities in response to user interactions. We investigate whether and how LLMs exhibit conversational adaptations over prolonged interactions. Using controlled simulations where a user and chatbot engage in dialogue, we measure the chatbot’s perceived personality shifts before and after the conversation. Across multiple models, we find that traits such as Agreeableness, Extraversion, and Conscientiousness are highly susceptible to user influence, whereas Emotional Stability and Intellect remain relatively more stable. Our results suggest that LLMs dynamically adjust their conversational style in response to user personas, raising important implications for model alignment, trust, and safety"
+  authors: 
+    - Jane Xing
+    - Tianyi Niu
+    - Shashank Srivastava
+  date: 2025-11-1
+  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  links:
+    pdf: https://aclanthology.org/2025.emnlp-main.875.pdf
+    code: https://github.com/xingdom/chameleon-llms
+  topics: 
+    - "Learning and Language"
+  highlight: 1
+
+
+- title: "A Causal Lens for Evaluating Faithfulness Metrics"
+  image: causal_lens.png
+  description: "Large Language Models (LLMs) offer natural language explanations as an alternative to feature attribution methods for model interpretability. However, despite their plausibility, they may not reflect the model’s true reasoning faithfully. While several faithfulness metrics have been proposed, they are often evaluated in isolation, making principled comparisons between them difficult. We present CAUSAL DIAGNOSTICITY, a testbed framework for evaluating faithfulness metrics for natural language explanations. We use the concept of diagnosticity, and employ model-editing methods to generate faithful-unfaithful explanation pairs. Our benchmark includes four tasks: fact-checking, analogy, object counting, and multi-hop reasoning. We evaluate prominent faithfulness metrics, including post-hoc explanation and chainof-thought methods. Diagnostic performance varies across tasks and models, with Filler Tokens performing best overall. Additionally, continuous metrics are generally more diagnostic than binary ones but can be sensitive to noise and model choice. Our results highlight the need for more robust faithfulness metrics."
+  authors: 
+    - Kerem Zaman
+    - Shashank Srivastava
+  date: 2025-08-30
+  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  links:
+    pdf: https://arxiv.org/abs/2502.18848
+    code:  https://github.com/KeremZaman/CausalDiagnosticity
+  topics: 
+    - "Learning and Language"
+  highlight: 1
+
 
 - title: "INTERACT: Enabling Interactive, Question-Driven Learning in Large Language Models"
   image: interact.png
@@ -34,7 +66,7 @@
     - Kerem Zaman
     - Rakesh R Menon
     - Shashank Srivastava
-  date: 2024-12-16
+  date: 2025-05-31
   venue: Findings of Association for Computational Linguistics (ACL)
   links:
     pdf: https://arxiv.org/abs/2412.11388
