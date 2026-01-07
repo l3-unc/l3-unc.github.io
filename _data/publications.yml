@@ -32,7 +32,7 @@
     - Jane Xing
     - Tianyi Niu
     - Shashank Srivastava
-  date: 2025-11-1
+  date: 2025-11-01
   venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
   links:
     pdf: https://aclanthology.org/2025.emnlp-main.875.pdf
@@ -52,7 +52,7 @@
   venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
   links:
     pdf: https://arxiv.org/abs/2502.18848
-    code:  https://github.com/KeremZaman/CausalDiagnosticity
+    code: https://github.com/KeremZaman/CausalDiagnosticity
   topics: 
     - "Learning and Language"
   highlight: 1
