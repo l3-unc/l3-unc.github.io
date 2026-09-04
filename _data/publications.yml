@@ -25,6 +25,42 @@
 #     - {topic 2}
 #     - {topic 3}
 
+- title: "Is Chain-of-Thought Really Not Explainability? Chain-of-Thought Can Be Faithful without Hint Verbalization"
+  image: cot_faithful.png
+  description: "Recent work, using the Biasing Features metric, labels a CoT as unfaithful if it omits a prompt-injected hint that affected the prediction. We argue this metric adopts a narrow notion of faithfulness and confuses unfaithfulness with incompleteness, the lossy compression needed to turn distributed transformer computation into a linear natural language narrative. On multi-hop reasoning tasks with instruct-tuned and reasoning models, many CoTs flagged as unfaithful by Biasing Features are judged faithful by other metrics, exceeding 50% in some models. With a new faithful@k metric, we show that larger inference-time budgets greatly increase hint verbalization (up to 90% in some settings), suggesting much apparent unfaithfulness is due to tight token limits."
+  authors:
+    - Kerem Zaman
+    - Shashank Srivastava
+  date: 2026-07-02
+  venue: Proceedings of Association for Computational Linguistics (ACL) [Oral]
+  links:
+    pdf: https://aclanthology.org/2026.acl-long.2217.pdf
+    arXiv: https://arxiv.org/abs/2512.23032
+  topics:
+    - "Language Understanding, Reasoning, and Generation"
+    - "Learning and Language"
+  highlight: 1
+
+- title: "DiffVax: Optimization-Free Image Immunization Against Diffusion-Based Editing"
+  image: diffvax.png
+  description: "Current image immunization defense techniques against diffusion-based editing embed imperceptible noise into target images to disrupt editing models. However, these methods face scalability challenges, as they require time-consuming optimization for each image separately, taking hours for small batches. To address these challenges, we introduce DiffVax, a scalable, lightweight, and optimization-free framework for image immunization, specifically designed to prevent diffusion-based editing. Our approach enables effective generalization to unseen content, reducing computational costs and cutting immunization time from days to milliseconds, achieving a speedup of 250,000x. This is achieved through a loss term that ensures the failure of editing attempts and the imperceptibility of the perturbations. Extensive qualitative and quantitative results demonstrate that our model is scalable, optimization-free, adaptable to various diffusion-based editing tools, robust against counter-attacks, and, for the first time, effectively protects video content from editing."
+  authors:
+    - Tarik Can Ozden
+    - Ozgur Kara
+    - Oguzhan Akcin
+    - Kerem Zaman
+    - Shashank Srivastava
+    - Sandeep P. Chinchali
+    - James M. Rehg
+  date: 2026-04-23
+  venue: International Conference on Learning Representations (ICLR)
+  links:
+    pdf: https://arxiv.org/pdf/2411.17957
+    arXiv: https://arxiv.org/abs/2411.17957
+  topics:
+    - "Miscellaneous"
+  highlight: 1
+
 - title: "Explaining Differences Between Model Pairs in Natural Language through Sample Learning"
   image: sled.png
   description: "With the growing adoption of machine learning models in critical domains, techniques for explaining differences between models have become essential for trust, debugging, and informed deployment. Previous approaches address this by identifying input transformations that cause divergent predictions (Shah et al., 2022) or by learning joint surrogate models to align and contrast behaviors (Haldar et al., 2023). These methods often require access to training data and do not produce natural language explanations. In this paper, we introduce SLED , a framework that generates faithful natural language explanations of when and how two ML models converge or diverge in their predictions. SLED first uses gradient-based optimization to synthesize input samples that highlight divergence and convergence patterns, and then leverages a large language model (LLM) to generate explanations grounded in these synthetic samples. Across both text-based (3 tasks, 7 models) and structured (10 tasks, 4 models) classification tasks, we show that SLED explanations are 18–24% more faithful than the strongest baselines. User studies also indicate that SLED explanations achieve a real-world simulatability of 63.5%. Importantly, SLED requires minimal access to training data and generalizes well to real-world samples, enabling transparent model comparison."

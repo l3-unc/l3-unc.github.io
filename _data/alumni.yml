@@ -8,6 +8,38 @@
 # Add in the duration of stay in the lab.
 # The website field is optional
 
+- name: Wisdom Okwen
+  info: BS Student
+  title: bachelors
+  link: https://wisdom-okwen.github.io/
+  duration:
+    start: 2024
+    end: May 2026
+
+- name: Akshan Sameullah
+  info: BS Student
+  title: bachelors
+  link: https://www.linkedin.com/in/akshan-s-b3917819b/
+  duration:
+    start: 2024
+    end: May 2026
+
+- name: Chidaksh Ravuru
+  info: MS Student
+  title: masters
+  link: https://chidaksh.github.io/
+  duration:
+    start: 2024
+    end: May 2026
+
+- name: Grace Wang
+  info: MS Student
+  title: masters
+  link: https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit
+  duration:
+    start: 2024
+    end: May 2026
+
 - name: Rakesh R Menon
   info: PhD Student
   title: phd

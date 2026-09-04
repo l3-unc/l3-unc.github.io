@@ -4,6 +4,12 @@
 # Others will automatically get truncated.
 # Note: Any links will have to be provided in html format. Kindly look at examples below for reference or the web admin.
 
+- date: 01 August 2026
+  headline: L³ lab's work on understanding LLM reasoning was awarded a $160K gift from Coefficient Giving.
+
+- date: 02 July 2026
+  headline: Kerem presented "Is Chain-of-Thought Really Not Explainability? Chain-of-Thought Can Be Faithful without Hint Verbalization" at ACL 2026 in San Diego.
+
 - date: 12 November 2025
   headline: Kerem will present "A Causal Lens for Evaluating Faithfulness Metrics" at EMNLP 2025.
 

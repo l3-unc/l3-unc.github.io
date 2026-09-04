@@ -49,15 +49,6 @@
   title: phd
   email: ambati@cs.unc.edu
 
-- name: Chidaksh Ravuru
-  link: https://chidaksh.github.io/
-  photo: chidaksh.jpg
-  info: MS student
-  period:
-    start: 2024
-  title: masters
-  email: chidaksh@unc.edu
-
 - name: Yuvraj Jain
   link: https://www.linkedin.com/in/jain-yuvraj/
   photo: yuvraj.jpg
@@ -66,15 +57,6 @@
     start: 2024
   title: masters
   email: yjain@unc.edu
-
-- name: Grace Wang
-  link: https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit
-  photo: grace.jpg
-  info: MS Student
-  period:
-    start: 2024
-  title: masters
-  email: yxwang@unc.edu
 
 - name: Anika Sharma
   link: https://www.linkedin.com/in/anika-sharma26/
@@ -85,15 +67,6 @@
   title: bachelors
   email: anika17@unc.edu
 
-- name: Wisdom Okwen
-  link: https://wisdom-okwen.github.io/
-  photo: wisdom.jpg
-  info: BS Student
-  period:
-    start: 2024
-  title: bachelors
-  email: 
-
 - name: Advaith Malladi
   link: https://www.linkedin.com/in/advaith-malladi-30175326b/
   photo: advaith.jpg
@@ -103,12 +76,21 @@
   title: masters
   email: advaithmalladi02@gmail.com
 
-- name: Akshan Sameullah
-  link: https://www.linkedin.com/in/akshan-s-b3917819b/
-  photo: akshan.jpg
+- name: Hengli Wang
+  link: https://github.com/henry653
+  photo: hengli_wang.jpeg
   info: BS Student
   period:
-    start: 2024
+    start: 2026
   title: bachelors
-  email: asameull@unc.edu
-  
+  email: hengli@ad.unc.edu
+
+- name: Jahnavi Kari
+  link: https://www.linkedin.com/in/jahnavi-kari/
+  photo: jahnavi.jpg
+  info: BS Student
+  period:
+    start: 2026
+  title: bachelors
+  email: jkari@unc.edu
+
