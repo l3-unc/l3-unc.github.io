@@ -58,6 +58,15 @@
   title: masters
   email: yjain@unc.edu
 
+- name: Rishabhdev Potti
+  link: https://www.linkedin.com/in/rishabhdev-potti-09312624b
+  photo: rishabhdev.jpg
+  info: MS Student
+  period:
+    start: 2026
+  title: masters
+  email: rishp@cs.unc.edu
+
 - name: Anika Sharma
   link: https://www.linkedin.com/in/anika-sharma26/
   photo: anika.jpg
@@ -70,10 +79,10 @@
 - name: Advaith Malladi
   link: https://www.linkedin.com/in/advaith-malladi-30175326b/
   photo: advaith.jpg
-  info: MS Student
+  info: PhD Student
   period: 
     start: 2024
-  title: masters
+  title: phd
   email: advaithmalladi02@gmail.com
 
 - name: Hengli Wang
