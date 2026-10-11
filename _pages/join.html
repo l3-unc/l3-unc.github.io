@@ -24,21 +24,6 @@ description: How to join the Learning from Language Lab at UNC Chapel Hill as a 
   </div>
 </section>
 <section class="row">
-  <h2 class="label">Students</h2>
-  <div class="prose">
-    {%- assign examples = 'OPeX|OPeX|Advaith Malladi;CoT faithfulness|CoT faithfulness|Kerem Zaman;Deceptive commitment|deceptive commitment|Scott Merrill;INTERACT|INTERACT|Aum Kendapadi, then an undergraduate' | split: ';' %}
-    <p>Students lead their projects. Recent examples are
-      {%- for ex in examples -%}
-        {%- assign parts = ex | split: '|' -%}
-        {%- assign pp = site.data.publications | where: 'short', parts[0] | first -%}
-        {%- assign href = pp.links.pdf | default: pp.links.icml | default: pp.links.openreview -%}
-        {%- if forloop.last %}, and {% elsif forloop.first %} {% else %}, {% endif -%}
-        <a href="{{ href }}">{{ parts[1] }}</a> ({{ parts[2] }})
-      {%- endfor -%}.
-      In the lab we value interesting questions, careful experiments, independent thinking, and clear writing.</p>
-  </div>
-</section>
-<section class="row">
   <h2 class="label">What we look for</h2>
   <div class="prose">
     <p><strong>Strong fundamentals</strong> in machine learning, mathematics, and programming.</p>
@@ -62,6 +47,6 @@ description: How to join the Learning from Language Lab at UNC Chapel Hill as a 
 <section class="row">
   <h2 class="label">Undergraduate</h2>
   <div class="prose">
-    <p>Undergraduates have led ten papers at major ML and NLP conferences, including orals at ACL 2025 and EMNLP 2026. We welcome motivated students with strong technical foundations who want to take on a substantial research project.</p>
+    <p>Undergraduates have led more than ten papers at major ML and NLP conferences, including orals at ACL 2025 and EMNLP 2026. We welcome motivated students with strong technical foundations who want to take on a substantial research project.</p>
   </div>
 </section>
