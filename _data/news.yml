@@ -5,29 +5,31 @@
 #   headline: "..."         (HTML allowed, for links)
 #
 # House style: past tense, full sentences ending with a period, no exclamation marks, Oxford comma,
-# paper titles in curly quotes and linked where possible, <b>oral presentation</b> in bold,
+# papers named by short name or a few words on the topic (not the full title), linked where possible;
+# talk titles in curly quotes, <b>oral presentation</b> in bold,
+# no city for past conferences (the venue and year identify the event; keep the city and dates only for upcoming talks),
 # conference links to the ACL Anthology event page (https://aclanthology.org/events/acl-2025/).
 
 - date: 2026-10-10
-  headline: "Anika will present <a href=\"https://arxiv.org/abs/2512.12245\">“Size Sound Symbolism Survives Genealogy Across 27 Languages”</a> as an <b>oral presentation</b> at EMNLP 2026 in Budapest (Oct 24–29)."
+  headline: "Anika will give an <b>oral presentation</b> at EMNLP 2026 in Budapest (Oct 24–29), on <a href=\"https://arxiv.org/abs/2512.12245\">sound symbolism across 27 languages</a>."
 
 - date: 2026-10-06
-  headline: "Chidaksh presented <a href=\"https://arxiv.org/abs/2608.09209\">“UNMASK: Discovering and Causally Verifying Spurious Shortcuts in Text Classifiers”</a> and Grace presented <a href=\"https://arxiv.org/abs/2607.18566\">“The Story Shapes the Agent: Narrative Priors in LLM Behavior”</a> at COLM 2026 in San Francisco."
+  headline: "Chidaksh presented <a href=\"https://arxiv.org/abs/2608.09209\">UNMASK</a> (spurious shortcuts) and Grace presented <a href=\"https://arxiv.org/abs/2607.18566\">narrative priors in LLMs</a> at COLM 2026."
 
 - date: 2026-08-01
   headline: "Our work on understanding LLM reasoning received a $160K gift from Coefficient Giving."
 
 - date: 2026-07-07
-  headline: "<a href=\"https://icml.cc/virtual/2026/poster/65940\">“Directly Optimizing Natural Language Explanations for Behavioral Faithfulness: Simulatability and Recoverability”</a> (Advaith Malladi and Shashank Srivastava) appeared at ICML 2026 in Seoul."
+  headline: "Advaith presented <a href=\"https://icml.cc/virtual/2026/poster/65940\">OPeX</a>, on explanation generation that directly optimizes behavioral faithfulness, at ICML 2026."
 
 - date: 2026-07-02
-  headline: "Kerem gave an <b>oral presentation</b> at ACL 2026 in San Diego: <a href=\"https://aclanthology.org/2026.acl-long.2217.pdf\">“Is Chain-of-Thought Really Not Explainability? Chain-of-Thought Can Be Faithful without Hint Verbalization”</a>"
+  headline: "Kerem gave an <b>oral presentation</b> at ACL 2026, on <a href=\"https://aclanthology.org/2026.acl-long.2217.pdf\">chain-of-thought faithfulness</a>."
 
 - date: 2026-04-23
-  headline: "<a href=\"https://arxiv.org/abs/2411.17957\">“DiffVax: Optimization-Free Image Immunization Against Diffusion-Based Editing”</a> appeared at ICLR 2026."
+  headline: "<a href=\"https://arxiv.org/abs/2411.17957\">DiffVax</a>, on defending images against diffusion-based editing, appeared at ICLR 2026."
 
 - date: 2025-11-12
-  headline: "Kerem presented <a href=\"https://aclanthology.org/2025.emnlp-main.1496.pdf\">“A Causal Lens for Evaluating Faithfulness Metrics”</a> at EMNLP 2025 in Suzhou."
+  headline: "Kerem presented <a href=\"https://aclanthology.org/2025.emnlp-main.1496.pdf\">Causal Diagnosticity</a>, a testbed for comparing faithfulness metrics, at EMNLP 2025."
 
 - date: 2025-11-06
   headline: "Yuvraj was selected as an NCIDEA semi-finalist for his work at Kinetik."
@@ -36,7 +38,7 @@
   headline: "Four papers accepted at EMNLP 2025 (main conference)."
 
 - date: 2025-07-30
-  headline: "Kerem gave an <b>oral presentation</b> at ACL 2025 in Vienna: <a href=\"https://aclanthology.org/2025.acl-long.441.pdf\">“INTERACT: Enabling Interactive, Question-Driven Learning in Large Language Models”</a>"
+  headline: "Kerem gave an <b>oral presentation</b> at ACL 2025, on <a href=\"https://aclanthology.org/2025.acl-long.441.pdf\">INTERACT</a>, which teaches language models to learn by asking questions."
 
 - date: 2025-07-15
   headline: "Welcome Scott and Grace."
@@ -104,4 +106,3 @@
 - date: 2020-01-01
   precision: month
   headline: "Welcome Sayan and Matthew."
-

@@ -13,6 +13,8 @@
 #   links:        Any label -> URL (pdf, arXiv, code, dataset, project, slides, ...). `pdf` is shown first.
 #   short:        (optional) short name, e.g. OPeX, MaNtLE. Used in lists on the home page and research page.
 #   selected:     true to list the paper as 'selected work' under its research direction
+#   resource:     (optional) one sentence on what the public code/data is for; with `resource_rank` (1..5) it is listed
+#                 first under Code and data on /research/. Only set it when the `code`/`dataset` link is public.
 #   feature_rank: 1..4 to show it as a highlight on the home page, with `question` (a research question)
 #                 and `finding` (one sentence stating the result). `image` is optional but recommended.
 
@@ -21,7 +23,7 @@
   image: deception_commitment.png
   description: 'Existing deception datasets label completed outputs as honest or deceptive, treating deception as a property of the final response rather than a function of the model''s reasoning trace. This obscures a more fundamental question: when does a language model become committed to deception? We introduce counterfactual localization: for each sentence prefix in a reasoning trace, we fix the prefix, resample continuations, and estimate the probability of a deceptive outcome. To scale this, we construct five environments (spanning strategic bluffing, maze guidance, financial advice, used-car sales, and offer negotiation) in which deception is never prompted but emerges from strategic incentives and labels follow mechanically from environment state rather than subjective human judgment. The resulting corpus localizes ~1.46M sentences across four reasoning models, drawn from over 94.1M sampled continuations, 91.5B generated tokens, and over 100K scenarios. Sentence-level human evaluation confirms that detected commitment points correspond to interpretable shifts in decision state. Using this resource, we show that lexical cues for commitment prediction transfer poorly across environments, whereas attention-based transition features generalize out of distribution, suggesting that deceptive commitment is reflected in reusable changes in reasoning dynamics rather than surface form. We further identify compact attention-head sets (under 10% of heads) that, selected on one environment, causally suppress deceptive commitment across held-out environments. We release the corpus as a substrate for studying deception, and more broadly commitment, in language-model reasoning.'
   question: When does a language model commit to deception?
-  finding: Resampling continuations from each sentence of a reasoning trace localizes where a model becomes committed to deception, across about 1.46M sentences from four reasoning models. Attention-based features predict commitment out of distribution, and compact sets of attention heads (under 10% of heads), selected on one environment, suppress it in held-out ones.
+  finding: Resampling continuations from each sentence of a reasoning trace shows where a model commits to deception (1.46M sentences, four models). Attention-based features predict it out of distribution, and heads selected on one environment (under 10% of all heads) suppress it in held-out ones.
   authors:
   - Scott Merrill
   - Shashank Srivastava
@@ -39,7 +41,7 @@
   short: OPeX
   description: 'Natural-language explanations are widely used to interpret machine learning models, yet many prioritize human plausibility over accurately reflecting or predicting model behavior. Prior approaches often rely on human-written rationales, producing post-hoc explanations that neither align with the model’s decision function nor generalize. We introduce OPeX, a natural-language explanation model that directly optimizes for behavioral faithfulness: the ability of an explanation to reflect and predict a model’s observable input–output behavior. OPeX is trained using reinforcement learning with Group Relative Policy Optimization (GRPO), optimizing two complementary metrics: recoverability, which measures whether explanations recover model predictions on seen examples, and simulatability, which measures prediction of model behavior on unseen inputs. Across structured and text-based tasks, OPeX achieves high simulatability (~0.85) and recoverability (~0.99), outperforming GPT-4o, LLaMA-3.3-70B, and human-written explanations; despite having an 8B-parameter backbone. Human user studies show a 15% improvement in classification accuracy over competent baselines.'
   question: Can natural-language explanations predict model behavior?
-  finding: OPeX is trained to reflect and predict a model’s input–output behavior (recoverability and simulatability), not to sound plausible. An 8B explainer outperforms GPT-4o, LLaMA-3.3-70B, and human-written explanations, and a user study shows a 15% gain in classification accuracy over baselines.
+  finding: OPeX trains explanations to reflect and predict a model’s behavior, not to sound plausible. An 8B explainer outperforms GPT-4o and human-written explanations, and a user study shows a 15% gain in classification accuracy over baselines.
   authors:
   - Advaith Malladi
   - Shashank Srivastava
@@ -264,6 +266,8 @@
   venue: EMNLP
   theme: faithfulness
   selected: true
+  resource_rank: 5
+  resource: Code for a testbed that compares faithfulness metrics for natural-language explanations.
   links:
     pdf: https://arxiv.org/pdf/2502.18848
     code: https://github.com/KeremZaman/CausalDiagnosticity
@@ -286,6 +290,8 @@
   theme: learning
   selected: true
   feature_rank: 4
+  resource_rank: 2
+  resource: Code for teaching language models to learn interactively, by asking a teacher questions.
   links:
     pdf: https://arxiv.org/pdf/2412.11388
     code: https://github.com/aumken/interact
@@ -301,6 +307,8 @@
   venue: EMNLP
   theme: explanations
   selected: true
+  resource_rank: 4
+  resource: Code for explaining a text classifier's systematic errors in natural language, and using the explanations to improve it.
   links:
     pdf: https://aclanthology.org/2024.emnlp-main.1091.pdf
     code: https://github.com/rrmenon10/DISCERN
@@ -350,6 +358,8 @@
   venue: EMNLP
   theme: explanations
   selected: true
+  resource_rank: 3
+  resource: Code for a model-agnostic explainer that describes how a classifier behaves, in natural language.
   links:
     pdf: https://aclanthology.org/2023.emnlp-main.832.pdf
     arxiv: https://arxiv.org/abs/2305.12995
@@ -499,6 +509,8 @@
   venue: ACL
   theme: learning
   selected: true
+  resource_rank: 1
+  resource: Benchmark and code for learning classifiers from natural-language explanations.
   links:
     pdf: https://aclanthology.org/2022.acl-long.451.pdf
     arxiv: https://arxiv.org/abs/2204.07142

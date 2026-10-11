@@ -25,8 +25,6 @@ Almost everything is data-driven. To update the site, edit a file in [`_data/`](
    An `image` is optional: put the figure in `images/pubpic/` and run `scripts/optimize_pubpic.sh your_figure.png`
    (the site publishes the compressed copy in `images/pubpic/web/`). Without one, a typographic tile is shown.
 
-The home-page numbers ("papers in 2026", orals, venues) are computed from this file. Nothing else to update.
-
 ## Add news
 Add an item at the top of `_data/news.yml` with an ISO date (`2026-10-10`). HTML is allowed in `headline` (for links).
 
@@ -42,7 +40,6 @@ bundle exec jekyll serve      # http://localhost:4000
 (Uses the Jekyll in `Gemfile`; GitHub Pages builds the site itself when you push to `main`.)
 
 ## Notes
-- The home page's "Recent" line lists orals (from `badges: [Oral]` in `publications.yml`) and the other venues of the latest year automatically. The funding sentence is `funding_note` in `_config.yml`.
 - To add a group photo to the Team page, set `group_photo` in `_config.yml` (e.g. `/images/group.jpg`).
 - Analytics are off. To enable Google Analytics 4, set `google_analytics: "G-XXXXXXXXXX"` in `_config.yml`.
 - The previous Bootstrap-based templates are preserved in git history (before the redesign).

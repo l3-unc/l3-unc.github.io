@@ -1,6 +1,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <span class="label">Contact</span>
+    <div>
     <div class="footer-id">
       <img class="footer-mark" src="{{ '/favicon.svg' | relative_url }}" width="40" height="40" alt="">
       <address>
@@ -8,6 +9,8 @@
         {{ site.contact.department }}<br>
         {% for line in site.contact.address %}{{ line }}{% unless forloop.last %}, {% endunless %}{% endfor %}
       </address>
+    </div>
+    <p class="footer-links"><a href="{{ '/news/' | relative_url }}">News archive</a></p>
     </div>
   </div>
 </footer>

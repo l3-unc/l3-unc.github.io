@@ -6,7 +6,7 @@ heading: Language as an interface to intelligence
 description: Research of the Learning from Language Lab at UNC Chapel Hill - explaining AI systems, learning through language and interaction, and language, cognition and social behavior.
 ---
 {%- assign thesis = site.data.publications | where: 'short', 'PhD thesis' | first -%}
-<p class="page-intro">The lab’s current research has three principal thrusts. It grew out of Shashank’s {% if thesis.links.pdf %}<a href="{{ thesis.links.pdf }}">PhD dissertation</a>{% else %}PhD dissertation{% endif %} (2018) on teaching machines to learn from human language supervision, before the LLM era. Now that language models explain themselves, the question runs the other way too. What do their explanations tell us, and when can we trust them?</p>
+<p class="page-intro">Our research uses language in two complementary ways: to teach intelligent systems and to understand their behavior. This program grew out of Shashank’s {% if thesis.links.pdf %}<a href="{{ thesis.links.pdf }}">PhD dissertation</a>{% else %}PhD dissertation{% endif %} (2018) on learning from natural-language supervision, and now spans three thrusts: interpreting and explaining model behavior, learning through language and interaction, and studying how language and context shape cognition and social behavior.</p>
 
 {%- for d in site.data.directions -%}{%- unless d.hidden %}
 <section class="thrust" id="{{ d.id }}" style="--tag: {{ d.color }}">
@@ -19,15 +19,54 @@ description: Research of the Learning from Language Lab at UNC Chapel Hill - exp
 {%- endunless -%}{%- endfor %}
 
 <section class="row">
-  <h2 class="label">Code and data</h2>
-  <ul class="resources">
-    {%- assign all_pubs = site.data.publications | sort: 'date' | reverse -%}
-    {%- for p in all_pubs -%}
-      {%- assign code = p.links.code -%}{%- assign data = p.links.dataset | default: p.links.data -%}
-      {%- if code or data -%}
-      <li><span class="res-name">{{ p.short | default: p.title | split: ':' | first | truncatewords: 5 }}</span> <span class="yr">{{ p.venue }} {{ p.date | date: '%Y' }}</span>
-        {% if code %}<a href="{{ code }}">code</a>{% endif %}{% if data %}<a href="{{ data }}">data</a>{% endif %}</li>
-      {%- endif -%}
-    {%- endfor %}
+  <h2 class="label">Open questions</h2>
+  <ul class="plain-list">
+    <li>Can we explain a complex model well when we can only observe what it does, and cannot inspect its internals?</li>
+    <li>Can we tell when a language model becomes committed to a decision while it reasons, and intervene before that decision shows up in its answer?</li>
+    <li>How can a model ask for the explanations and information it needs, instead of relying only on static training data?</li>
   </ul>
+</section>
+
+<section class="row" id="working-with-us">
+  <h2 class="label">Working with us</h2>
+  <div class="prose">
+    <p>We welcome collaborations in domains where understanding an AI system matters as much as measuring its accuracy. Our work on interpretability, behavioral explanation, faithful reasoning, and interactive learning can be useful wherever AI systems affect consequential decisions or scientific inquiry.</p>
+    <p>Our current collaborations span education, public health and HIV prevention, and AI for governance and civic deliberation. We are also interested in new partnerships in health, science, and other domains where questions about explanation, reliability, interaction, or social context can motivate new machine-learning research.</p>
+    <ul class="themes-list">
+      <li><strong>Interpretable AI in consequential settings.</strong> Identifying, explaining, and testing the failures of AI systems used in sensitive settings.</li>
+      <li><strong>Interactive learning from domain experts.</strong> Systems that learn from questions, explanations, and feedback.</li>
+      <li><strong>Language, context, and social behavior in AI systems.</strong> How framing, persuasion, and participation shape, and are shaped by, AI.</li>
+    </ul>
+    <p>Faculty and researchers who would like to explore a project are welcome to write to Shashank at <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>.</p>
+  </div>
+</section>
+
+<section class="row">
+  <h2 class="label">Code and data</h2>
+  <div>
+    {%- assign featured_res = site.data.publications | where_exp: 'p', 'p.resource_rank' | sort: 'resource_rank' -%}
+    <ul class="resource-featured">
+      {%- for p in featured_res -%}
+      {%- assign data = p.links.dataset | default: p.links.data %}
+      <li>
+        <span class="res-name">{{ p.short }}</span> <span class="yr">{{ p.venue }} {{ p.date | date: '%Y' }}</span>
+        <a href="{{ p.links.code }}">code</a>{% if data %}<a href="{{ data }}">data</a>{% endif %}
+        <span class="res-note">{{ p.resource }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+    <details class="all-resources">
+      <summary>All code and data</summary>
+      <ul class="resources">
+        {%- assign all_pubs = site.data.publications | sort: 'date' | reverse -%}
+        {%- for p in all_pubs -%}
+          {%- assign code = p.links.code -%}{%- assign data = p.links.dataset | default: p.links.data -%}
+          {%- if code or data -%}
+          <li><span class="res-name">{{ p.short | default: p.title | split: ':' | first | truncatewords: 5 }}</span> <span class="yr">{{ p.venue }} {{ p.date | date: '%Y' }}</span>
+            {% if code %}<a href="{{ code }}">code</a>{% endif %}{% if data %}<a href="{{ data }}">data</a>{% endif %}</li>
+          {%- endif -%}
+        {%- endfor %}
+      </ul>
+    </details>
+  </div>
 </section>

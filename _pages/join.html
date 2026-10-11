@@ -6,10 +6,36 @@ heading: Join the lab
 description: How to join the Learning from Language Lab at UNC Chapel Hill as a PhD, MS, or undergraduate researcher.
 ---
 <section class="row">
-  <h2 class="label">Apply</h2>
+  <h2 class="label">Research</h2>
   <div class="prose">
-    <p>Please fill out our interest form. You do not need to email the PI separately.</p>
-    <p><a class="btn" href="{{ site.contact.interest_form }}" rel="noopener">Interest form &nearr;</a></p>
+    <p>Students in the lab ask how language models learn, reason, and behave, and how we can understand them better. They develop new methods, investigate unexpected model behavior, and test their ideas with careful experiments. The work spans natural-language explanations, interpretability, interactive learning, and the effects of language on model behavior.</p>
+  </div>
+</section>
+<section class="row">
+  <h2 class="label">Directions</h2>
+  <div class="prose">
+    <p>Some problems we find interesting.</p>
+    <ul class="plain-list">
+      <li>Explaining a model’s behavior when only its inputs and outputs are visible.</li>
+      <li>Causal analysis of how LLMs reason, and of when they commit to a decision.</li>
+      <li>Models that learn by asking questions.</li>
+      <li>How language shapes behavior when models interact with each other and with people.</li>
+    </ul>
+  </div>
+</section>
+<section class="row">
+  <h2 class="label">Students</h2>
+  <div class="prose">
+    {%- assign examples = 'OPeX|OPeX|Advaith Malladi;CoT faithfulness|CoT faithfulness|Kerem Zaman;Deceptive commitment|deceptive commitment|Scott Merrill;INTERACT|INTERACT|Aum Kendapadi, then an undergraduate' | split: ';' %}
+    <p>Students lead their projects. Recent examples are
+      {%- for ex in examples -%}
+        {%- assign parts = ex | split: '|' -%}
+        {%- assign pp = site.data.publications | where: 'short', parts[0] | first -%}
+        {%- assign href = pp.links.pdf | default: pp.links.icml | default: pp.links.openreview -%}
+        {%- if forloop.last %}, and {% elsif forloop.first %} {% else %}, {% endif -%}
+        <a href="{{ href }}">{{ parts[1] }}</a> ({{ parts[2] }})
+      {%- endfor -%}.
+      In the lab we value interesting questions, careful experiments, independent thinking, and clear writing.</p>
   </div>
 </section>
 <section class="row">
@@ -18,6 +44,13 @@ description: How to join the Learning from Language Lab at UNC Chapel Hill as a 
     <p><strong>Strong fundamentals</strong> in machine learning, mathematics, and programming.</p>
     <p><strong>Curiosity</strong> about how language models work, and why, beyond how well.</p>
     <p><strong>Mutual interest</strong> in the lab’s research thrusts: interpretability and explainability of LLMs, faithful reasoning, learning from language and interaction, and language, cognition, and social behavior.</p>
+  </div>
+</section>
+<section class="row">
+  <h2 class="label">Apply</h2>
+  <div class="prose">
+    <p>Please fill out our interest form. You do not need to email the PI separately.</p>
+    <p><a class="btn" href="{{ site.contact.interest_form }}" rel="noopener">Interest form &nearr;</a></p>
   </div>
 </section>
 <section class="row">

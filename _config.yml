@@ -22,9 +22,6 @@ contact:
   github: https://github.com/l3-unc
   interest_form: https://forms.gle/NwxAUyT1vMxuq8U8A
 
-# One-line funding statement shown on the home page (leave empty to hide)
-funding_note: Supported by a $160K Coefficient Giving gift for research on understanding LLM reasoning.
-
 # Optional group photo shown at the top of the Team page, e.g. /images/group.jpg (leave empty to hide)
 group_photo: ""
 
