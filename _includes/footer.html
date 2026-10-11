@@ -1,11 +1,14 @@
 <footer class="site-footer">
   <div class="wrap">
     <span class="label">Contact</span>
-    <address>
-      <strong>{{ site.title }}</strong><br>
-      {{ site.contact.department }}<br>
-      {% for line in site.contact.address %}{{ line }}{% unless forloop.last %}, {% endunless %}{% endfor %}
-    </address>
+    <div class="footer-id">
+      <img class="footer-mark" src="{{ '/favicon.svg' | relative_url }}" width="40" height="40" alt="">
+      <address>
+        <strong>{{ site.title }}</strong><br>
+        {{ site.contact.department }}<br>
+        {% for line in site.contact.address %}{{ line }}{% unless forloop.last %}, {% endunless %}{% endfor %}
+      </address>
+    </div>
   </div>
 </footer>
 <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
