@@ -1,0 +1,51 @@
+# The lab’s research directions, shown on the home page and /research/.
+# `color` is the background of the direction tag shown on each home-page highlight (white text; keep it dark enough).
+# `id` is used by the publication filters on /publications/. Papers belong to a direction through their `theme` (see themes.yml).
+
+- id: explain
+  color: "#1f5f99"
+  number: "01"
+  short: Interpretability and explanation
+  title: Interpreting and Explaining Model Behavior
+  question: How can we explain what a model has learned, and predict how it will behave?
+  body: >-
+    We develop methods for generating natural-language explanations of model behavior, discovering
+    systematic patterns in model errors, and testing whether explanations are faithful. We also
+    investigate what LLM reasoning traces reveal about the computations that produce their answers,
+    including causal interventions on internal mechanisms such as attention heads.
+  themes: [explanations, faithfulness]
+
+- id: learn
+  color: "#1b7a5a"
+  number: "02"
+  short: Learning through language
+  title: Learning Through Language and Interaction
+  question: How can machines learn new concepts and behaviors from explanations, instructions, and questions?
+  body: >-
+    People learn new concepts through instructions, explanations, and conversation, often without
+    extensive direct experience. We investigate how machines can learn in similar ways, including by
+    asking questions and using language to acquire new knowledge. This is the lab’s longest-running
+    thrust.
+  themes: [learning]
+
+- id: behavior
+  color: "#a8431f"
+  number: "03"
+  short: Cognition and social behavior
+  title: Language, Cognition and Social Behavior
+  question: How does language shape reasoning, decision-making, and social behavior, in AI systems and in people?
+  body: >-
+    Language does more than communicate information: it shapes how people and intelligent systems
+    reason, make decisions, and interact. We study these effects in LLMs, including how conversational
+    context, personas, and narrative framing shape model behavior, and what LLMs mean for human
+    communication. We also look for cognitive regularities in language itself, such as sound symbolism
+    across languages.
+  themes: [behavior]
+
+- id: other
+  number: ""
+  title: Benchmarks and other work
+  question: ""
+  body: ""
+  themes: [evaluation, other]
+  hidden: true   # shown only as a filter on /publications/

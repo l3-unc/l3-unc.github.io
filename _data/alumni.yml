@@ -5,7 +5,8 @@
 
 # The info field will display your designation at the time of working with the lab.
 # The title field must be either: pi, postdoc, phd, masters, bachelors, or intern
-# Add in the duration of stay in the lab.
+# Add in the duration of stay in the lab. If the end date is unknown, omit `end` (it is shown as "joined <start>").
+# `now` (optional) is shown as "now at ...", e.g.  now: PhD student at Stanford
 # The website field is optional
 
 - name: Wisdom Okwen
@@ -35,9 +36,8 @@
 - name: Grace Wang
   info: MS Student
   title: masters
-  link: https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit
   duration:
-    start: 2024
+    start: 2025
     end: May 2026
 
 - name: Rakesh R Menon
@@ -57,7 +57,7 @@
     end: May 2025
 
 - name: Jane Xing
-  info: Bachelors Student
+  info: BS Student
   title: bachelors
   link: https://www.linkedin.com/in/jane-xing/
   duration: 
@@ -65,7 +65,7 @@
     end: May 2025
 
 - name: Aum Kendapadi
-  info: Bachelors Student
+  info: BS Student
   title: bachelors
   link: https://www.linkedin.com/in/aumkendapadi/
   duration: 
@@ -73,7 +73,7 @@
     end: May 2025
 
 - name: Zheng Qi
-  info: Bachelors Student
+  info: BS Student
   title: bachelors
   link: https://www.linkedin.com/in/zheng-qi-988345224/
   duration: 
@@ -89,7 +89,7 @@
     end: Sep 2021
 
 - name: Graham Caron
-  info: Bachelors Student
+  info: BS Student
   title: bachelors
   link: https://www.linkedin.com/in/gcaron00
   duration: 
@@ -126,12 +126,10 @@
   link: https://www.linkedin.com/in/pradyun-ramesh-017307171/
   duration:
     start: Aug 2022
-    end: _
 
 - name: Sayan Ghosh
   info: PhD Student
   title: phd
   link: https://sgdgp.github.io
   duration:
-    start: Aug 2019
-    end: _
+    start: Jan 2020

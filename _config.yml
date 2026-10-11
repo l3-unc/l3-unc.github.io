@@ -1,42 +1,63 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# Site settings. Change the lab name here and it updates everywhere.
+title: Learning from Language Lab (L³)
+# Alternative name under consideration: Language and Intelligence Lab. To switch, change `title` here and
+# search the repo for the old name (page descriptions in _pages/ and the wordmark in _includes/header.html).
+tagline: Understanding how human language and machine intelligence connect
+description: >-
+  The Learning from Language Lab at UNC Chapel Hill studies the connection between language,
+  interaction, and intelligence: interpretability and explainability of large language models,
+  faithful reasoning, and models that learn from language and from people.
 
-# Site settings
-title: Language and Learning Lab
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Website of the Language and Learning Lab @ UNC.
+url: "https://l3-unc.github.io"
 baseurl: ""
-url: ""
+
+# Contact (shown in the footer and on the Join page)
+contact:
+  email: ssrivastava@cs.unc.edu
+  department: Department of Computer Science, UNC Chapel Hill
+  address:
+    - Brooks Computer Science Building
+    - 201 S. Columbia St., CB 3175
+    - Chapel Hill, NC 27599-3175
+  github: https://github.com/l3-unc
+  interest_form: https://forms.gle/NwxAUyT1vMxuq8U8A
+
+# One-line funding statement shown on the home page (leave empty to hide)
+funding_note: Supported by a $160K Coefficient Giving gift for research on understanding LLM reasoning.
+
+# Optional group photo shown at the top of the Team page, e.g. /images/group.jpg (leave empty to hide)
+group_photo: ""
+
+# Google Analytics 4 measurement ID (e.g. G-XXXXXXXXXX). Leave empty to disable analytics.
+# (The old Universal Analytics property UA-82472331-1 stopped collecting data in 2023.)
+google_analytics: ""
 
 include:
-  - .htaccess
   - _pages
 
-sass:
-  sass_dir: _sass
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - scripts
+  - compress_bios.sh
+  - compress_slider.sh
+  - vendor
+  - node_modules
+  # Source images are not published; the site uses the optimized copies.
+  - images/teampic
+  - images/slider
+  - images/slider_compressed
+  - images/logopic
+  - images/lia-icon*.png
+  - images/brain-icon*.png
+  - images/grail-icon.png
+  - images/minimal-icon.png
+  - images/pubpic/*.png
+  - images/pubpic/*.jpg
 
-# Conversion
 markdown: kramdown
-highlighter: rogue
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
-
-
-
-# Markdown Processing
 kramdown:
   input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-  parse_block_html: true # default for kramdown is false. This will enable using Markdown links
+  parse_block_html: true

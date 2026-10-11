@@ -1,24 +1,13 @@
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-	<div class="navbar-header">
-	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-		<span class="sr-only">Toggle navigation</span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-	  </button>
-	
-	<a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">Learning from Language Lab @ UNC</a>
-	</div>
-	<div class="collapse navbar-collapse" id="navbar-collapse-1">
-	  <ul class="nav navbar-nav navbar-right">
-		<li><a href="{{ site.url }}{{ site.baseurl }}/">Home</a></li>
-		<li><a href="{{ site.url }}{{ site.baseurl }}/team">Team</a></li>
-		<!-- <li><a href="{{ site.url }}{{ site.baseurl }}/vacancies">Vacancies</a></li> -->
-		<li><a href="{{ site.url }}{{ site.baseurl }}/publications">Publications</a></li>
-		<!-- <li><a href="{{ site.url }}{{ site.baseurl }}/research">Research</a></li> -->
-		<!-- <li><a href="{{ site.url }}{{ site.baseurl }}/pictures">(Pics)</a></li> -->
-	  </ul>
-	</div>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="{{ '/' | relative_url }}">Learning <em>from</em> Language Lab</a>
+    <nav aria-label="Main">
+      <a href="{{ '/research/' | relative_url }}"{% if page.url contains '/research' %} aria-current="page"{% endif %}>Research</a>
+      <a href="{{ '/publications/' | relative_url }}"{% if page.url contains '/publications' %} aria-current="page"{% endif %}>Publications</a>
+      <a href="{{ '/team/' | relative_url }}"{% if page.url contains '/team' %} aria-current="page"{% endif %}>Team</a>
+      <a href="{{ '/news/' | relative_url }}"{% if page.url contains '/news' %} aria-current="page"{% endif %}>News</a>
+      <a href="{{ '/join/' | relative_url }}"{% if page.url contains '/join' %} aria-current="page"{% endif %}>Join</a>
+    </nav>
   </div>
-</div>
+</header>

@@ -1,0 +1,36 @@
+---
+layout: page
+permalink: /publications/
+title: Publications
+heading: Publications
+description: Publications of the Learning from Language Lab at UNC Chapel Hill, searchable by research area, with links to papers and code.
+---
+{%- assign pubs = site.data.publications | sort: 'date' | reverse -%}
+<div class="pub-controls">
+  <label class="visually-hidden" for="pub-search">Search publications</label>
+  <input id="pub-search" class="search" type="search" placeholder="Search titles, authors, venues" autocomplete="off">
+  <div class="filters" role="group" aria-label="Filter by research area">
+    <button class="filter" type="button" data-theme="all" aria-pressed="true">All ({{ pubs.size }})</button>
+    {%- for d in site.data.directions -%}
+    {%- assign n = 0 -%}
+    {%- for p in pubs -%}{%- assign th = site.data.themes | where: 'id', p.theme | first -%}{%- if th.direction == d.id -%}{%- assign n = n | plus: 1 -%}{%- endif -%}{%- endfor -%}
+    {%- if n > 0 %}<button class="filter" type="button" data-theme="{{ d.id }}" aria-pressed="false" style="--tag: {{ d.color }}">{{ d.title }} ({{ n }})</button>{% endif -%}
+    {%- endfor %}
+  </div>
+  <p class="count" id="pub-count" aria-live="polite"></p>
+</div>
+
+{%- assign current_year = '' -%}
+<div id="pub-list">
+{%- for p in pubs -%}
+  {%- assign y = p.date | date: '%Y' -%}
+  {%- if y != current_year -%}
+    {%- unless forloop.first %}</ol></section>{% endunless %}
+    <section class="year-group" data-year="{{ y }}"><h2 class="year">{{ y }}</h2><ol class="paper-list">
+    {%- assign current_year = y -%}
+  {%- endif -%}
+  {% include paper.html paper=p %}
+{%- endfor -%}
+</ol></section>
+</div>
+<p id="pub-empty" class="empty" hidden>No papers match your search.</p>

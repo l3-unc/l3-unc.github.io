@@ -1,48 +1,49 @@
-# Language and Learning Lab Website
+# Learning from Language Lab website
 
-This is the website of our academic research group at UNC Chapel Hill.
+Source for the lab website at <https://l3-unc.github.io>, built with [Jekyll](https://jekyllrb.com) and hosted on GitHub Pages.
+There is no CSS framework and no JavaScript dependency: the design lives in
+[`assets/css/style.css`](assets/css/style.css) and [`assets/js/site.js`](assets/js/site.js).
 
-This website is powered by Jekyll and some Bootstrap, Bootwatch. 
+Almost everything is data-driven. To update the site, edit a file in [`_data/`](_data/) and open a pull request.
 
-Our website borrows the template from a couple of cool websites:
-- [Allan Lab](https://www.allanlab.org/)
-- [Chandar Lab](https://chandar-lab.github.io/)
+| To change...            | Edit                                    |
+|-------------------------|-----------------------------------------|
+| Lab name, contact, form | [`_config.yml`](_config.yml)            |
+| Papers                  | [`_data/publications.yml`](_data/publications.yml) |
+| News                    | [`_data/news.yml`](_data/news.yml)      |
+| Current members         | [`_data/people.yml`](_data/people.yml)  |
+| Alumni                  | [`_data/alumni.yml`](_data/alumni.yml)  |
+| Research directions     | [`_data/directions.yml`](_data/directions.yml) (3 directions; shown on /research/ and as tags on the home-page highlights) |
+| Paper topics            | [`_data/themes.yml`](_data/themes.yml) (each theme belongs to one direction) |
 
-## Guide
+## Add a paper
+1. Add an entry at the top of `_data/publications.yml`. The field reference is at the top of that file.
+   Use short venue names (`ACL`, `EMNLP`, `COLM`...); the year comes from `date`. Mark orals/short papers/findings with `badges`.
+   Choose one `theme` from `_data/themes.yml`. Add `short` (e.g. `OPeX`) and `selected: true` to list it under its direction.
+2. Use full author names. Names matching `people.yml` or `alumni.yml` are automatically linked and bolded.
+3. To make it a home-page highlight, set `feature_rank` (1-6) plus a `question` and a one-sentence `finding` stating the result.
+   An `image` is optional: put the figure in `images/pubpic/` and run `scripts/optimize_pubpic.sh your_figure.png`
+   (the site publishes the compressed copy in `images/pubpic/web/`). Without one, a typographic tile is shown.
 
-* [Publications](#publications)
-* [News](#news)
-* [People](#people)
-  * [When someone joins the group](#when-someone-joins-the-group)
-  * [When someone leaves the group](#when-someone-leaves-the-group)
+The home-page numbers ("papers in 2026", orals, venues) are computed from this file. Nothing else to update.
 
-### Publications
+## Add news
+Add an item at the top of `_data/news.yml` with an ISO date (`2026-10-10`). HTML is allowed in `headline` (for links).
 
-When a publication is added or changed:
+## People
+- **Someone joins:** add them to `people.yml` and a square photo to `images/teampic/`, then run `./compress_bios.sh` (200x200 copies go to `images/bios_compressed/`).
+- **Someone leaves:** move their entry from `people.yml` to the top of `alumni.yml` (note the slightly different fields: `duration`, optional `now`).
 
-1. Update [`_data/publications.yml`](https://github.com/l3-unc/l3-unc.github.io/edit/main/_data/publications.yml)
-1. Add an image for your publication in [`images/pubpic/`](images/pubpic/)
-2. Create a pull request and ask the current maintainer to review.
+## Preview locally
+```
+bundle install
+bundle exec jekyll serve      # http://localhost:4000
+```
+(Uses the Jekyll in `Gemfile`; GitHub Pages builds the site itself when you push to `main`.)
 
-### News
-
-When the news section needs to be changed:
-
-1. Update [`_data/news.yml`](https://github.com/l3-unc/l3-unc.github.io/edit/main/_data/news.yml)
-2. Create a pull request and ask the current maintainer to review.
-
-### People
-
-#### When someone joins the group:
-
-1. Add your name to [`_data/people.yml`](https://github.com/l3-unc/l3-unc.github.io/edit/main/_data/people.yml)
-2. Add your profile picture to [`images/teampic/`](images/teampic/).
-3. Create a pull request.
-
-
-#### When someone leaves the group:
-
-1. Remove yourself from [`_data/people.yml`](https://github.com/l3-unc/l3-unc.github.io/edit/main/_data/people.yml)
-2. Remove your profile picture from [`images/teampic/`](images/teampic/).
-2. Add them to [`_data/alumni.yml`](_data/alumni.yml) in the same branch.
-3. Create a pull request.
+## Notes
+- The home page's "Recent" line lists orals (from `badges: [Oral]` in `publications.yml`) and the other venues of the latest year automatically. The funding sentence is `funding_note` in `_config.yml`.
+- To add a group photo to the Team page, set `group_photo` in `_config.yml` (e.g. `/images/group.jpg`).
+- Analytics are off. To enable Google Analytics 4, set `google_analytics: "G-XXXXXXXXXX"` in `_config.yml`.
+- The previous Bootstrap-based templates are preserved in git history (before the redesign).
+- Old URLs (`/allnews.html`, `/topicwise_publications/`, `/vacancies/`) redirect to the new pages.

@@ -1,873 +1,890 @@
-# This file contains the list of all publications
-# Publications will be sorted by the date field.
-# For conference publications, make the day the date of conference.
+# Publications. Rendered on /publications/ (sorted by date) and /research/.
+# Add new papers to the top of the list.
+#
+# - title:        Paper title
+#   image:        (optional) figure in images/pubpic/. Needed for `featured` papers. Max ~1400px wide.
+#   description:  (optional) abstract; shown behind an "Abstract" toggle. Use plain text.
+#   authors:      Full names. Names matching _data/people.yml or _data/alumni.yml are linked and bolded.
+#                 Equal contribution: `- show: Firstname Lastname*` + `link: Firstname Lastname`
+#   date:         YYYY-MM-DD (use the conference start date; only the year is displayed)
+#   venue:        Short venue name, e.g. ACL, EMNLP, COLM, ICML, TMLR. The year comes from `date`.
+#   badges:       (optional) any of: Preprint, Oral, Spotlight, Best Paper, Findings, Short, Demo, Industry, Workshop, Journal, ...
+#   theme:        One of the ids in _data/themes.yml (explanations, faithfulness, learning, behavior, evaluation, other)
+#   links:        Any label -> URL (pdf, arXiv, code, dataset, project, slides, ...). `pdf` is shown first.
+#   short:        (optional) short name, e.g. OPeX, MaNtLE. Used in lists on the home page and research page.
+#   selected:     true to list the paper as 'selected work' under its research direction
+#   feature_rank: 1..4 to show it as a highlight on the home page, with `question` (a research question)
+#                 and `finding` (one sentence stating the result). `image` is optional but recommended.
 
-# Below is a documented template. You can also copy and edit one of the other papers.
-# - title: -- The paper title
-#   image: -- An image from your paper. This should be added to images/pubpic
-#   description: -- Your abstract (or a small portion from it)  ((**** Please make sure there are no double quotes besides the start and end of the abstract. Replace any such instance inside the abstract with a single quote.))
-#   authors: -- List of author names. For members of the lab they must match people.yaml
-#      - Firstname Lastname
-#      - show: Firstname Lastname* -- equal contribution can be marked by the show/link feature
-#        link: Firstname Lastname
-#      - show: Firstname Lastname*
-#        link: Firstname Lastname
-#  venue: -- ArXiv for pre-prints. Alternative, the conference/journal name without year.
-#  date: YYYY-MM-DD -- For conference publications, make the day the date of conference.
-#  links: -- Any left-side is valid, the right-side must be a link. Some examples below:
-#    pdf : https://arxiv.org/pdf/{id}.pdf [[[[[MANDATORY]]]]]
-#    arXiv: https://arxiv.org/abs/{id}
-#    openreview: https://openreview.net/forum?id={id}
-#    code: https://github.com/{username}/{id} -- Link to github
-#  highlight: 0/1 If you want to showcase your work on the the Recent Work section
-#  topics: -- Add relevant tags for the publication in order to make it easily discoverable. (min 1, max 3)
-#     - {topic 1}
-#     - {topic 2}
-#     - {topic 3}
-
-- title: "Is Chain-of-Thought Really Not Explainability? Chain-of-Thought Can Be Faithful without Hint Verbalization"
-  image: cot_faithful.png
-  description: "Recent work, using the Biasing Features metric, labels a CoT as unfaithful if it omits a prompt-injected hint that affected the prediction. We argue this metric adopts a narrow notion of faithfulness and confuses unfaithfulness with incompleteness, the lossy compression needed to turn distributed transformer computation into a linear natural language narrative. On multi-hop reasoning tasks with instruct-tuned and reasoning models, many CoTs flagged as unfaithful by Biasing Features are judged faithful by other metrics, exceeding 50% in some models. With a new faithful@k metric, we show that larger inference-time budgets greatly increase hint verbalization (up to 90% in some settings), suggesting much apparent unfaithfulness is due to tight token limits."
+- title: Measuring and Steering Deceptive Commitment in Language Models
+  short: Deceptive commitment
+  image: deception_commitment.png
+  description: 'Existing deception datasets label completed outputs as honest or deceptive, treating deception as a property of the final response rather than a function of the model''s reasoning trace. This obscures a more fundamental question: when does a language model become committed to deception? We introduce counterfactual localization: for each sentence prefix in a reasoning trace, we fix the prefix, resample continuations, and estimate the probability of a deceptive outcome. To scale this, we construct five environments (spanning strategic bluffing, maze guidance, financial advice, used-car sales, and offer negotiation) in which deception is never prompted but emerges from strategic incentives and labels follow mechanically from environment state rather than subjective human judgment. The resulting corpus localizes ~1.46M sentences across four reasoning models, drawn from over 94.1M sampled continuations, 91.5B generated tokens, and over 100K scenarios. Sentence-level human evaluation confirms that detected commitment points correspond to interpretable shifts in decision state. Using this resource, we show that lexical cues for commitment prediction transfer poorly across environments, whereas attention-based transition features generalize out of distribution, suggesting that deceptive commitment is reflected in reusable changes in reasoning dynamics rather than surface form. We further identify compact attention-head sets (under 10% of heads) that, selected on one environment, causally suppress deceptive commitment across held-out environments. We release the corpus as a substrate for studying deception, and more broadly commitment, in language-model reasoning.'
+  question: When does a language model commit to deception?
+  finding: Resampling continuations from each sentence of a reasoning trace localizes where a model becomes committed to deception, across about 1.46M sentences from four reasoning models. Attention-based features predict commitment out of distribution, and compact sets of attention heads (under 10% of heads), selected on one environment, suppress it in held-out ones.
   authors:
-    - Kerem Zaman
-    - Shashank Srivastava
+  - Scott Merrill
+  - Shashank Srivastava
+  date: 2026-05-16
+  venue: arXiv
+  badges:
+  - Preprint
+  theme: faithfulness
+  selected: true
+  feature_rank: 3
+  links:
+    pdf: https://arxiv.org/pdf/2605.17113
+    arxiv: https://arxiv.org/abs/2605.17113
+- title: 'Directly Optimizing Natural Language Explanations for Behavioral Faithfulness: Simulatability and Recoverability'
+  short: OPeX
+  description: 'Natural-language explanations are widely used to interpret machine learning models, yet many prioritize human plausibility over accurately reflecting or predicting model behavior. Prior approaches often rely on human-written rationales, producing post-hoc explanations that neither align with the model’s decision function nor generalize. We introduce OPeX, a natural-language explanation model that directly optimizes for behavioral faithfulness: the ability of an explanation to reflect and predict a model’s observable input–output behavior. OPeX is trained using reinforcement learning with Group Relative Policy Optimization (GRPO), optimizing two complementary metrics: recoverability, which measures whether explanations recover model predictions on seen examples, and simulatability, which measures prediction of model behavior on unseen inputs. Across structured and text-based tasks, OPeX achieves high simulatability (~0.85) and recoverability (~0.99), outperforming GPT-4o, LLaMA-3.3-70B, and human-written explanations; despite having an 8B-parameter backbone. Human user studies show a 15% improvement in classification accuracy over competent baselines.'
+  question: Can natural-language explanations predict model behavior?
+  finding: OPeX is trained to reflect and predict a model’s input–output behavior (recoverability and simulatability), not to sound plausible. An 8B explainer outperforms GPT-4o, LLaMA-3.3-70B, and human-written explanations, and a user study shows a 15% gain in classification accuracy over baselines.
+  authors:
+  - Advaith Malladi
+  - Shashank Srivastava
+  date: 2026-07-06
+  venue: ICML
+  theme: explanations
+  selected: true
+  feature_rank: 1
+  links:
+    icml: https://icml.cc/virtual/2026/poster/65940
+    openreview: https://openreview.net/forum?id=8fAh8C27Hj
+- title: 'UNMASK: Discovering and Causally Verifying Spurious Shortcuts in Text Classifiers'
+  short: UNMASK
+  description: Neural language models trained on large crowdsourced corpora frequently exploit spurious surface patterns tied to target labels without true linguistic or causal relevance, boosting benchmark performance while failing on adversarial or out-of-distribution inputs. Existing approaches either require manual specification of the feature vocabulary or automate discovery only partially, leaving the gap between dataset-level correlation and model-level exploitation unaddressed. We present UNMASK, a fully automated pipeline that discovers, causally verifies, and mitigates spurious correlations in text classifiers without additional human annotation. Given unlabeled training examples, UNMASK generates candidate surface patterns as executable boolean expressions, filters them through a statistical validation protocol with independent replication, and establishes causal model dependence via verified counterfactual interventions. Causally confirmed features then serve as annotation-free group definitions for Deep Feature Reweighting, eliminating the group labels that standard DFR requires. Applied to BERT and RoBERTa trained on MNLI, our pipeline independently rediscovers established lexical-overlap and negation biases, verifying 9 of 10 features on BERT and 6 on RoBERTa, and improving HANS accuracy by up to 12.58 pp. On CivilComments-WILDS, programmatic groups match the 70.1% worst-group accuracy of hand-labeled DFR (Kirichenko et al., 2023) without demographic annotation. We further demonstrate that the discovery and validation stages generalize to reward model preference data, surfacing interpretable spurious correlations in RewardBench2.
+  authors:
+  - Chidaksh Ravuru
+  - Shashank Srivastava
+  date: 2026-10-06
+  venue: COLM
+  theme: explanations
+  selected: true
+  links:
+    pdf: https://arxiv.org/pdf/2608.09209
+    arxiv: https://arxiv.org/abs/2608.09209
+- title: 'The Story Shapes the Agent: Narrative Priors in LLM Behavior'
+  short: Narrative priors
+  image: narrative_priors.png
+  description: 'Persona prompting is widely used to steer LLM agent behavior, yet the narrative framing of a task can matter more than the assigned persona. We isolate this effect through structural isomorphism, constructing three text-based investigation games that share the same action space, stage progression, and resource constraints while varying only task narrative: disease investigation, IT troubleshooting, and murder mystery. Across 1,890 sessions spanning 3 models and 10 personas, we identify narrative priors: systematic action tendencies activated by a task’s story framing, independent of its decision structure. Narrative priors explain 5–31× more behavioral variance than persona, are consistent across model architectures, and in two of three domains are negatively associated with task success. Persona effects that do transfer across narratives arise from behavioral anchors, persona descriptions whose language maps directly onto shared actions. Causal interventions confirm this: removing anchor words from a high-transfer persona reduces cross-narrative consistency by 95%. Our framework also generalizes to a held-out fourth narrative and yields a persona-selection method that improves cross-narrative transfer. These results suggest that LLM behavior that survives narrative changes should be grounded in concrete actions rather than abstract descriptions.'
+  question: Does the story matter more than the persona?
+  finding: Across 1,890 sessions, 3 models, and 10 personas, a task’s narrative framing explained 5–31× more behavioral variance than the assigned persona.
+  authors:
+  - show: Yixuan Wang
+    link: Grace Wang
+  - James Lester
+  - Shashank Srivastava
+  date: 2026-10-06
+  venue: COLM
+  theme: behavior
+  selected: true
+  feature_rank: 5
+  links:
+    pdf: https://arxiv.org/pdf/2607.18566
+    arxiv: https://arxiv.org/abs/2607.18566
+- title: Size Sound Symbolism Survives Genealogy Across 27 Languages
+  description: The phenomenon of sound symbolism, the non-arbitrary mapping between word sounds and meanings, has long been demonstrated through anecdotal experiments like Bouba Kiki, but rarely tested at scale. We present the first computational cross-linguistic analysis of sound symbolism in the semantic domain of size. We compile a typologically broad dataset of 810 adjectives (27 languages, 30 words each), each phonemically transcribed and validated with native-speaker audio. Using interpretable classifiers over bag-of-segment features, we find that phonological form predicts size semantics above chance even across unrelated languages, with both vowels and consonants contributing. To probe universality beyond genealogy, we train an adversarial scrubber that suppresses language identity while preserving size signal (also at family granularity). Language prediction averaged across languages and settings falls below chance while size prediction remains significantly above chance, indicating cross-family sound-symbolic bias. We release data, code, and diagnostic tools for future large-scale studies of iconicity.
+  authors:
+  - Anika Sharma
+  - Emma Wrenn
+  - Tianyi Niu
+  - Shashank Srivastava
+  date: 2026-10-24
+  venue: EMNLP
+  badges:
+  - Oral
+  theme: behavior
+  links:
+    pdf: https://arxiv.org/pdf/2512.12245v1
+- title: Large Language Models Threaten Language's Epistemic and Communicative Foundations
+  short: Epistemic foundations
+  description: Large language models are reshaping the norms of human communication, sometimes decoupling words from genuine human thought. This transformation is deep, and undermines norms historically tied to authorship of text. We draw from linguistic philosophy and AI ethics to detail how large-scale text generation can induce semantic drift, erode accountability, and obfuscate intent and authorship. Our work here introduces hybrid authorship graphs (modeling humans, LLMs, and texts in a provenance network), epistemic doppelgängers (LLM-generated texts that are indistinguishable from human-authored texts), and authorship entropy. We explore mechanisms such as 'proof-of-interaction' authorship verification and educational reforms to restore confidence in language. LLMs' benefits (broader access, increased fluency, automation, etc.) are undeniable, but the upheavals they introduce to the linguistic landscape demand reckoning.
+  authors:
+  - Shashank Srivastava
+  date: 2025-11-01
+  venue: EMNLP
+  theme: behavior
+  selected: true
+  links:
+    pdf: https://aclanthology.org/2025.emnlp-main.1457.pdf
+- title: Classifying Unreliable Narrators with Large Language Models
+  short: Unreliable narrators
+  description: Often when we interact with a first-person account of events, we consider whether or not the narrator, the primary speaker of the text, is reliable. In this paper, we propose using computational methods to identify unreliable narrators, i.e. those who unintentionally misrepresent information. Borrowing literary theory from narratology to define different types of unreliable narrators based on a variety of textual phenomena, we present TUNa, a human-annotated dataset of narratives from multiple domains, including blog posts, subreddit posts, hotel reviews, and works of literature. We define classification tasks for intra-narrational, inter-narrational, and inter-textual unreliabilities and analyze the performance of popular open-weight and proprietary LLMs for each. We propose learning from literature to perform unreliable narrator classification on real-world text data. To this end, we experiment with few-shot, fine-tuning, and curriculum learning settings. Our results show that this task is very challenging, and there is potential for using LLMs to identify unreliable narrators. We release our expert-annotated dataset and code at https://github.com/adbrei/unreliable-narrators and invite future research in this area.
+  authors:
+  - Anneliese Brei
+  - Katharine Henry
+  - Abhisheik Sharma
+  - Shashank Srivastava
+  - Snigdha Chaturvedi
+  date: 2025-07-27
+  venue: ACL
+  theme: behavior
+  links:
+    pdf: https://aclanthology.org/2025.acl-long.1013.pdf
+    code: https://github.com/adbrei/unreliable-narrators
+- title: 'FISQL: Enhancing Text-to-SQL systems with Rich Interactive Feedback'
+  authors:
+  - Rakesh R Menon
+  - K. Qian
+  - L. Chen
+  - I. Joshi
+  - D. Pandyan
+  - J. Harrison
+  - Shashank Srivastava
+  - Y. Li
+  date: 2025-03-25
+  venue: EDBT
+  badges:
+  - Industry
+  theme: learning
+  links:
+    pdf: https://www.openproceedings.org/2025/conf/edbt/paper-300.pdf
+- title: Online Reinforcement Learning-Based Pedagogical Planning for Narrative-Centered Learning Environments
+  authors:
+  - Fahmid Morshed Fahid
+  - Jonathan Rowe
+  - Yeojin Kim
+  - Shashank Srivastava
+  - James Lester
+  date: 2024-02-20
+  venue: AAAI
+  theme: learning
+  links:
+    pdf: https://ojs.aaai.org/index.php/AAAI/article/view/30365
+- title: Collective Matrix Factorization for Co-clustering
+  authors:
+  - Mrinmaya Sachan
+  - Shashank Srivastava
+  date: 2013-05-13
+  venue: WWW
+  badges:
+  - Companion
+  theme: other
+  links:
+    pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava13-coclustering.pdf
+- title: Teaching Machines to Classify from Natural Language Interactions
+  short: PhD thesis
+  authors:
+  - Shashank Srivastava
+  date: 2018-09-01
+  venue: Carnegie Mellon University
+  badges:
+  - PhD Thesis
+  theme: learning
+  selected: true
+  links:
+    pdf: https://www.cs.cmu.edu/~shashans/papers/srivastava-thesis.pdf
+- title: Evolution of Compositional Languages in Multiple Agent Social Communities
+  authors:
+  - Shashank Srivastava
+  date: 2010-06-01
+  venue: IIT Kanpur
+  badges:
+  - MTech Thesis
+  theme: other
+  links:
+    pdf: https://www.cs.cmu.edu/~shashans/papers/srivastava-evolution.pdf
+- title: Is Chain-of-Thought Really Not Explainability? Chain-of-Thought Can Be Faithful without Hint Verbalization
+  short: CoT faithfulness
+  image: cot_faithful.png
+  description: Recent work, using the Biasing Features metric, labels a CoT as unfaithful if it omits a prompt-injected hint that affected the prediction. We argue this metric adopts a narrow notion of faithfulness and confuses unfaithfulness with incompleteness, the lossy compression needed to turn distributed transformer computation into a linear natural language narrative. On multi-hop reasoning tasks with instruct-tuned and reasoning models, many CoTs flagged as unfaithful by Biasing Features are judged faithful by other metrics, exceeding 50% in some models. With a new faithful@k metric, we show that larger inference-time budgets greatly increase hint verbalization (up to 90% in some settings), suggesting much apparent unfaithfulness is due to tight token limits.
+  question: When are LLM reasoning traces faithful?
+  finding: Judging faithfulness by whether a model verbalizes an injected hint confuses unfaithfulness with incompleteness. With larger inference-time budgets, hint verbalization reaches up to 90% in some settings.
+  authors:
+  - Kerem Zaman
+  - Shashank Srivastava
   date: 2026-07-02
-  venue: Proceedings of Association for Computational Linguistics (ACL) [Oral]
+  venue: ACL
+  badges:
+  - Oral
+  theme: faithfulness
+  selected: true
+  feature_rank: 2
   links:
     pdf: https://aclanthology.org/2026.acl-long.2217.pdf
     arXiv: https://arxiv.org/abs/2512.23032
-  topics:
-    - "Language Understanding, Reasoning, and Generation"
-    - "Learning and Language"
-  highlight: 1
-
-- title: "DiffVax: Optimization-Free Image Immunization Against Diffusion-Based Editing"
+- title: 'DiffVax: Optimization-Free Image Immunization Against Diffusion-Based Editing'
   image: diffvax.png
-  description: "Current image immunization defense techniques against diffusion-based editing embed imperceptible noise into target images to disrupt editing models. However, these methods face scalability challenges, as they require time-consuming optimization for each image separately, taking hours for small batches. To address these challenges, we introduce DiffVax, a scalable, lightweight, and optimization-free framework for image immunization, specifically designed to prevent diffusion-based editing. Our approach enables effective generalization to unseen content, reducing computational costs and cutting immunization time from days to milliseconds, achieving a speedup of 250,000x. This is achieved through a loss term that ensures the failure of editing attempts and the imperceptibility of the perturbations. Extensive qualitative and quantitative results demonstrate that our model is scalable, optimization-free, adaptable to various diffusion-based editing tools, robust against counter-attacks, and, for the first time, effectively protects video content from editing."
+  description: Current image immunization defense techniques against diffusion-based editing embed imperceptible noise into target images to disrupt editing models. However, these methods face scalability challenges, as they require time-consuming optimization for each image separately, taking hours for small batches. To address these challenges, we introduce DiffVax, a scalable, lightweight, and optimization-free framework for image immunization, specifically designed to prevent diffusion-based editing. Our approach enables effective generalization to unseen content, reducing computational costs and cutting immunization time from days to milliseconds, achieving a speedup of 250,000x. This is achieved through a loss term that ensures the failure of editing attempts and the imperceptibility of the perturbations. Extensive qualitative and quantitative results demonstrate that our model is scalable, optimization-free, adaptable to various diffusion-based editing tools, robust against counter-attacks, and, for the first time, effectively protects video content from editing.
   authors:
-    - Tarik Can Ozden
-    - Ozgur Kara
-    - Oguzhan Akcin
-    - Kerem Zaman
-    - Shashank Srivastava
-    - Sandeep P. Chinchali
-    - James M. Rehg
+  - Tarik Can Ozden
+  - Ozgur Kara
+  - Oguzhan Akcin
+  - Kerem Zaman
+  - Shashank Srivastava
+  - Sandeep P. Chinchali
+  - James M. Rehg
   date: 2026-04-23
-  venue: International Conference on Learning Representations (ICLR)
+  venue: ICLR
+  theme: other
   links:
     pdf: https://arxiv.org/pdf/2411.17957
     arXiv: https://arxiv.org/abs/2411.17957
-  topics:
-    - "Miscellaneous"
-  highlight: 1
-
-- title: "Explaining Differences Between Model Pairs in Natural Language through Sample Learning"
+- title: Explaining Differences Between Model Pairs in Natural Language through Sample Learning
+  short: SLED
   image: sled.png
-  description: "With the growing adoption of machine learning models in critical domains, techniques for explaining differences between models have become essential for trust, debugging, and informed deployment. Previous approaches address this by identifying input transformations that cause divergent predictions (Shah et al., 2022) or by learning joint surrogate models to align and contrast behaviors (Haldar et al., 2023). These methods often require access to training data and do not produce natural language explanations. In this paper, we introduce SLED , a framework that generates faithful natural language explanations of when and how two ML models converge or diverge in their predictions. SLED first uses gradient-based optimization to synthesize input samples that highlight divergence and convergence patterns, and then leverages a large language model (LLM) to generate explanations grounded in these synthetic samples. Across both text-based (3 tasks, 7 models) and structured (10 tasks, 4 models) classification tasks, we show that SLED explanations are 18–24% more faithful than the strongest baselines. User studies also indicate that SLED explanations achieve a real-world simulatability of 63.5%. Importantly, SLED requires minimal access to training data and generalizes well to real-world samples, enabling transparent model comparison."
-  authors: 
-    - Advaith Malladi
-    - Yuvraj Jain
-    - Rakesh R Menon
-    - Shashank Srivastava
+  description: With the growing adoption of machine learning models in critical domains, techniques for explaining differences between models have become essential for trust, debugging, and informed deployment. Previous approaches address this by identifying input transformations that cause divergent predictions (Shah et al., 2022) or by learning joint surrogate models to align and contrast behaviors (Haldar et al., 2023). These methods often require access to training data and do not produce natural language explanations. In this paper, we introduce SLED , a framework that generates faithful natural language explanations of when and how two ML models converge or diverge in their predictions. SLED first uses gradient-based optimization to synthesize input samples that highlight divergence and convergence patterns, and then leverages a large language model (LLM) to generate explanations grounded in these synthetic samples. Across both text-based (3 tasks, 7 models) and structured (10 tasks, 4 models) classification tasks, we show that SLED explanations are 18–24% more faithful than the strongest baselines. User studies also indicate that SLED explanations achieve a real-world simulatability of 63.5%. Importantly, SLED requires minimal access to training data and generalizes well to real-world samples, enabling transparent model comparison.
+  question: How do two models differ, in words?
+  finding: SLED generates natural-language explanations of when and how two models converge or diverge. They are 18–24% more faithful than the strongest baselines.
+  authors:
+  - Advaith Malladi
+  - Rakesh R Menon
+  - Yuvraj Jain
+  - Shashank Srivastava
   date: 2025-11-01
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: explanations
+  selected: true
   links:
-    pdf: https://aclanthology.org/2025.emnlp-main.1462/
-  topics: 
-    - "Learning and Language"
-  highlight: 1
-
-- title: "Chameleon LLMs: User Personas Influence Chatbot Personality Shifts"
+    pdf: https://aclanthology.org/2025.emnlp-main.1462.pdf
+- title: 'Chameleon LLMs: User Personas Influence Chatbot Personality Shifts'
+  short: Chameleon LLMs
   image: chameleon.png
-  description: "As large language models (LLMs) integrate into society, their ability to adapt to users is as critical as their accuracy. While prior work has used personality tests to examine the perceived personalities of LLMs, little research has explored whether LLMs adapt their perceived personalities in response to user interactions. We investigate whether and how LLMs exhibit conversational adaptations over prolonged interactions. Using controlled simulations where a user and chatbot engage in dialogue, we measure the chatbot’s perceived personality shifts before and after the conversation. Across multiple models, we find that traits such as Agreeableness, Extraversion, and Conscientiousness are highly susceptible to user influence, whereas Emotional Stability and Intellect remain relatively more stable. Our results suggest that LLMs dynamically adjust their conversational style in response to user personas, raising important implications for model alignment, trust, and safety"
-  authors: 
-    - Jane Xing
-    - Tianyi Niu
-    - Shashank Srivastava
+  description: As large language models (LLMs) integrate into society, their ability to adapt to users is as critical as their accuracy. While prior work has used personality tests to examine the perceived personalities of LLMs, little research has explored whether LLMs adapt their perceived personalities in response to user interactions. We investigate whether and how LLMs exhibit conversational adaptations over prolonged interactions. Using controlled simulations where a user and chatbot engage in dialogue, we measure the chatbot’s perceived personality shifts before and after the conversation. Across multiple models, we find that traits such as Agreeableness, Extraversion, and Conscientiousness are highly susceptible to user influence, whereas Emotional Stability and Intellect remain relatively more stable. Our results suggest that LLMs dynamically adjust their conversational style in response to user personas, raising important implications for model alignment, trust, and safety
+  authors:
+  - Jane Xing
+  - Tianyi Niu
+  - Shashank Srivastava
   date: 2025-11-01
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: behavior
+  selected: true
   links:
     pdf: https://aclanthology.org/2025.emnlp-main.875.pdf
     code: https://github.com/xingdom/chameleon-llms
-  topics: 
-    - "Learning and Language"
-  highlight: 1
-
-
-- title: "A Causal Lens for Evaluating Faithfulness Metrics"
+- title: A Causal Lens for Evaluating Faithfulness Metrics
+  short: Causal Diagnosticity
   image: causal_lens.png
-  description: "Large Language Models (LLMs) offer natural language explanations as an alternative to feature attribution methods for model interpretability. However, despite their plausibility, they may not reflect the model’s true reasoning faithfully. While several faithfulness metrics have been proposed, they are often evaluated in isolation, making principled comparisons between them difficult. We present CAUSAL DIAGNOSTICITY, a testbed framework for evaluating faithfulness metrics for natural language explanations. We use the concept of diagnosticity, and employ model-editing methods to generate faithful-unfaithful explanation pairs. Our benchmark includes four tasks: fact-checking, analogy, object counting, and multi-hop reasoning. We evaluate prominent faithfulness metrics, including post-hoc explanation and chainof-thought methods. Diagnostic performance varies across tasks and models, with Filler Tokens performing best overall. Additionally, continuous metrics are generally more diagnostic than binary ones but can be sensitive to noise and model choice. Our results highlight the need for more robust faithfulness metrics."
-  authors: 
-    - Kerem Zaman
-    - Shashank Srivastava
+  description: 'Large Language Models (LLMs) offer natural language explanations as an alternative to feature attribution methods for model interpretability. However, despite their plausibility, they may not reflect the model’s true reasoning faithfully. While several faithfulness metrics have been proposed, they are often evaluated in isolation, making principled comparisons between them difficult. We present CAUSAL DIAGNOSTICITY, a testbed framework for evaluating faithfulness metrics for natural language explanations. We use the concept of diagnosticity, and employ model-editing methods to generate faithful-unfaithful explanation pairs. Our benchmark includes four tasks: fact-checking, analogy, object counting, and multi-hop reasoning. We evaluate prominent faithfulness metrics, including post-hoc explanation and chainof-thought methods. Diagnostic performance varies across tasks and models, with Filler Tokens performing best overall. Additionally, continuous metrics are generally more diagnostic than binary ones but can be sensitive to noise and model choice. Our results highlight the need for more robust faithfulness metrics.'
+  authors:
+  - Kerem Zaman
+  - Shashank Srivastava
   date: 2025-08-30
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: faithfulness
+  selected: true
   links:
-    pdf: https://arxiv.org/abs/2502.18848
+    pdf: https://arxiv.org/pdf/2502.18848
     code: https://github.com/KeremZaman/CausalDiagnosticity
-  topics: 
-    - "Learning and Language"
-  highlight: 1
-
-
-- title: "INTERACT: Enabling Interactive, Question-Driven Learning in Large Language Models"
+    arxiv: https://arxiv.org/abs/2502.18848
+- title: 'INTERACT: Enabling Interactive, Question-Driven Learning in Large Language Models'
+  short: INTERACT
   image: interact.png
-  description: "Large language models (LLMs) excel at answering questions but remain passive learners—absorbing static data without the ability to question and refine knowledge. This paper explores how LLMs can transition to interactive, question-driven learning through studentteacher dialogues. We introduce INTERACT (INTERactive learning for Adaptive Concept Transfer), a framework in which a “student” LLM engages a “teacher” LLM through iterative inquiries to acquire knowledge across 1,347 contexts, including song lyrics, news articles, movie plots, academic papers, and images. Our experiments show that across a wide range of scenarios and LLM architectures, interactive learning consistently enhances performance, achieving up to a 25% improvement, with ‘cold-start’ student models matching static learning baselines in as few as five dialogue turns. Interactive setups can also mitigate the disadvantages of weaker teachers, showcasing the robustness of question-driven learning"
-  authors: 
-    - Aum Kendapadi
-    - Kerem Zaman
-    - Rakesh R Menon
-    - Shashank Srivastava
+  description: Large language models (LLMs) excel at answering questions but remain passive learners—absorbing static data without the ability to question and refine knowledge. This paper explores how LLMs can transition to interactive, question-driven learning through studentteacher dialogues. We introduce INTERACT (INTERactive learning for Adaptive Concept Transfer), a framework in which a “student” LLM engages a “teacher” LLM through iterative inquiries to acquire knowledge across 1,347 contexts, including song lyrics, news articles, movie plots, academic papers, and images. Our experiments show that across a wide range of scenarios and LLM architectures, interactive learning consistently enhances performance, achieving up to a 25% improvement, with ‘cold-start’ student models matching static learning baselines in as few as five dialogue turns. Interactive setups can also mitigate the disadvantages of weaker teachers, showcasing the robustness of question-driven learning
+  question: Can language models learn by asking questions?
+  finding: In student-teacher dialogue across 1,347 contexts, interactive learning improves performance by up to 25%, and cold-start students match static-learning baselines within five turns.
+  authors:
+  - Aum Kendapadi
+  - Kerem Zaman
+  - Rakesh R Menon
+  - Shashank Srivastava
   date: 2025-05-31
-  venue: Findings of Association for Computational Linguistics (ACL)
+  venue: ACL
+  badges:
+  - Oral
+  theme: learning
+  selected: true
+  feature_rank: 4
   links:
-    pdf: https://arxiv.org/abs/2412.11388
+    pdf: https://arxiv.org/pdf/2412.11388
     code: https://github.com/aumken/interact
-  topics: 
-    - "Learning and Language"
-  highlight: 1
-
-
-- title: "DISCERN: Decoding Systematic Errors in Natural Language for Text Classifiers"
+    arxiv: https://arxiv.org/abs/2412.11388
+- title: 'DISCERN: Decoding Systematic Errors in Natural Language for Text Classifiers'
+  short: DISCERN
   image: discern.png
-  description: "Machine learning classifiers often exhibit systematic biases due to dataset artifacts or class imbalances. DISCERN is a framework that generates natural language explanations for these biases, using an interactive loop between two large language models—one that identifies error patterns and another that refines them. The explanations improve classifier debugging and can be used to augment training data through synthetic instances or active learning. DISCERN consistently improves classification accuracy and helps humans interpret systematic biases 25% more effectively than cluster-based methods."
-  authors: 
-    - Rakesh R Menon
-    - Shashank Srivastava
+  description: Machine learning classifiers often exhibit systematic biases due to dataset artifacts or class imbalances. DISCERN is a framework that generates natural language explanations for these biases, using an interactive loop between two large language models—one that identifies error patterns and another that refines them. The explanations improve classifier debugging and can be used to augment training data through synthetic instances or active learning. DISCERN consistently improves classification accuracy and helps humans interpret systematic biases 25% more effectively than cluster-based methods.
+  authors:
+  - Rakesh R Menon
+  - Shashank Srivastava
   date: 2024-11-12
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: explanations
+  selected: true
   links:
     pdf: https://aclanthology.org/2024.emnlp-main.1091.pdf
-    code:  https://github.com/rrmenon10/DISCERN
-  topics: 
-    - "Learning and Language"
-    - "Fairness and Social Applications"
-    - "Learning from Limited Labels"
-  highlight: 1
-
-
-- title: "Fuse to Forget: Bias Reduction and Selective Memorization through Model Fusion"
+    code: https://github.com/rrmenon10/DISCERN
+- title: 'Fuse to Forget: Bias Reduction and Selective Memorization through Model Fusion'
   image: fuse-to-forget.png
-  description: "Model fusion aims to aggregate the knowledge of multiple models to enhance performance by combining their weights. In this work, we study the inverse problem -- investigating whether model fusion can reduce unwanted knowledge. We investigate the effects of model fusion in three scenarios -- the learning of shortcuts, social biases, and memorization of training data in fine-tuned language models. Through experiments covering classification and generation, we show that shared knowledge among models is enhanced during model fusion, while unshared knowledge is forgotten. Based on this, we show that model fusion can be a debiasing tool and showcase its efficacy in addressing privacy concerns with language models."
-  authors: 
-    - Kerem Zaman
-    - Leshem Chosen
-    - Shashank Srivastava
+  description: Model fusion aims to aggregate the knowledge of multiple models to enhance performance by combining their weights. In this work, we study the inverse problem -- investigating whether model fusion can reduce unwanted knowledge. We investigate the effects of model fusion in three scenarios -- the learning of shortcuts, social biases, and memorization of training data in fine-tuned language models. Through experiments covering classification and generation, we show that shared knowledge among models is enhanced during model fusion, while unshared knowledge is forgotten. Based on this, we show that model fusion can be a debiasing tool and showcase its efficacy in addressing privacy concerns with language models.
+  authors:
+  - Kerem Zaman
+  - Leshem Chosen
+  - Shashank Srivastava
   date: 2024-11-12
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: behavior
   links:
     pdf: https://aclanthology.org/2024.emnlp-main.1045.pdf
-    code:  https://github.com/KeremZaman/FuseToForget
-  topics: 
-    - "Learning and Language"
-    - "Fairness and Social Applications"
-  highlight: 1
-
-- title: "SOCIALGAZE: Improving the Integration of Human Social Norms in Large Language Models"
+    code: https://github.com/KeremZaman/FuseToForget
+- title: 'SocialGaze: Improving the Integration of Human Social Norms in Large Language Models'
+  short: SocialGaze
   image: socialgaze.png
-  description: "Large language models struggle to align with human social norms, particularly when evaluating social acceptability in everyday situations. SOCIALGAZE is a multi-step prompting framework that improves LLMs' reasoning by encouraging them to verbalize social scenarios from multiple perspectives before making judgments. Experiments on social conflict narratives from the r/AITA subreddit show that SOCIALGAZE improves model alignment with human judgments by up to 11 F1 points. The study also uncovers several interesting biases in LLM social acceptability judgments -- for example, women are much less likely than men to be called out on r/AITA."
-  authors: 
-    - Anvesh Rao Vijjini
-    - Rakesh R Menon
-    - Jiayi Fu
-    - Shashank Srivastava
-    - Snigdha Chaturvedi
+  description: Large language models struggle to align with human social norms, particularly when evaluating social acceptability in everyday situations. SOCIALGAZE is a multi-step prompting framework that improves LLMs' reasoning by encouraging them to verbalize social scenarios from multiple perspectives before making judgments. Experiments on social conflict narratives from the r/AITA subreddit show that SOCIALGAZE improves model alignment with human judgments by up to 11 F1 points. The study also uncovers several interesting biases in LLM social acceptability judgments -- for example, women are much less likely than men to be called out on r/AITA.
+  authors:
+  - Anvesh Rao Vijjini
+  - Rakesh R Menon
+  - Jiayi Fu
+  - Shashank Srivastava
+  - Snigdha Chaturvedi
   date: 2024-11-12
-  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP Findings)
+  venue: EMNLP
+  badges:
+  - Findings
+  theme: behavior
+  selected: true
   links:
     pdf: https://aclanthology.org/2024.findings-emnlp.962.pdf
-    code:  https://github.com/nvshrao/social_gaze
-  topics: 
-    - "Fairness and Social Applications"
-  highlight: 1
-
-
-- title: "MaNtLE: Model-agnostic Natural Language Explainer"
+    code: https://github.com/nvshrao/social_gaze
+- title: 'MaNtLE: Model-agnostic Natural Language Explainer'
+  short: MaNtLE
   image: mantle.jpg
-  description: "Understanding the internal reasoning behind the predictions of machine learning systems is increasingly vital, given their rising adoption and acceptance. While previous approaches, such as LIME, generate algorithmic explanations by attributing importance to input features for individual examples, recent research indicates that practitioners prefer examining language explanations that explain sub-groups of examples (Lakkaraju et al., 2022). In this paper, we introduce MaNtLE, a model-agnostic natural language explainer that analyzes multiple classifier predictions and generates faithful natural language explanations of classifier rationale for structured classification tasks. MaNtLE uses multi-task training on thousands of synthetic classification tasks to generate faithful explanations. Simulated user studies indicate that, on average, MaNtLE-generated explanations are at least 11% more faithful compared to LIME and Anchors explanations across three tasks. Human evaluations demonstrate that users can better predict model behavior using explanations from MaNtLE compared to other techniques."
-  authors: 
-    - Rakesh R Menon
-    - Kerem Zaman
-    - Shashank Srivastava
+  description: Understanding the internal reasoning behind the predictions of machine learning systems is increasingly vital, given their rising adoption and acceptance. While previous approaches, such as LIME, generate algorithmic explanations by attributing importance to input features for individual examples, recent research indicates that practitioners prefer examining language explanations that explain sub-groups of examples (Lakkaraju et al., 2022). In this paper, we introduce MaNtLE, a model-agnostic natural language explainer that analyzes multiple classifier predictions and generates faithful natural language explanations of classifier rationale for structured classification tasks. MaNtLE uses multi-task training on thousands of synthetic classification tasks to generate faithful explanations. Simulated user studies indicate that, on average, MaNtLE-generated explanations are at least 11% more faithful compared to LIME and Anchors explanations across three tasks. Human evaluations demonstrate that users can better predict model behavior using explanations from MaNtLE compared to other techniques.
+  question: Can a model explain other models in plain language?
+  finding: MaNtLE explains the rationale of a classifier from its predictions. Its explanations are at least 11% more faithful than LIME and Anchors, and users predict model behavior better with them.
+  authors:
+  - Rakesh R Menon
+  - Kerem Zaman
+  - Shashank Srivastava
   date: 2023-12-06
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
-  links: 
+  venue: EMNLP
+  theme: explanations
+  selected: true
+  links:
     pdf: https://aclanthology.org/2023.emnlp-main.832.pdf
     arxiv: https://arxiv.org/abs/2305.12995
     code: https://github.com/rrmenon10/MaNtLE
-  topics: 
-    - "Learning and Language"
-  highlight: 1
-
-- title: "Identifying and Manipulating the Perceived Personality Traits of Language Models"
+- title: Manipulating the Perceived Personality Traits of Language Models
   image: personality_traits.jpg
-  description: "In this work, we explore the question of whether the perceived personality in language models is exhibited consistently in their language generation. For example, is a language model such as GPT2 likely to respond in a consistent way if asked to go out to a party? We also investigate whether such personality traits can be controlled. We show that when provided different types of contexts (such as personality descriptions, or answers to diagnostic questions about personality traits), language models such as BERT and GPT2 can consistently identify and reflect personality markers in those contexts. This behavior illustrates an ability to be manipulated in a highly predictable way, and frames them as tools for identifying personality traits and controlling personas in applications such as dialog systems. We also contribute a crowd-sourced data-set of personality descriptions of human subjects paired with their Big Five personality assessment data, and a data-set of personality descriptions collated from Reddit."
-  authors: 
-    - Graham Caron
-    - Shashank Srivastava
+  description: In this work, we explore the question of whether the perceived personality in language models is exhibited consistently in their language generation. For example, is a language model such as GPT2 likely to respond in a consistent way if asked to go out to a party? We also investigate whether such personality traits can be controlled. We show that when provided different types of contexts (such as personality descriptions, or answers to diagnostic questions about personality traits), language models such as BERT and GPT2 can consistently identify and reflect personality markers in those contexts. This behavior illustrates an ability to be manipulated in a highly predictable way, and frames them as tools for identifying personality traits and controlling personas in applications such as dialog systems. We also contribute a crowd-sourced data-set of personality descriptions of human subjects paired with their Big Five personality assessment data, and a data-set of personality descriptions collated from Reddit.
+  authors:
+  - Graham Caron
+  - Shashank Srivastava
   date: 2023-12-06
-  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  badges:
+  - Findings
+  theme: behavior
   links:
-    pdf: /data/pdfs/personality_traits_caron23.pdf
-    arxiv:  https://arxiv.org/abs/2212.10276
-  topics: 
-    - "Fairness and Social Applications"
-    - "Datasets and Benchmarks"
-  highlight: 1
-
-- title: "Pragmatic Reasoning Unlocks Quantifier Semantics for Foundation Models"
+    pdf: "/data/pdfs/personality_traits_caron23.pdf"
+    arxiv: https://arxiv.org/abs/2212.10276
+- title: Pragmatic Reasoning Unlocks Quantifier Semantics for Foundation Models
   image: presque.jpg
   description: Generalized quantifiers (e.g., few, most) are used to indicate the proportions predicates are satisfied (for example, some apples are red). One way to interpret quantifier semantics is to explicitly bind these satisfactions with percentage scopes (e.g., 30%-40% of apples are red). This approach can be helpful for tasks like logic formalization and surface-form quantitative reasoning (Gordon and Schubert, 2010; Roy et al., 2015). However, it remains unclear if recent foundation models possess this ability, as they lack direct training signals. To explore this, we introduce QuRe, a crowd-sourced dataset of human-annotated generalized quantifiers in Wikipedia sentences featuring percentage-equipped predicates. We explore quantifier comprehension in language models using PRESQUE, a framework that combines natural language inference and the Rational Speech Acts framework. Experimental results on the HVD dataset and QuRe illustrate that PRESQUE, employing pragmatic reasoning, performs 20% better than a literal reasoning baseline when predicting quantifier percentage scopes, with no additional training required.
-  authors: 
-    - Yiyuan Li
-    - Rakesh R Menon
-    - Sayan Ghosh
-    - Shashank Srivastava
+  authors:
+  - Yiyuan Li
+  - Rakesh R Menon
+  - Sayan Ghosh
+  - Shashank Srivastava
   date: 2023-12-06
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: evaluation
   links:
     pdf: https://arxiv.org/pdf/2311.04659.pdf
-    arxiv:  https://arxiv.org/abs/2311.04659
-    code:  https://github.com/Nativeatom/PRESQUE
-  topics: 
-    - "Learning and Language"
-    - "Datasets and Benchmarks"
-  highlight: 0
-
-- title: "Leveraging Multiple Teachers for Test-Time Adaptation of Language-Guided Classifiers"
-  image:
+    arxiv: https://arxiv.org/abs/2311.04659
+    code: https://github.com/Nativeatom/PRESQUE
+- title: Leveraging Multiple Teachers for Test-Time Adaptation of Language-Guided Classifiers
   description: Recent approaches have explored language-guided classifiers capable of classifying examples from novel tasks when provided with task-specific natural language explanations, instructions or prompts (Sanh et al., 2022; R. Menon et al., 2022). While these classifiers can generalize in zero-shot settings, their task performance often varies substantially between different language explanations in unpredictable ways (Lu et al., 2022; Gonen et al., 2022). Also, current approaches fail to leverage unlabeled examples that may be available in many scenarios. Here, we introduce TALC, a framework that uses data programming to adapt a language-guided classifier for a new task during inference when provided with explanations from multiple teachers and unlabeled test examples. Our results show that TALC consistently outperforms a competitive baseline from prior work by an impressive 9.3% (relative improvement). Further, we demonstrate the robustness of TALC to variations in the quality and quantity of provided explanations, highlighting its potential in scenarios where learning from multiple teachers or a crowd is involved.
-  authors: 
-    - Kangda Wei
-    - Sayan Ghosh
-    - Rakesh R Menon
-    - Shashank Srivastava
+  authors:
+  - Kangda Wei
+  - Sayan Ghosh
+  - Rakesh R Menon
+  - Shashank Srivastava
   date: 2023-12-06
-  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  badges:
+  - Findings
+  theme: learning
   links:
     pdf: https://arxiv.org/pdf/2311.07538.pdf
-    arxiv:  https://arxiv.org/abs/2311.07538
-    code:  https://github.com/WeiKangda/TALC
-  topics: 
-    - "Learning and Language"
-  highlight: 0
-
-- title: "Beyond Labels: Empowering Human Annotators with Natural Language Explanations through a Novel Active-Learning Architecture "
-  image:
+    arxiv: https://arxiv.org/abs/2311.07538
+    code: https://github.com/WeiKangda/TALC
+- title: 'Beyond Labels: Empowering Human Annotators with Natural Language Explanations through a Novel Active-Learning Architecture'
   description: Real-world domain experts (e.g., doctors) rarely annotate only a decision label in their day-to-day workflow without providing explanations. Yet, existing low-resource learning techniques, such as Active Learning (AL), that aim to support human annotators mostly focus on the label while neglecting the natural language explanation of a data point. This work proposes a novel AL architecture to support experts real-world need for label and explanation annotations in low-resource scenarios. Our AL architecture leverages an explanation-generation model to produce explanations guided by human explanations, a prediction model that utilizes generated explanations toward prediction faithfully, and a novel data diversity-based AL sampling strategy that benefits from the explanation annotations. Automated and human evaluations demonstrate the effectiveness of incorporating explanations into AL sampling and the improved human annotation efficiency and trustworthiness with our AL architecture. Additional ablation studies illustrate the potential of our AL architecture for transfer learning, generalizability, and integration with large language models (LLMs). While LLMs exhibit exceptional explanation-generation capabilities for relatively simple tasks, their effectiveness in complex real-world tasks warrants further in-depth study.
-  authors: 
-    - Bingsheng Yao
-    - Ishan Jindal
-    - Lucian Popa
-    - Yannis Katsis
-    - Sayan Ghosh
-    - Lihong He
-    - Yuxuan Lu
-    - Shashank Srivastava
-    - Yunyao Li
-    - James Hendler
-    - Dakuo Wang
+  authors:
+  - Bingsheng Yao
+  - Ishan Jindal
+  - Lucian Popa
+  - Yannis Katsis
+  - Sayan Ghosh
+  - Lihong He
+  - Yuxuan Lu
+  - Shashank Srivastava
+  - Yunyao Li
+  - James Hendler
+  - Dakuo Wang
   date: 2023-12-06
-  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  badges:
+  - Findings
+  theme: learning
   links:
     pdf: https://arxiv.org/pdf/2305.12710.pdf
-    arxiv:  https://arxiv.org/abs/2305.12710
-  topics: 
-    - "Active Learning"
-  highlight: 0
-
-- title: "LaSQuE: Improved Zero-Shot Classification from Explanations Through Quantifier Modeling and Curriculum Learning"
-  image:
+    arxiv: https://arxiv.org/abs/2305.12710
+- title: 'LaSQuE: Improved Zero-Shot Classification from Explanations Through Quantifier Modeling and Curriculum Learning'
+  short: LaSQuE
   description: A hallmark of human intelligence is the ability to learn new concepts purely from language. Several recent approaches have explored training machine learning models via natural language supervision. However, these approaches fall short in leveraging linguistic quantifiers (such as 'always' or 'rarely') and mimicking humans in compositionally learning complex tasks. Here, we present LaSQuE, a method that can learn zero-shot classifiers from language explanations by using three new strategies - (1) modeling the semantics of linguistic quantifiers in explanations (including exploiting ordinal strength relationships, such as 'always’ > ‘likely’), (2) aggregating information from multiple explanations using an attention-based mechanism, and (3) model training via curriculum learning
-  authors: 
-    - show: Sayan Ghosh*
-      link: Sayan Ghosh
-    - show: Rakesh R Menon*
-      link: Rakesh R Menon
-    - Shashank Srivastava
+  authors:
+  - show: Sayan Ghosh*
+    link: Sayan Ghosh
+  - show: Rakesh R Menon*
+    link: Rakesh R Menon
+  - Shashank Srivastava
   date: 2023-07-10
-  venue: Findings of Association for Computational Linguistics (ACL)
+  venue: ACL
+  badges:
+  - Findings
+  theme: learning
   links:
     pdf: https://aclanthology.org/2023.findings-acl.467.pdf
-    arxiv:  https://arxiv.org/abs/2212.09104
-    code:  https://github.com/sgdgp/LaSQuE
-  topics: 
-    - "Learning and Language"
-  highlight: 0
-
-- title: "What do Large Language Models Learn beyond Language? "
+    arxiv: https://arxiv.org/abs/2212.09104
+    code: https://github.com/sgdgp/LaSQuE
+- title: What do Large Language Models Learn beyond Language?
   image: nilm.jpg
-  description: "In this paper, we investigate if pre-training on text also confers these models with helpful `inductive biases' for non-linguistic reasoning. On a set of 19 diverse non-linguistic tasks involving quantitative computations, recognizing regular expressions and reasoning over strings. We find that pretrained models significantly outper- form comparable non-pretrained neural mod- els. This remains true also in experiments with training non-pretrained models with fewer pa- rameters to account for model regularization effects."
-  authors: 
-    - Avinash Madasu
-    - Shashank Srivastava
+  description: In this paper, we investigate if pre-training on text also confers these models with helpful `inductive biases' for non-linguistic reasoning. On a set of 19 diverse non-linguistic tasks involving quantitative computations, recognizing regular expressions and reasoning over strings. We find that pretrained models significantly outper- form comparable non-pretrained neural mod- els. This remains true also in experiments with training non-pretrained models with fewer pa- rameters to account for model regularization effects.
+  authors:
+  - Avinash Madasu
+  - Shashank Srivastava
   date: 2022-12-07
-  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  badges:
+  - Findings
+  theme: evaluation
   links:
     pdf: https://arxiv.org/pdf/2210.12302.pdf
     arxiv: https://arxiv.org/abs/2210.12302
     code: https://github.com/avinashsai/NILM
-  highlight: 0
-  topics:
-    - "Learning and Language"
-
-- title: "Compositional Generalization for Kinship Prediction through Data Augmentation"
-  image: clutrr_kangda.jpg
-  description: "Transformer-based models have shown promising performance in numerous NLP tasks. However, recent work has shown the limitation of such models in showing compositional generalization, which requires models to generalize to novel compositions of known concepts. In this work, we explore two strategies for compositional generalization on the task of kinship prediction from stories,(1) data augmentation and (2) predicting and using intermediate structured representation (in form of kinship graphs). Our experiments show that data augmentation boosts generalization performance by around 20% on average relative to a baseline model from prior work not using these strategies. However, predicting and using intermediate kinship graphs leads to a deterioration in the generalization of kinship prediction by around 50% on average relative to models that only leverage data augmentation."
-  authors: 
-    - Kangda Wei
-    - Sayan Ghosh
-    - Shashank Srivastava
+- title: Compositional Generalization for Kinship Prediction through Data Augmentation
+  image: cluttr_kangda.jpg
+  description: Transformer-based models have shown promising performance in numerous NLP tasks. However, recent work has shown the limitation of such models in showing compositional generalization, which requires models to generalize to novel compositions of known concepts. In this work, we explore two strategies for compositional generalization on the task of kinship prediction from stories,(1) data augmentation and (2) predicting and using intermediate structured representation (in form of kinship graphs). Our experiments show that data augmentation boosts generalization performance by around 20% on average relative to a baseline model from prior work not using these strategies. However, predicting and using intermediate kinship graphs leads to a deterioration in the generalization of kinship prediction by around 50% on average relative to models that only leverage data augmentation.
+  authors:
+  - Kangda Wei
+  - Sayan Ghosh
+  - Shashank Srivastava
   date: 2022-07-15
-  venue: Proceedings of the 4th Workshop of Narrative Understanding (WNU)
+  venue: WNU @ NAACL
+  badges:
+  - Workshop
+  theme: evaluation
   links:
     pdf: https://aclanthology.org/2022.wnu-1.2.pdf
     code: https://github.com/WeiKangda/ssd-clutrr
-  highlight: 0
-  topics:
-    - "Learning from Limited Labels"
-
-- title: "Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models"
+- title: 'Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models'
   image: bigbench.png
-  description: "Language models demonstrate both quantitative improvement and new qualitative capabilities with increasing scale. Despite their potentially transformative impact, these new capabilities are as yet poorly characterized. In order to inform future research, prepare for disruptive new model capabilities, and ameliorate socially harmful effects, it is vital that we understand the present and near-future capabilities and limitations of language models. To address this challenge, we introduce the Beyond the Imitation Game benchmark (BIG-bench). BIG-bench currently consists of 204 tasks, contributed by 442 authors across 132 institutions. Task topics are diverse, drawing problems from linguistics, childhood development, math, common-sense reasoning, biology, physics, social bias, software development, and beyond. BIG-bench focuses on tasks that are believed to be beyond the capabilities of current language models. We evaluate the behavior of OpenAI's GPT models, Google-internal dense transformer architectures, and Switch-style sparse transformers on BIG-bench, across model sizes spanning millions to hundreds of billions of parameters."
-  authors: 
-    - Big-Bench Collaboration
+  description: Language models demonstrate both quantitative improvement and new qualitative capabilities with increasing scale. Despite their potentially transformative impact, these new capabilities are as yet poorly characterized. In order to inform future research, prepare for disruptive new model capabilities, and ameliorate socially harmful effects, it is vital that we understand the present and near-future capabilities and limitations of language models. To address this challenge, we introduce the Beyond the Imitation Game benchmark (BIG-bench). BIG-bench currently consists of 204 tasks, contributed by 442 authors across 132 institutions. Task topics are diverse, drawing problems from linguistics, childhood development, math, common-sense reasoning, biology, physics, social bias, software development, and beyond. BIG-bench focuses on tasks that are believed to be beyond the capabilities of current language models. We evaluate the behavior of OpenAI’s GPT models, Google-internal dense transformer architectures, and Switch-style sparse transformers on BIG-bench, across model sizes spanning millions to hundreds of billions of parameters.
+  authors:
+  - Big-Bench Collaboration
   date: 2023-05-01
-  venue: Transactions of Machine Learning Research (TMLR)
+  venue: TMLR
+  badges:
+  - Journal
+  theme: evaluation
   links:
-    openreview: https://openreview.net/forum?id=uyTL5Bvosj
     pdf: https://openreview.net/pdf?id=uyTL5Bvosj
+    openreview: https://openreview.net/forum?id=uyTL5Bvosj
     arxiv: https://arxiv.org/abs/2206.04615
     code: https://github.com/google/BIG-bench
     dataset: https://github.com/google/BIG-bench
-  topics: 
-    - "Learning and Language"
-    - "Datasets and Benchmarks"
-  highlight: 0
-
-- title: "CLUES: A Benchmark for Learning Classifiers using Natural Language Explanations"
+- title: 'CLUES: A Benchmark for Learning Classifiers using Natural Language Explanations'
+  short: CLUES
   image: clues.jpg
-  description: Supervised learning has traditionally focused on inductive learning by observing labeled examples of a task. In contrast, humans have the ability to learn new concepts from language. Here, we explore learning zero-shot classifiers for structured data purely from language from natural language explanations as supervision. For this, we introduce CLUES, a benchmark consisting of a range of classification tasks over structured data along with natural language supervision in the form of explanations. 
-  authors: 
-    - show: Rakesh R Menon*
-      link: Rakesh R Menon
-    - show: Sayan Ghosh*
-      link: Sayan Ghosh
-    - Shashank Srivastava
+  description: Supervised learning has traditionally focused on inductive learning by observing labeled examples of a task. In contrast, humans have the ability to learn new concepts from language. Here, we explore learning zero-shot classifiers for structured data purely from language from natural language explanations as supervision. For this, we introduce CLUES, a benchmark consisting of a range of classification tasks over structured data along with natural language supervision in the form of explanations.
+  authors:
+  - show: Rakesh R Menon*
+    link: Rakesh R Menon
+  - show: Sayan Ghosh*
+    link: Sayan Ghosh
+  - Shashank Srivastava
   date: 2022-05-26
-  venue: Proceedings of Association for Computational Linguistics (ACL)
+  venue: ACL
+  theme: learning
+  selected: true
   links:
     pdf: https://aclanthology.org/2022.acl-long.451.pdf
-    arxiv:  https://arxiv.org/abs/2204.07142
+    arxiv: https://arxiv.org/abs/2204.07142
     code: https://www.github.com/rrmenon10/ExEnt
     dataset: https://clues-benchmark.github.io/
-  topics: 
-    - "Learning and Language"
-    - "Datasets and Benchmarks"
-  highlight: 0
-
-- title: "ePiC: Employing Proverbs in Context as a Benchmark for Abstract Language Understanding"
+- title: 'ePiC: Employing Proverbs in Context as a Benchmark for Abstract Language Understanding'
   image: epic.png
-  description: "ePiC is a crowdsourced dataset of narratives for employing proverbs in context as a benchmark for abstract language understanding. The dataset provides fine-grained annotation of aligned spans between proverbs and narratives, and contains minimal lexical overlaps between narratives and proverbs, ensuring that models need to go beyond surface-level reasoning to succeed. The dataset is accompanied by three tasks : (1) proverb recommendation and alignment prediction, (2) narrative generation for a given proverb and topic, and (3) identifying narratives with similar motifs."
-  authors: 
-    - Sayan Ghosh
-    - Shashank Srivastava
+  description: 'ePiC is a crowdsourced dataset of narratives for employing proverbs in context as a benchmark for abstract language understanding. The dataset provides fine-grained annotation of aligned spans between proverbs and narratives, and contains minimal lexical overlaps between narratives and proverbs, ensuring that models need to go beyond surface-level reasoning to succeed. The dataset is accompanied by three tasks : (1) proverb recommendation and alignment prediction, (2) narrative generation for a given proverb and topic, and (3) identifying narratives with similar motifs.'
+  authors:
+  - Sayan Ghosh
+  - Shashank Srivastava
   date: 2022-05-26
-  venue: Proceedings of Association for Computational Linguistics (ACL)
+  venue: ACL
+  theme: evaluation
   links:
     pdf: https://aclanthology.org/2022.acl-long.276.pdf
-    arxiv:  https://arxiv.org/abs/2109.06838
+    arxiv: https://arxiv.org/abs/2109.06838
     code: https://github.com/sgdgp/epic
     dataset: https://epic-benchmark.github.io/
-  topics: 
-    - "Datasets and Benchmarks"
-    - "Language Understanding, Reasoning, and Generation"
-    - "Fairness and Social Applications"
-  highlight: 0
-
-- title: "Predicting Difficulty and Discrimination of Natural Language Questions"
-  image: pred_irt.png
-  description: "Our experiments show that it is possible to predict both difficulty and discrimination parameters for new questions, and these traits are correlated with features of questions, answers, and associated contexts. Our findings can have significant implications for the creation of new datasets and tests on the one hand and strategies such as active learning and curriculum learning on the other."
+- title: Predicting Difficulty and Discrimination of Natural Language Questions
+  description: Our experiments show that it is possible to predict both difficulty and discrimination parameters for new questions, and these traits are correlated with features of questions, answers, and associated contexts. Our findings can have significant implications for the creation of new datasets and tests on the one hand and strategies such as active learning and curriculum learning on the other.
   authors:
-    - Matthew Byrd
-    - Shashank Srivastava
+  - Matthew Byrd
+  - Shashank Srivastava
   date: 2022-05-26
-  venue: Proceedings of Association for Computational Linguistics (ACL)
+  venue: ACL
+  badges:
+  - Short
+  theme: evaluation
   links:
     pdf: https://aclanthology.org/2022.acl-short.15.pdf
     code: https://github.com/ByrdOfAFeather/pred_irt
     dataset: https://github.com/ByrdOfAFeather/pred_irt
-  topics: 
-    - "Language Understanding, Reasoning, and Generation"
-    - "Datasets and Benchmarks"
-  highlight: 0
-
-
-- title: "Improving and Simplifying Pattern Exploiting Training"
+- title: Improving and Simplifying Pattern Exploiting Training
   image: adapet.jpg
   description: Pattern Exploiting Training (PET) is a recent approach that leverages patterns for few-shot learning. However, PET uses task-specific unlabeled data. In this paper, we focus on few shot learning without any unlabeled data and introduce ADAPET, which modifies PET’s objective to provide denser supervision during fine-tuning. As a result, ADAPET outperforms PET on SuperGLUE without any task-specific unlabeled data.
-  authors: 
-    - Derek Tam*
-    - show: Rakesh R Menon*
-      link: Rakesh R Menon
-    - Mohit Bansal
-    - Shashank Srivastava
-    - Colin Raffel
-    
+  authors:
+  - Derek Tam*
+  - show: Rakesh R Menon*
+    link: Rakesh R Menon
+  - Mohit Bansal
+  - Shashank Srivastava
+  - Colin Raffel
   date: 2021-11-07
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: evaluation
   links:
     pdf: https://arxiv.org/pdf/2103.11955.pdf
-    arxiv:  https://arxiv.org/abs/2103.11955
+    arxiv: https://arxiv.org/abs/2103.11955
     code: https://www.github.com/rrmenon10/ADAPET
-  highlight: 0
-  topics:
-    - "Learning from Limited Labels"
-
-- title: "Adversarial Scrubbing of Demographic Information for Text Classification"
+- title: Adversarial Scrubbing of Demographic Information for Text Classification
   image: adversarial_scrubber.png
-  description: "Contextual representations learned by language models can often encode undesirable attributes, like demographic associations of the users, while being trained for an unrelated target task. We aim to scrub such undesirable attributes and learn fair representations while maintaining performance on the target task. In this paper, we present an adversarial learning framework 'Adversarial Scrubber' (ADS), to debias contextual representations. We perform theoretical analysis to show that our framework converges without leaking demographic information under certain conditions. We extend previous evaluation techniques by evaluating debiasing performance using Minimum Description Length (MDL) probing. Experimental evaluations on 8 datasets show that ADS generates representations with minimal information about demographic attributes while being maximally informative about the target task."
-  authors: 
-    - Somnath Basu Roy Chowdhury
-    - Sayan Ghosh
-    - Yiyuan Li
-    - Junier B Oliva
-    - Shashank Srivastava
-    - Snigdha Chaturvedi
-
+  description: Contextual representations learned by language models can often encode undesirable attributes, like demographic associations of the users, while being trained for an unrelated target task. We aim to scrub such undesirable attributes and learn fair representations while maintaining performance on the target task. In this paper, we present an adversarial learning framework 'Adversarial Scrubber' (ADS), to debias contextual representations. We perform theoretical analysis to show that our framework converges without leaking demographic information under certain conditions. We extend previous evaluation techniques by evaluating debiasing performance using Minimum Description Length (MDL) probing. Experimental evaluations on 8 datasets show that ADS generates representations with minimal information about demographic attributes while being maximally informative about the target task.
+  authors:
+  - Somnath Basu Roy Chowdhury
+  - Sayan Ghosh
+  - Yiyuan Li
+  - Junier B Oliva
+  - Shashank Srivastava
+  - Snigdha Chaturvedi
   date: 2021-11-07
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: behavior
   links:
     pdf: https://aclanthology.org/2021.emnlp-main.43.pdf
     arxiv: https://arxiv.org/abs/2109.08613
     code: https://github.com/brcsomnath/adversarial-scrubber
-  topics:
-    - "Fairness and Social Applications"
-  highlight: 0
-  
-- title: "Mapping Language to Programs using Multiple Reward Components with Inverse Reinforcement Learning"
+- title: Mapping Language to Programs using Multiple Reward Components with Inverse Reinforcement Learning
   image: irl_virtualhome.png
-  description: "Mapping natural language instructions to programs that computers can process is a fundamental challenge. Existing approaches focus on likelihood-based training or using reinforcement learning to fine-tune models based on a single reward. In this paper, we pose program generation from language as Inverse Reinforcement Learning. We introduce several interpretable reward components and jointly learn (1) a reward function that linearly combines them, and (2) a policy for program generation. Fine-tuning with our approach achieves significantly better performance than competitive methods using Reinforcement Learning (RL). On the VirtualHome framework, we get improvements of up to 9.0% on the Longest Common Subsequence metric and 14.7% on recall-based metrics over previous work on this framework (Puig et al., 2018). The approach is data-efficient, showing larger gains in performance in the low-data regime. Generated programs are also preferred by human evaluators over an RL-based approach, and rated higher on relevance, completeness, and human-likeness."
-  authors: 
-    - Sayan Ghosh
-    - Shashank Srivastava
-    
+  description: Mapping natural language instructions to programs that computers can process is a fundamental challenge. Existing approaches focus on likelihood-based training or using reinforcement learning to fine-tune models based on a single reward. In this paper, we pose program generation from language as Inverse Reinforcement Learning. We introduce several interpretable reward components and jointly learn (1) a reward function that linearly combines them, and (2) a policy for program generation. Fine-tuning with our approach achieves significantly better performance than competitive methods using Reinforcement Learning (RL). On the VirtualHome framework, we get improvements of up to 9.0% on the Longest Common Subsequence metric and 14.7% on recall-based metrics over previous work on this framework (Puig et al., 2018). The approach is data-efficient, showing larger gains in performance in the low-data regime. Generated programs are also preferred by human evaluators over an RL-based approach, and rated higher on relevance, completeness, and human-likeness.
+  authors:
+  - Sayan Ghosh
+  - Shashank Srivastava
   date: 2021-11-07
-  venue: Findings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  badges:
+  - Findings
+  theme: learning
   links:
     pdf: https://aclanthology.org/2021.findings-emnlp.125.pdf
     arxiv: https://arxiv.org/abs/2110.00842
     code: https://github.com/sgdgp/VirtualHome_IRL
-  topics:
-    - "Neuro-symbolic Learning"
-  highlight: 0
-
-- title: "How Helpful is Inverse Reinforcement Learning for Table-to-Text Generation?"
-  image: irl_table_to_text.png
-  description: "Existing approaches for the Table-to-Text task suffer from issues such as missing information, hallucination and repetition. Many approaches to this problem use Reinforcement Learning (RL), which maximizes a single manually defined reward, such as BLEU. In this work, we instead pose the Table-to-Text task as Inverse Reinforcement Learning (IRL) problem. We explore using multiple interpretable unsupervised reward components that are combined linearly to form a composite reward function. The composite reward function and the description generator are learned jointly. We find that IRL outperforms strong RL baselines marginally. We further study the generalization of learned IRL rewards in scenarios involving domain adaptation. Our experiments reveal significant challenges in using IRL for this task."
-  authors: 
-    - show: Sayan Ghosh*
-      link: Sayan Ghosh
-    - show: Zheng Qi*
-      link: Zheng Qi
-    - Snigdha Chaturvedi
-    - Shashank Srivastava
-    
+- title: How Helpful is Inverse Reinforcement Learning for Table-to-Text Generation?
+  image: irl_tabe_to_text.png
+  description: Existing approaches for the Table-to-Text task suffer from issues such as missing information, hallucination and repetition. Many approaches to this problem use Reinforcement Learning (RL), which maximizes a single manually defined reward, such as BLEU. In this work, we instead pose the Table-to-Text task as Inverse Reinforcement Learning (IRL) problem. We explore using multiple interpretable unsupervised reward components that are combined linearly to form a composite reward function. The composite reward function and the description generator are learned jointly. We find that IRL outperforms strong RL baselines marginally. We further study the generalization of learned IRL rewards in scenarios involving domain adaptation. Our experiments reveal significant challenges in using IRL for this task.
+  authors:
+  - show: Sayan Ghosh*
+    link: Sayan Ghosh
+  - show: Zheng Qi*
+    link: Zheng Qi
+  - Snigdha Chaturvedi
+  - Shashank Srivastava
   date: 2021-08-02
-  venue: Proceedings of Association for Computational Linguistics (ACL)
+  venue: ACL
+  badges:
+  - Short
+  theme: evaluation
   links:
     pdf: https://aclanthology.org/2021.acl-short.11.pdf
     code: https://github.com/issacqzh/IRL_Table2Text
-  topics:
-    - "Language Understanding, Reasoning, and Generation"
-  highlight: 0
-
-- title: "PRover: Proof Generation for Interpretable Reasoning over Rules"
+- title: 'PRover: Proof Generation for Interpretable Reasoning over Rules'
+  short: PRover
   image: prover.png
-  description: "Recent work by Clark et al. (2020) shows that transformers can act as 'soft theorem provers' by answering questions over explicitly provided knowledge in natural language. In our work, we take a step closer to emulating formal theorem provers, by proposing PROVER, an interpretable transformer-based model that jointly answers binary questions over rule-bases and generates the corresponding proofs. Our model learns to predict nodes and edges corresponding to proof graphs in an efficient constrained training paradigm. During inference, a valid proof, satisfying a set of global constraints is generated. We conduct experiments on synthetic, hand-authored, and human-paraphrased rule-bases to show promising results for QA and proof generation, with strong generalization performance. First, PROVER generates proofs with an accuracy of 87%, while retaining or improving performance on the QA task, compared to RuleTakers (up to 6% improvement on zero-shot evaluation). Second, when trained on questions requiring lower depths of reasoning, it generalizes significantly better to higher depths (up to 15% improvement). Third, PROVER obtains near perfect QA accuracy of 98% using only 40% of the training data. However, generating proofs for questions requiring higher depths of reasoning becomes challenging, and the accuracy drops to 65% for 'depth 5', indicating significant scope for future work."
-  authors: 
-    - Swarnadeep Saha
-    - Sayan Ghosh
-    - Shashank Srivastava
-    - Mohit Bansal
-    
+  description: Recent work by Clark et al. (2020) shows that transformers can act as 'soft theorem provers' by answering questions over explicitly provided knowledge in natural language. In our work, we take a step closer to emulating formal theorem provers, by proposing PROVER, an interpretable transformer-based model that jointly answers binary questions over rule-bases and generates the corresponding proofs. Our model learns to predict nodes and edges corresponding to proof graphs in an efficient constrained training paradigm. During inference, a valid proof, satisfying a set of global constraints is generated. We conduct experiments on synthetic, hand-authored, and human-paraphrased rule-bases to show promising results for QA and proof generation, with strong generalization performance. First, PROVER generates proofs with an accuracy of 87%, while retaining or improving performance on the QA task, compared to RuleTakers (up to 6% improvement on zero-shot evaluation). Second, when trained on questions requiring lower depths of reasoning, it generalizes significantly better to higher depths (up to 15% improvement). Third, PROVER obtains near perfect QA accuracy of 98% using only 40% of the training data. However, generating proofs for questions requiring higher depths of reasoning becomes challenging, and the accuracy drops to 65% for 'depth 5', indicating significant scope for future work.
+  authors:
+  - Swarnadeep Saha
+  - Sayan Ghosh
+  - Shashank Srivastava
+  - Mohit Bansal
   date: 2020-11-17
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: faithfulness
   links:
     pdf: https://aclanthology.org/2020.emnlp-main.9.pdf
     arxiv: https://arxiv.org/abs/2010.02830
     code: https://github.com/swarnaHub/PRover
-  topics:
-    - "Language Understanding, Reasoning, and Generation"
-  highlight: 0
-
-- title: "A Topical graph-kernel for Link Prediction in Labeled Graphs"
-  image: ""
-  description: ""
+- title: A Topical graph-kernel for Link Prediction in Labeled Graphs
   authors:
-    - Snigdha Chaturvedi
-    - Hal Daume III
-    - Taesun Moon
-    - Shashank Srivastava
+  - Snigdha Chaturvedi
+  - Hal Daume III
+  - Taesun Moon
+  - Shashank Srivastava
   date: 2012-06-26
-  venue: ICML Workshop on Mining and Learning with Graphs (MLG)
+  venue: MLG @ ICML
+  badges:
+  - Workshop
+  theme: other
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava13-graphkernel.pdf
-  topics:
-    - "Miscellaneous"
-  highlight: 0
-
-- title: "A Structured Distributional Semantic Model : Integrating Structure with Semantics"
-  image: ""
-  description: ""
+- title: 'A Structured Distributional Semantic Model: Integrating Structure with Semantics'
   authors:
-    - Kartik Goyal*
-    - Sujay Kumar Jauhar*
-    - Huiying Li*
-    - Mrinmaya Sachan*
-    - show: Shashank Srivastava*
-      link: Shashank Srivastava
-    - Eduard Hovy
+  - Kartik Goyal*
+  - Sujay Kumar Jauhar*
+  - Huiying Li*
+  - Mrinmaya Sachan*
+  - show: Shashank Srivastava*
+    link: Shashank Srivastava
+  - Eduard Hovy
   date: 2013-08-04
-  venue: Workshop on Continuous Vector Space Models and their Compositionality, ACL
+  venue: CVSC @ ACL
+  badges:
+  - Workshop
+  theme: evaluation
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava13-sdsmWorkshop.pdf
-  topics:
-    - "Syntax and Semantics"
-  highlight: 0
-
-- title: "Identifying Metaphorical Word Use with Tree Kernels"
-  image: ""
-  description: ""
+- title: Identifying Metaphorical Word Use with Tree Kernels
   authors:
-    - Dirk Hovy
-    - Shashank Srivastava
-    - Sujay Kumar Jauhar
-    - Mrinmaya Sachan
-    - Kartik Goyal
-    - Huiying Li
-    - Whitney Sanders
-    - Eduard Hovy
+  - Dirk Hovy
+  - Shashank Srivastava
+  - Sujay Kumar Jauhar
+  - Mrinmaya Sachan
+  - Kartik Goyal
+  - Huiying Li
+  - Whitney Sanders
+  - Eduard Hovy
   date: 2013-06-13
-  venue: NAACL-HLT Meta4NLP Workshop
+  venue: Meta4NLP @ NAACL
+  badges:
+  - Workshop
+  theme: evaluation
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava13-metaphor.pdf
-  topics:
-    - "Syntax and Semantics"
-  highlight: 0
-
-- title: "A Structured Distributional Semantic Model for Event Co-reference"
-  image: ""
-  description: ""
+- title: A Structured Distributional Semantic Model for Event Co-reference
   authors:
-    - Kartik Goyal*
-    - Sujay Kumar Jauhar*
-    - Huiying Li*
-    - Mrinmaya Sachan*
-    - show: Shashank Srivastava*
-      link: Shashank Srivastava
-    - Eduard Hovy
+  - Kartik Goyal*
+  - Sujay Kumar Jauhar*
+  - Huiying Li*
+  - Mrinmaya Sachan*
+  - show: Shashank Srivastava*
+    link: Shashank Srivastava
+  - Eduard Hovy
   date: 2013-08-04
-  venue: Proceedings of the Association of Computational Linguistics (ACL)
+  venue: ACL
+  badges:
+  - Short
+  theme: evaluation
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava13-sdsm.pdf
-  topics:
-    - "Syntax and Semantics"
-  highlight: 0
-
-- title: "A Walk-based Semantically Enriched Tree Kernel Over Distributed Word Representations"
-  image: ""
-  description: ""
+- title: A Walk-based Semantically Enriched Tree Kernel Over Distributed Word Representations
   authors:
-    - Shashank Srivastava
-    - Dirk Hovy
-    - Eduard Hovy
+  - Shashank Srivastava
+  - Dirk Hovy
+  - Eduard Hovy
   date: 2013-10-18
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: evaluation
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava13-treekernel.pdf
-  topics:
-    - "Syntax and Semantics"
-  highlight: 0
-
-- title: "Spatial Compactness meets Topical Consistency: Jointly modeling link and content for community detection"
-  image: ""
-  description: ""
+- title: 'Spatial Compactness meets Topical Consistency: Jointly modeling link and content for community detection'
   authors:
-    - Mrinmaya Sachan
-    - Avinava Dubey
-    - Shashank Srivastava
-    - Eric P Xing
-    - Eduard Hovy
+  - Mrinmaya Sachan
+  - Avinava Dubey
+  - Shashank Srivastava
+  - Eric P Xing
+  - Eduard Hovy
   date: 2014-02-24
-  venue: Proceedings of Web Search and Data Mining (WSDM)
+  venue: WSDM
+  theme: other
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava14-community.pdf
-  topics:
-    - "Miscellaneous"
-  highlight: 0
-
-- title: "Vector space semantics with frequency-driven motifs"
-  image: ""
-  description: ""
+- title: Vector space semantics with frequency-driven motifs
   authors:
-    - Shashank Srivastava
-    - Eduard Hovy
+  - Shashank Srivastava
+  - Eduard Hovy
   date: 2014-05-06
-  venue: Proceedings of the Association of Computational Linguistics (ACL)
+  venue: ACL
+  theme: evaluation
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava14-motifs.pdf
-  topics:
-    - "Syntax and Semantics"
-  highlight: 0
-
-- title: "CMU-ML System for KBP Cold Start Slot Filling"
-  image: ""
-  description: ""
+- title: CMU-ML System for KBP Cold Start Slot Filling
   authors:
-    - Bryan Kisiel
-    - Bill McDowell
-    - Matt Gardner
-    - Ndapandula Nakashole
-    - Emmanouil A. Platanios
-    - Abulhair Saparov
-    - Shashank Srivastava
-    - Derry Wijaya
-    - Tom Mitchell
+  - Bryan Kisiel
+  - Bill McDowell
+  - Matt Gardner
+  - Ndapandula Nakashole
+  - Emmanouil A. Platanios
+  - Abulhair Saparov
+  - Shashank Srivastava
+  - Derry Wijaya
+  - Tom Mitchell
   date: 2015-11-16
-  venue: Proceedings of the Text Analysis Conference (TAC)
+  venue: TAC
+  theme: evaluation
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava15-KBP.pdf
-  topics:
-    - "Syntax and Semantics"
-  highlight: 0
-
-- title: "CMUML Micro-Reader System for KBP 2016 Cold Start Slot Filling, Event Nugget Detection, and Event Argument Linking"
-  image: ""
-  description: ""
+- title: CMUML Micro-Reader System for KBP 2016 Cold Start Slot Filling, Event Nugget Detection, and Event Argument Linking
   authors:
-    - Bishan Yang
-    - Ndapandula Nakashole
-    - Bryan Kisiel
-    - Emmanouil A. Platanios
-    - Abulhair Saparov
-    - Shashank Srivastava
-    - Derry Wijaya
-    - Tom Mitchell
+  - Bishan Yang
+  - Ndapandula Nakashole
+  - Bryan Kisiel
+  - Emmanouil A. Platanios
+  - Abulhair Saparov
+  - Shashank Srivastava
+  - Derry Wijaya
+  - Tom Mitchell
   date: 2016-11-14
-  venue: Proceedings of the Text Analysis Conference (TAC)
+  venue: TAC
+  theme: evaluation
   links:
     pdf: https://tac.nist.gov/publications/2016/participant.papers/TAC2016.CMUML.proceedings.pdf
-  topics:
-    - "Syntax and Semantics"
-  highlight: 0
-
-- title: "Modeling Evolving Relationships Between Characters in Literary Novel"
-  image: ""
-  description: ""
+- title: Modeling Evolving Relationships Between Characters in Literary Novel
   authors:
-    - Snigdha Chaturvedi
-    - Shashank Srivastava
-    - Hal Daume III
-    - Chris Dyer
+  - Snigdha Chaturvedi
+  - Shashank Srivastava
+  - Hal Daume III
+  - Chris Dyer
   date: 2016-02-12
-  venue: Proceedings of the Association for the Advancement of Artificial Intelligence (AAAI)
+  venue: AAAI
+  theme: behavior
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava16-evolving.pdf
-  topics:
-    - "Fairness and Social Applications"
-  highlight: 0
-
-- title: "Inferring Interpersonal Relations in Narrative Summaries"
-  image: ""
-  description: ""
+- title: Inferring Interpersonal Relations in Narrative Summaries
   authors:
-    - Shashank Srivastava
-    - Snigdha Chaturvedi
-    - Tom Mitchell
+  - Shashank Srivastava
+  - Snigdha Chaturvedi
+  - Tom Mitchell
   date: 2016-02-12
-  venue: Proceedings of the Association for the Advancement of Artificial Intelligence (AAAI)
+  venue: AAAI
+  theme: behavior
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava16-inferring.pdf
-  topics:
-    - "Fairness and Social Applications"
-    - "Datasets and Benchmarks"
-  highlight: 0
-
-- title: "Parsing Natural Language Conversations with Contextual Cues"
-  image: ""
-  description: ""
+- title: Parsing Natural Language Conversations with Contextual Cues
   authors:
-    - Shashank Srivastava
-    - Amos Azaria
-    - Tom Mitchell
+  - Shashank Srivastava
+  - Amos Azaria
+  - Tom Mitchell
   date: 2017-08-19
-  venue: Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI)
+  venue: IJCAI
+  theme: learning
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava17-conversations.pdf
-  topics:
-    - "Neuro-symbolic Learning"
-    - "Datasets and Benchmarks"
-  highlight: 0
-
-- title: "Joint Concept Learning and Semantic Parsing from Natural Language Explanations"
-  image: ""
-  description: ""
+- title: Joint Concept Learning and Semantic Parsing from Natural Language Explanations
+  short: Joint concept learning
   authors:
-    - Shashank Srivastava
-    - Igor Labutov
-    - Tom Mitchell
+  - Shashank Srivastava
+  - Igor Labutov
+  - Tom Mitchell
   date: 2017-09-07
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: learning
+  selected: true
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava17-jointLNL.pdf
-  topics:
-    - "Learning and Language"
-    - "Learning from Limited Labels"
-    - "Datasets and Benchmarks"
-  highlight: 0
-
-- title: "Learning Classifiers from Declarative Language"
-  image: ""
-  description: ""
+- title: Learning Classifiers from Declarative Language
   authors:
-    - Shashank Srivastava
-    - Igor Labutov
-    - Tom Mitchell
+  - Shashank Srivastava
+  - Igor Labutov
+  - Tom Mitchell
   date: 2017-12-07
-  venue: NeurIPS Workshop on Learning from Limited Data
+  venue: LLD @ NeurIPS
+  badges:
+  - Workshop
+  theme: learning
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava17-lldworkshop.pdf
-  topics:
-    - "Learning and Language"
-    - "Learning from Limited Labels"
-  highlight: 0
-
-- title: "Where have I heard this story before? : Identifying Narrative Similarity in Movie Remakes"
-  image: ""
-  description: ""
+- title: 'Where have I heard this story before?: Identifying Narrative Similarity in Movie Remakes'
   authors:
-    - Snigdha Chaturvedi
-    - Shashank Srivastava
-    - Dan Roth
+  - Snigdha Chaturvedi
+  - Shashank Srivastava
+  - Dan Roth
   date: 2018-06-01
-  venue: Proceedings of the North Americal Chapter of Association of Computational Linguistics (NAACL)
+  venue: NAACL
+  theme: behavior
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava18-remakes.pdf
-  topics:
-    - "Fairness and Social Applications"
-    - "Datasets and Benchmarks"
-  highlight: 0
-
-- title: "LIA: A Natural Language Programmable Personal Assistant"
-  image: ""
-  description: ""
+- title: 'LIA: A Natural Language Programmable Personal Assistant'
   authors:
-    - Igor Labutov
-    - Shashank Srivastava
-    - Tom Mitchell
+  - Igor Labutov
+  - Shashank Srivastava
+  - Tom Mitchell
   date: 2018-10-31
-  venue: Systems Demo, Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  badges:
+  - Demo
+  theme: learning
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava18-LiA.pdf
-  topics:
-    - "Learning and Language"
-  highlight: 0
-
-- title: "Zero-shot Learning of Classifiers from Natural Language Quantification"
-  image: ""
-  description: ""
+- title: Zero-shot Learning of Classifiers from Natural Language Quantification
+  short: Zero-shot from NL quantification
   authors:
-    - Shashank Srivastava
-    - Igor Labutov
-    - Tom Mitchell
+  - Shashank Srivastava
+  - Igor Labutov
+  - Tom Mitchell
   date: 2018-07-15
-  venue: Proceedings of the Association of Computational Linguistics (ACL)
+  venue: ACL
+  theme: learning
+  selected: true
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava18-lnq.pdf
-  topics:
-    - "Learning and Language"
-    - "Learning from Limited Labels"
-  highlight: 0
-
-- title: "A Spatial Model for Extracting and Visualizing Latent Discourse Structure in Text"
-  image: ""
-  description: ""
+- title: A Spatial Model for Extracting and Visualizing Latent Discourse Structure in Text
   authors:
-    - Shashank Srivastava
-    - Nebojsa Jojic
+  - Shashank Srivastava
+  - Nebojsa Jojic
   date: 2018-07-15
-  venue: Proceedings of the Association of Computational Linguistics (ACL)
+  venue: ACL
+  theme: behavior
   links:
     pdf: http://www.cs.cmu.edu/~shashans/papers/srivastava18-spatial.pdf
-  topics:
-    - "Syntax and Semantics"
-  highlight: 0
-
-- title: "Learning to Ask for Conversational Machine Learning"
-  image: ""
-  description: ""
+- title: Learning to Ask for Conversational Machine Learning
+  short: Learning to Ask
+  description: Natural language has recently been explored as a new medium of supervision for training machine learning models. Here, we explore learning classification tasks using language in a conversational setting – where the automated learner does not simply receive language input from a teacher, but can proactively engage the teacher by asking questions. We present a reinforcement learning framework, where the learner’s actions correspond to question types and the reward for asking a question is based on how the teacher’s response changes performance of the resulting machine learning model on the learning task. In this framework, learning good question-asking strategies corresponds to asking sequences of questions that maximize the cumulative (discounted) reward, and hence quickly lead to effective classifiers. Empirical analysis across three domains shows that learned question-asking strategies expedite classifier training by asking appropriate questions at different points in the learning process. The approach allows learning classifiers from a blend of strategies, including learning from observations, explanations and clarifications.
   authors:
-    - Shashank Srivastava
-    - Igor Labutov
-    - Tom Mitchell
+  - Shashank Srivastava
+  - Igor Labutov
+  - Tom Mitchell
   date: 2019-11-03
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: learning
+  selected: true
   links:
     pdf: https://aclanthology.org/D19-1426.pdf
-  topics:
-    - "Learning and Language"
-    - "Learning from Limited Labels"
-  highlight: 0
-
-- title: "An Agent for Learning New Natural Language Commands"
-  image: ""
-  description: ""
+- title: An Agent for Learning New Natural Language Commands
   authors:
-    - Amos Azaria
-    - Shashank Srivastava
-    - Jayant Krishnamurthy
-    - Igor Labutov
-    - Tom Mitchell
+  - Amos Azaria
+  - Shashank Srivastava
+  - Jayant Krishnamurthy
+  - Igor Labutov
+  - Tom Mitchell
   date: 2020-01-01
-  venue: Journal of Autonomous Agents and Multi-Agent Systems (JAAMAS)
+  venue: JAAMAS
+  badges:
+  - Journal
+  theme: learning
   links:
     link: https://link.springer.com/article/10.1007/s10458-019-09425-x
-  topics:
-    - "Learning and Language"
-    - "Learning from Limited Labels"
-  highlight: 0
-
-- title: "Learning Web-based procedures by Reasoning over Explanations and Demonstrations in Context"
-  image: ""
-  description: ""
+- title: Learning Web-based procedures by Reasoning over Explanations and Demonstrations in Context
+  description: We explore learning web-based tasks from a human teacher through natural language explanations and a single demonstration. Our approach investigates a new direction for semantic parsing that models explaining a demonstration in a context, rather than mapping explanations to demonstrations. By leveraging the idea of inverse semantics from program synthesis to reason backwards from observed demonstrations, we ensure that all considered interpretations are consistent with executable actions in any context, thus simplifying the problem of search over logical forms. We present a dataset of explanations paired with demonstrations for web-based tasks. Our methods show better task completion rates than a supervised semantic parsing baseline (40% relative improvement on average), and are competitive with simple exploration-and-demonstration based methods, while requiring no exploration of the environment. In learning to align explanations with demonstrations, basic properties of natural language syntax emerge as learned behavior. This is an interesting example of pragmatic language acquisition without any linguistic annotation.
   authors:
-    - Shashank Srivastava
-    - Oleksandr Polozov
-    - Nebojsa Jojic
-    - Christopher Meek
+  - Shashank Srivastava
+  - Oleksandr Polozov
+  - Nebojsa Jojic
+  - Christopher Meek
   date: 2020-07-06
-  venue: Proceedings of the Association of Computational Linguistics (ACL)
+  venue: ACL
+  theme: learning
   links:
     pdf: https://aclanthology.org/2020.acl-main.684.pdf
     dataset: https://aka.ms/Web-D-E
-  topics:
-    - "Learning and Language"
-    - "Learning from Limited Labels"
-    - "Neuro-symbolic Learning"
-    - "Datasets and Benchmarks"
-  highlight: 0
-
-- title: "Does Social Pressure Drive Persuasion in Online Fora?"
-  image: "cmv.jpg"
-  description: ""
+- title: Does Social Pressure Drive Persuasion in Online Fora?
+  image: cmv.jpg
+  description: Online forums such as ChangeMyView have been explored to research aspects of persuasion and argumentative quality in language. While previous research has focused on arguments between a view-holder and a persuader, we explore the premise that apart from the merits of arguments, persuasion is influenced by the ambient social community. We hypothesize that comments from the rest of the community can either affirm the original view or implicitly exert pressure to change it. We develop a structured model to capture the ambient community’s sentiment towards the discussion and its effect on persuasion. Our experiments show that social features themselves are significantly predictive of persuasion (even without looking at the actual content of discussion), with performance comparable to some earlier approaches that use content features. Combining community and content features leads to overall performance of 78.5% on the persuasion prediction task. Our analyses suggest that the effect of social pressure is comparable to the difference between persuasive and non-persuasive language strategies in driving persuasion and that social pressure might be a causal factor for persuasion.
   authors:
-    - Ayush Jain
-    - Shashank Srivastava
+  - Ayush Jain
+  - Shashank Srivastava
   date: 2021-11-07
-  venue: Proceedings of Empirical Methods in Natural Language Processing (EMNLP)
+  venue: EMNLP
+  theme: behavior
   links:
     pdf: https://aclanthology.org/2021.emnlp-main.725.pdf
-  topics:
-    - "Fairness and Social Applications"
-  highlight: 1

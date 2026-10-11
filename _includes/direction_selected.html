@@ -1,0 +1,12 @@
+{%- comment -%} Inline list of selected work for a direction. Usage: include direction_selected.html dir=d {%- endcomment -%}
+{%- assign sel = site.data.publications | where: 'selected', true | sort: 'date' | reverse -%}
+<span class="selected">
+  <span class="selected-label">Selected work</span>
+  {%- for p in sel -%}
+    {%- assign th = site.data.themes | where: 'id', p.theme | first -%}
+    {%- if th.direction == include.dir.id -%}
+      {%- assign href = p.links.pdf | default: p.links.arxiv | default: p.links.arXiv | default: p.links.icml | default: p.links.openreview -%}
+      <span class="sel-item">{% if href %}<a href="{{ href }}">{{ p.short | default: p.title }}</a>{% else %}{{ p.short | default: p.title }}{% endif %} <span class="yr">{{ p.date | date: '%Y' }}</span></span>
+    {%- endif -%}
+  {%- endfor -%}
+</span>

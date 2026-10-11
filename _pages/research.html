@@ -1,0 +1,33 @@
+---
+layout: page
+permalink: /research/
+title: Research
+heading: Language as an interface to intelligence
+description: Research of the Learning from Language Lab at UNC Chapel Hill - explaining AI systems, learning through language and interaction, and language, cognition and social behavior.
+---
+{%- assign thesis = site.data.publications | where: 'short', 'PhD thesis' | first -%}
+<p class="page-intro">The lab’s current research has three principal thrusts. It grew out of Shashank’s {% if thesis.links.pdf %}<a href="{{ thesis.links.pdf }}">PhD dissertation</a>{% else %}PhD dissertation{% endif %} (2018) on teaching machines to learn from human language supervision, before the LLM era. Now that language models explain themselves, the question runs the other way too. What do their explanations tell us, and when can we trust them?</p>
+
+{%- for d in site.data.directions -%}{%- unless d.hidden %}
+<section class="thrust" id="{{ d.id }}" style="--tag: {{ d.color }}">
+  <h2><span class="thrust-title">{{ d.title }}</span></h2>
+  <p class="question">{{ d.question }}</p>
+  <p>{{ d.body }}</p>
+  {% include direction_selected.html dir=d %}
+  <p><a class="more" href="{{ '/publications/' | relative_url }}#{{ d.id }}">All papers in this thrust &rarr;</a></p>
+</section>
+{%- endunless -%}{%- endfor %}
+
+<section class="row">
+  <h2 class="label">Code and data</h2>
+  <ul class="resources">
+    {%- assign all_pubs = site.data.publications | sort: 'date' | reverse -%}
+    {%- for p in all_pubs -%}
+      {%- assign code = p.links.code -%}{%- assign data = p.links.dataset | default: p.links.data -%}
+      {%- if code or data -%}
+      <li><span class="res-name">{{ p.short | default: p.title | split: ':' | first | truncatewords: 5 }}</span> <span class="yr">{{ p.venue }} {{ p.date | date: '%Y' }}</span>
+        {% if code %}<a href="{{ code }}">code</a>{% endif %}{% if data %}<a href="{{ data }}">data</a>{% endif %}</li>
+      {%- endif -%}
+    {%- endfor %}
+  </ul>
+</section>

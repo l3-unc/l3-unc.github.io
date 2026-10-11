@@ -1,47 +1,36 @@
-<p>
-<strong>{{include.title}}</strong><br>
-{% for person in include.authors %}
-      {%- if person.link -%}
-        {%- assign link = person.link -%}
-      {%- else -%}
-        {%- assign link = person -%}
-      {%- endif -%}
-      {%- if person.show -%}
-        {%- assign show = person.show -%}
-      {%- else -%}
-        {%- assign show = person -%}
-      {%- endif -%}
-      {% assign per = site.data.people | where: "name", link %}
-      {%- if per[0].link -%}
-        <a href="{{ per[0].link | datapage_url: 'people' }}">{{ show }}</a>
-      {%- else -%}
-        {% assign per = site.data.alumni | where: "name", link %}
-        {%- if per[0].link -%}
-          <a href="{{ per[0].link | datapage_url: 'alumni' }}">{{ show }}</a>
-        {%- else -%}
-          {{ show }}
-        {%- endif -%}
-      {%- endif -%}
-      {%- if forloop.rindex > 2 -%}, {% endif %}
-      {%- if forloop.rindex == 2 and forloop.length > 2 -%}, {% endif %}
-      {% if forloop.rindex == 2 %} and {% endif %}
-    {% endfor %}
-<br>
-{{include.venue}}, {{include.date | date: '%Y' }}.<br>
-{% if include.topics != "" and include.topics != nil %}
-{% for topic in include.topics %}
-  {%- assign topic_style = nil -%}
-  {%- assign topic_name = topic -%}
-  {%- if site.data.topics[topic_name].color != blank -%}
-    {%- assign topic_style = site.data.topics[topic_name].color | prepend: 'style="background-color:' | append: '"' -%}
-  {%- endif -%}
-  <abbr class="badge" {% if topic_style %}{{topic_style}}{% endif %}><a href="/topicwise_publications#{{site.data.topics[topic_name].url}}" style="color:#FFFF">{{topic_name}}</a></abbr>
-{% endfor %}
-<br>
-{% endif %}
-{% if include.links != "" and include.links != nil %}
-  {% for link in include.links %}
-    [<a href="{{link[1]}}">{{link[0]}}</a>]{% unless forloop.last %}, {% endunless %}
-  {% endfor %}
-{% endif %}
-</p>
+{%- comment -%} Renders one publication. Usage: include paper.html paper=paper {%- endcomment -%}
+{%- assign p = include.paper -%}
+{%- assign year = p.date | date: '%Y' -%}
+{%- assign th = site.data.themes | where: 'id', p.theme | first -%}
+<li class="paper" data-theme="{{ th.direction }}" data-year="{{ year }}">
+  <div class="meta">
+    <span class="venue">{{ p.venue }} {{ year }}</span><br>
+    {%- for b in p.badges %}<span class="badge{% if b == 'Oral' %} badge-oral{% endif %}">{{ b }}</span>{% endfor %}
+  </div>
+  <div>
+    <h3 class="paper-title">{{ p.title }}</h3>
+    <p class="paper-authors">
+      {%- for a in p.authors -%}
+        {%- assign nm = a.link | default: a -%}
+        {%- assign shown = a.show | default: a -%}
+        {%- assign member = site.data.people | where: 'name', nm | first -%}
+        {%- unless member -%}{%- assign member = site.data.alumni | where: 'name', nm | first -%}{%- endunless -%}
+        {%- if member and member.link -%}<a class="lab-member" href="{{ member.link }}">{{ shown }}</a>
+        {%- elsif member -%}<span class="lab-member">{{ shown }}</span>
+        {%- else -%}{{ shown }}{%- endif -%}
+        {%- if forloop.last -%}{%- elsif forloop.length == 2 -%}{{ ' and ' }}{%- elsif forloop.rindex == 2 -%}{{ ', and ' }}{%- else -%}{{ ', ' }}{%- endif -%}
+      {%- endfor -%}
+    </p>
+    {%- if p.links or p.description %}
+    <div class="paper-links">
+      {%- if p.links.pdf %}{% assign u = p.links.pdf %}<a href="{% if u contains '://' %}{{ u }}{% else %}{{ u | relative_url }}{% endif %}">pdf</a>{% endif -%}
+      {%- for l in p.links -%}
+        {%- if l[0] == 'pdf' -%}{%- continue -%}{%- endif -%}
+        {%- assign u = l[1] -%}
+        <a href="{% if u contains '://' %}{{ u }}{% else %}{{ u | relative_url }}{% endif %}">{{ l[0] | replace: 'dataset', 'data' }}</a>
+      {%- endfor -%}
+      {%- if p.description %}<details class="abstract"><summary>abstract</summary><p>{{ p.description }}</p></details>{% endif -%}
+    </div>
+    {%- endif %}
+  </div>
+</li>

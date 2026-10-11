@@ -1,26 +1,26 @@
-# This file contains all active members displayed on https://chandar-lab.github.io/people/
-# Once a member becomes inactive, their details should be moved from people.yaml to alumni.yaml.
-# Note that the format of alumni.yaml is slightly different from people.yaml.
-
-# Below is a documented template.
-# - name: -- Your name
-#   link: -- Link to your personal website / linkedin
-#   photo: -- Name of your photo file (as stored in images/teampic/)
-#   info: -- Your title
-#   period: 
-#      start: -- The year you started working in the lab
-#   title: -- This is an identifier used for some codes. Choose one of (pi/phd/masters/bachelors)
-#   email: -- your preferred contact email
-
+# Current lab members. Shown on /team/ grouped by `title` (pi, phd, masters, bachelors).
+# When someone leaves, move them to alumni.yml (see README).
+#
+# - name:   Full name (must match the name used in publications.yml so papers link to them)
+#   link:   Personal website / LinkedIn / GitHub (optional)
+#   photo:  File in images/bios_compressed/ (200x200 square; run compress_bios.sh)
+#   info:   Role shown under the name, e.g. "PhD Student"
+#   period:
+#     start: Year they joined
+#   title:  pi | phd | masters | bachelors
+#   email:  Preferred contact email (not displayed publicly)
+#   bio:    (optional) Short blurb, shown for the PI
 
 - name: Shashank Srivastava
   link: https://www.ssriva.com
   photo: shashank.jpg
-  info: Assistant professor
+  info: Assistant Professor
   period:
     start: 2020
   title: pi
   email: ssrivastava@cs.unc.edu
+  bio: >-
+    Shashank is an Assistant Professor of Computer Science at UNC Chapel Hill. Before joining UNC he was a researcher at Microsoft Research in Redmond. He received his PhD in Machine Learning from Carnegie Mellon University, working with Tom Mitchell. His work explores the connection between natural language, machine intelligence, and interaction, with a focus on AI explainability, alignment, and interactive learning in large language models.
 
 - name: Kerem Zaman
   link: https://www.keremzaman.com/

@@ -1,0 +1,100 @@
+---
+layout: default
+permalink: /
+title: Learning from Language Lab
+description: The Learning from Language Lab at UNC Chapel Hill studies how human language and machine intelligence connect, with a focus on interpretable, explainable, and faithful reasoning in large language models.
+---
+{%- assign pubs = site.data.publications | sort: 'date' | reverse -%}
+{%- assign latest_year = pubs.first.date | date: '%Y' -%}
+{%- assign latest_n = latest_year | plus: 0 -%}
+{%- assign min_year = latest_n | minus: 1 -%}
+{%- assign orals = '' | split: '' -%}{%- assign oral_venues = '|' -%}
+{%- assign others = '' | split: '' -%}{%- assign seen = '|' -%}
+{%- for p in pubs -%}
+  {%- assign yn = p.date | date: '%Y' | plus: 0 -%}
+  {%- assign key = '|' | append: p.venue | append: '|' -%}
+  {%- if p.badges contains 'Oral' and yn >= min_year -%}
+    {%- assign orals = orals | push: p -%}
+    {%- if yn == latest_n -%}{%- assign oral_venues = oral_venues | append: p.venue | append: '|' -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- for p in pubs -%}
+  {%- assign yn = p.date | date: '%Y' | plus: 0 -%}
+  {%- assign key = '|' | append: p.venue | append: '|' -%}
+  {%- if yn == latest_n -%}
+    {%- unless p.badges contains 'Oral' or p.badges contains 'Preprint' -%}
+      {%- unless oral_venues contains key -%}
+        {%- unless seen contains key -%}
+          {%- assign others = others | push: p.venue -%}{%- assign seen = seen | append: p.venue | append: '|' -%}
+        {%- endunless -%}
+      {%- endunless -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<div class="wrap">
+  <section class="intro">
+    <h1>Understanding machine intelligence <em>through language</em></h1>
+    <p class="lede">Language is a powerful interface to machine intelligence, but it does not always reveal how AI systems work. We develop methods to explain and predict model behavior, investigate how models learn through language and interaction, and study how language and context shape their reasoning and social behavior. Our work also examines when the explanations models produce can be trusted.</p>
+    <p class="more-line"><a class="more" href="{{ '/research/' | relative_url }}">Explore our research &rarr;</a></p>
+  </section>
+
+  <section class="row">
+    <h2 class="label">Recent</h2>
+    <div class="record">
+      {%- if orals.size > 0 %}
+      <p>Orals at {% for p in orals %}<strong>{{ p.venue }} {{ p.date | date: '%Y' }}</strong>{% if forloop.last %}{% elsif forloop.rindex == 2 %}{% if orals.size > 2 %},{% endif %} and {% else %}, {% endif %}{% endfor %}.
+      {%- if others.size > 0 %} Also at {% for v in others %}{{ v }}{% if forloop.last %}{% elsif forloop.rindex == 2 %}{% if others.size > 2 %},{% endif %} and {% else %}, {% endif %}{% endfor %} {{ latest_year }}.{% endif %}</p>
+      {%- elsif others.size > 0 %}
+      <p>At {% for v in others %}{{ v }}{% if forloop.last %}{% elsif forloop.rindex == 2 %}{% if others.size > 2 %},{% endif %} and {% else %}, {% endif %}{% endfor %} {{ latest_year }}.</p>
+      {%- endif %}
+      {%- if site.funding_note and site.funding_note != '' %}
+      <p>{{ site.funding_note }}</p>
+      {%- endif %}
+    </div>
+  </section>
+
+  <section class="row">
+    <h2 class="label">Research highlights</h2>
+    <div>
+      <ul class="picks">
+        {%- assign featured = site.data.publications | where_exp: 'p', 'p.feature_rank' | sort: 'feature_rank' -%}
+        {%- for p in featured -%}
+        {%- assign href = p.links.pdf | default: p.links.arxiv | default: p.links.arXiv | default: p.links.icml | default: p.links.openreview -%}
+        {%- assign topic = site.data.themes | where: 'id', p.theme | first -%}
+        {%- assign direction = site.data.directions | where: 'id', topic.direction | first -%}
+        <li class="pick">
+          {%- if p.image -%}{%- assign img = p.image | split: '.' | first -%}
+          <img src="{{ '/images/pubpic/web/' | append: img | append: '.webp' | relative_url }}" alt="Figure from the paper: {{ p.short | default: p.title | escape }}" loading="lazy" width="800" height="600">
+          {%- else -%}
+          <div class="pick-tile" aria-hidden="true"><b>{{ p.short | default: p.venue }}</b><span>{{ p.venue }} {{ p.date | date: '%Y' }}</span></div>
+          {%- endif -%}
+          <div>
+            <h3>{{ p.question }}</h3>
+            {%- if direction %}<a class="direction-tag" style="--tag: {{ direction.color }}" href="{{ '/research/' | relative_url }}#{{ direction.id }}">{{ direction.short | default: direction.title }}</a>{% endif %}
+            <p class="finding">{{ p.finding }}</p>
+            <p class="pick-meta">
+              <span class="venue">{{ p.short | default: p.venue }} &middot; {{ p.venue }} {{ p.date | date: '%Y' }}</span>{% for b in p.badges %}<span class="badge{% if b == 'Oral' %} badge-oral{% endif %}">{{ b }}</span>{% endfor %}
+              {% if href %}<a class="more" href="{{ href }}">Read the paper &rarr;</a>{% endif %}
+            </p>
+          </div>
+        </li>
+        {%- endfor -%}
+      </ul>
+      <p><a class="more" href="{{ '/publications/' | relative_url }}">All publications &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2 class="label">News</h2>
+    <div>
+      {% include news_list.html limit=5 %}
+      <p><a class="more" href="{{ '/news/' | relative_url }}">All news &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2 class="label">Join</h2>
+    <p class="record">We welcome applications from PhD, MS, and undergraduate students who are excited about language, learning, and interpretability. <a href="{{ '/join/' | relative_url }}">How to join &rarr;</a></p>
+  </section>
+</div>

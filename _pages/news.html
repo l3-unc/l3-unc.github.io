@@ -1,0 +1,19 @@
+---
+layout: page
+permalink: /news/
+title: News
+heading: News
+description: News from the Learning from Language Lab at UNC Chapel Hill.
+---
+{%- assign all_news = site.data.news | sort: 'date' | reverse -%}
+{%- assign last_year = '' -%}
+{%- for item in all_news -%}
+{%- assign y = item.date | date: '%Y' -%}
+{%- if y != last_year -%}
+{%- unless forloop.first %}</ul></section>{% endunless %}
+<section class="row"><h2 class="label">{{ y }}</h2><ul class="log">
+{%- assign last_year = y -%}
+{%- endif %}
+<li><time datetime="{{ item.date | date: '%Y-%m-%d' }}">{% if item.precision == 'month' %}{{ item.date | date: '%b' }}{% else %}{{ item.date | date: '%b %-d' }}{% endif %}</time><span>{{ item.headline }}</span></li>
+{%- endfor %}
+</ul></section>

@@ -1,0 +1,7 @@
+{%- comment -%} Usage: include news_list.html limit=5 {%- endcomment -%}
+{%- assign all_news = site.data.news | sort: 'date' | reverse -%}
+<ul class="log">
+  {%- for item in all_news limit: include.limit -%}
+  <li><time datetime="{{ item.date | date: '%Y-%m-%d' }}">{% if item.precision == 'month' %}{{ item.date | date: '%b %Y' }}{% else %}{{ item.date | date: '%b %-d, %Y' }}{% endif %}</time><span>{{ item.headline }}</span></li>
+  {%- endfor -%}
+</ul>

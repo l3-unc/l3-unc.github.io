@@ -1,0 +1,19 @@
+# Fine-grained topic of each paper (`theme:` in publications.yml). Each theme belongs to one direction (directions.yml).
+- id: explanations
+  name: Model explanations and interpretability
+  direction: explain
+- id: faithfulness
+  name: Reasoning and explanation faithfulness
+  direction: explain
+- id: learning
+  name: Learning from language
+  direction: learn
+- id: behavior
+  name: Language, cognition and social behavior
+  direction: behavior
+- id: evaluation
+  name: Benchmarks and evaluation
+  direction: other
+- id: other
+  name: Other
+  direction: other
