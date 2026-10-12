@@ -44,7 +44,7 @@
 
 - id: other
   number: ""
-  title: Benchmarks and other work
+  title: Other work
   question: ""
   body: ""
   themes: [evaluation, other]

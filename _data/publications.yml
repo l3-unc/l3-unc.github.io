@@ -184,7 +184,7 @@
   venue: IIT Kanpur
   badges:
   - MTech Thesis
-  theme: other
+  theme: behavior
   links:
     pdf: https://www.cs.cmu.edu/~shashans/papers/srivastava-evolution.pdf
 - title: Is Chain-of-Thought Really Not Explainability? Chain-of-Thought Can Be Faithful without Hint Verbalization
@@ -388,7 +388,7 @@
   - Shashank Srivastava
   date: 2023-12-06
   venue: EMNLP
-  theme: evaluation
+  theme: behavior
   links:
     pdf: https://arxiv.org/pdf/2311.04659.pdf
     arxiv: https://arxiv.org/abs/2311.04659
@@ -459,7 +459,7 @@
   venue: EMNLP
   badges:
   - Findings
-  theme: evaluation
+  theme: explanations
   links:
     pdf: https://arxiv.org/pdf/2210.12302.pdf
     arxiv: https://arxiv.org/abs/2210.12302
