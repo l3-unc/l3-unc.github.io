@@ -10,6 +10,7 @@
 #   title:  pi | phd | masters | bachelors
 #   email:  Preferred contact email (not displayed publicly)
 #   bio:    (optional) Short blurb, shown for the PI
+#   earlier: (optional) Earlier role in the lab, shown under the current one, e.g. "Previously undergrad intern, 2024–2026" (keep it short; it sits under the role line)
 
 - name: Shashank Srivastava
   link: https://www.ssriva.com
@@ -81,7 +82,8 @@
   photo: advaith.jpg
   info: PhD Student
   period: 
-    start: 2024
+    start: 2026
+  earlier: "Previously undergrad intern, 2024–2026"
   title: phd
   email: advaithmalladi02@gmail.com
 
