@@ -30,6 +30,8 @@
 - name: Grace Wang
   info: MS Student
   title: masters
+  link: https://www.linkedin.com/in/grace-yixuan-wang-922192233/
+  now: "PhD student, UNC"
   duration:
     start: 2025
     end: May 2026
@@ -73,6 +75,7 @@
 - name: Akshan Sameullah
   info: BS Student
   title: bachelors
+  now: "MS in CS, UMD"
   link: https://www.linkedin.com/in/akshan-s-b3917819b/
   duration:
     start: 2024
@@ -90,6 +93,7 @@
 - name: Ayush Jain
   info: Intern
   title: intern
+  now: "Quadeye"
   link: https://in.linkedin.com/in/ayushjain9501
   duration: 
     start: Feb 2020
@@ -107,7 +111,8 @@
 - name: Kangda Wei
   info: BS/MS Student
   title: masters
-  link: https://www.linkedin.com/in/kangdawei-40ab541b4/
+  link: https://weikangda.github.io/kangda.github.io/
+  now: "PhD student, Texas A&M"
   duration:
     start: Aug 2021
     end: May 2023
