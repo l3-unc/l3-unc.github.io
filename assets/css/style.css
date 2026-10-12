@@ -54,15 +54,17 @@ h2.label { margin: 0; line-height: 1.4; }
 /* ---- Masthead ---- */
 .masthead { padding: 22px 0 18px; border-bottom: 1px solid var(--rule); }
 .masthead .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 12px 32px; flex-wrap: wrap; }
-.wordmark { font-size: 1.3rem; font-weight: 620; color: var(--ink); text-decoration: none; letter-spacing: -.01em; }
+.wordmark { font-size: 1.45rem; font-weight: 620; color: var(--ink); text-decoration: none; letter-spacing: -.01em; }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; }
-.wordmark-mark { width: 28px; height: 28px; border-radius: 22%; outline: 1px solid var(--rule); flex: none; }
+.wordmark-mark { width: 32px; height: 32px; border-radius: 22%; outline: 1px solid var(--rule); flex: none; }
 .wordmark em { font-weight: 400; color: var(--muted); }
 .wordmark:hover { text-decoration: none; color: var(--ink); }
-.masthead nav { display: flex; gap: 6px 22px; flex-wrap: wrap; font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; }
+.masthead nav { display: flex; gap: 6px 22px; flex-wrap: wrap; font-size: .86rem; letter-spacing: .04em; text-transform: uppercase; }
 .masthead nav a { color: var(--muted); text-decoration: none; padding: 2px 0; border-bottom: 2px solid transparent; }
 .masthead nav a:hover { color: var(--ink); }
 .masthead nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--carolina); }
+/* Small phones: keep the compact header so the name and all links stay on their lines */
+@media (max-width: 400px) { .wordmark { font-size: 1.3rem; } .wordmark-mark { width: 28px; height: 28px; } .masthead nav { font-size: .8rem; } }
 
 /* ---- Row layout: mono label in the margin, content to the right ---- */
 .row { display: grid; grid-template-columns: var(--label) minmax(0, 1fr); gap: 8px 32px; padding: 40px 0; border-top: 1px solid var(--rule); }
@@ -72,7 +74,7 @@ h2.label { margin: 0; line-height: 1.4; }
 
 /* ---- Home ---- */
 .intro { padding: clamp(28px, 5vw, 52px) 0 20px; }
-.intro h1 { font-size: clamp(1.7rem, 3vw, 2.2rem); font-weight: 560; line-height: 1.15; letter-spacing: -.018em; max-width: 30em; margin-bottom: .35em; }
+.intro h1 { font-size: clamp(1.55rem, 2.7vw, 2rem); font-weight: 560; line-height: 1.15; letter-spacing: -.018em; max-width: 30em; margin-bottom: .35em; }
 .intro h1 em { font-style: italic; }
 .intro .lede { font-size: clamp(1.15rem, 1.7vw, 1.3rem); line-height: 1.55; max-width: 34em; color: var(--ink); margin-bottom: 1em; }
 
@@ -107,7 +109,7 @@ h2.label { margin: 0; line-height: 1.4; }
 
 /* ---- Inner pages ---- */
 .page-head { padding: clamp(24px, 4vw, 44px) 0 8px; }
-.page-head h1 { font-size: clamp(1.7rem, 3vw, 2.2rem); font-weight: 560; letter-spacing: -.016em; margin: 0 0 .2em; }
+.page-head h1 { font-size: clamp(1.55rem, 2.7vw, 2rem); font-weight: 560; letter-spacing: -.016em; margin: 0 0 .2em; }
 .page-head .lede { font-size: 1.25rem; color: var(--muted); max-width: 34em; margin: 0; }
 .page-body { padding-bottom: 72px; }
 
@@ -155,10 +157,6 @@ h2.label { margin: 0; line-height: 1.4; }
 .people.pi .person { align-items: flex-start; }
 .people.pi img { width: 132px; height: 132px; }
 .people.pi .bio { margin: 8px 0 0; max-width: 36em; }
-.alumni { list-style: none; margin: 0; padding: 0; font-size: 1rem; line-height: 1.9; }
-.alumni li { display: inline; }
-.alumni li:not(:last-child)::after { content: " \00b7  "; color: var(--muted); }
-.alumni .yrs { font: 400 .74rem var(--mono); color: var(--muted); white-space: nowrap; }
 
 /* Join */
 .prose h2 { font-size: 1.5rem; margin-top: 1.6em; }
@@ -226,3 +224,16 @@ details.all-resources[open] > summary { margin-bottom: 10px; }
 
 .themes-list { list-style: none; margin: 0 0 1.1em; padding: 0; }
 .themes-list li { margin: 0 0 .7em; padding-left: 14px; border-left: 2px solid var(--rule); }
+
+/* Alumni: PhD alumni first on full-width lines; everyone else flows into two compact columns. */
+.alumni-list { list-style: none; margin: 0; padding: 0; }
+.alumnus { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 12px; padding: 2px 0 2px calc(3.1rem + 12px); line-height: 1.4; break-inside: avoid; }
+.alumnus .deg { flex: none; width: 3.1rem; margin-left: calc(-3.1rem - 12px); font: 500 .7rem var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.alumnus .al-yrs { font: 400 .74rem var(--mono); color: var(--muted); white-space: nowrap; }
+.alumnus .al-now { font-size: .95rem; }
+.alumnus.is-phd { padding-top: 3px; padding-bottom: 3px; }
+.alumnus.is-phd .al-name { font-size: 1.12rem; font-weight: 650; }
+.alumnus.is-phd .al-name a { color: var(--ink); }
+.alumnus.is-phd .al-now { font-size: 1.02rem; }
+.alumni-cols { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule); columns: 2 340px; column-gap: 36px; }
+

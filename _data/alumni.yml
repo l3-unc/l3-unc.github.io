@@ -6,21 +6,15 @@
 # The info field will display your designation at the time of working with the lab.
 # The title field must be either: pi, postdoc, phd, masters, bachelors, or intern
 # Add in the duration of stay in the lab. If the end date is unknown, omit `end` (it is shown as "joined <start>").
-# `now` (optional) is shown as "now at ...", e.g.  now: PhD student at Stanford
+# `now` (optional) is shown as "→ ..." after the years, e.g.  now: "PhD student, Stanford".
+# PhD alumni are listed first and more prominently; everyone else follows in a compact list.
 # The website field is optional
 
 - name: Wisdom Okwen
   info: BS Student
   title: bachelors
+  now: "Microsoft"
   link: https://wisdom-okwen.github.io/
-  duration:
-    start: 2024
-    end: May 2026
-
-- name: Akshan Sameullah
-  info: BS Student
-  title: bachelors
-  link: https://www.linkedin.com/in/akshan-s-b3917819b/
   duration:
     start: 2024
     end: May 2026
@@ -43,22 +37,16 @@
 - name: Rakesh R Menon
   info: PhD Student
   title: phd
+  now: "Applied Scientist, Adobe"
   link: https://www.linkedin.com/in/rakesh-r-menon-9a32509a/
   duration: 
-    start: Aug 2020
-    end: May 2025
-
-- name: Tianyi Niu
-  info: MS Student
-  title: masters
-  link: https://www.linkedin.com/in/tianyi-niu
-  duration: 
-    start: May 2023
-    end: May 2025
+    start: 2021
+    end: 2026
 
 - name: Jane Xing
   info: BS Student
   title: bachelors
+  now: "Microsoft"
   link: https://www.linkedin.com/in/jane-xing/
   duration: 
     start: Aug 2024
@@ -67,14 +55,33 @@
 - name: Aum Kendapadi
   info: BS Student
   title: bachelors
+  now: "MS in CS, Yale"
   link: https://www.linkedin.com/in/aumkendapadi/
   duration: 
     start: May 2023
     end: May 2025
 
+- name: Tianyi Niu
+  info: MS Student
+  title: masters
+  now: "Capital One"
+  link: https://www.linkedin.com/in/tianyi-niu
+  duration: 
+    start: May 2023
+    end: May 2025
+
+- name: Akshan Sameullah
+  info: BS Student
+  title: bachelors
+  link: https://www.linkedin.com/in/akshan-s-b3917819b/
+  duration:
+    start: 2024
+    end: May 2026
+
 - name: Zheng Qi
   info: BS Student
   title: bachelors
+  now: "MS in CS, UPenn"
   link: https://www.linkedin.com/in/zheng-qi-988345224/
   duration: 
     start: Jan 2020
@@ -91,6 +98,7 @@
 - name: Graham Caron
   info: BS Student
   title: bachelors
+  now: "Oracle"
   link: https://www.linkedin.com/in/gcaron00
   duration: 
     start: Jan 2022
@@ -107,14 +115,16 @@
 - name: Matthew Byrd
   info: BS/MS Student
   title: masters
+  now: "Epic"
   link: https://byrdofafeather.github.io
   duration:
     start: Jan 2020
     end: Dec 2022
-  
+
 - name: Mason Laney
   info: BS Student
   title: bachelors
+  now: "CS PhD student, UNC"
   link: https://www.linkedin.com/in/mason-laney-1504b5208/
   duration:
     start: Aug 2022
@@ -123,6 +133,7 @@
 - name: Pradyun Ramesh
   info: BS Student
   title: bachelors
+  now: "MS in CS, Columbia"
   link: https://www.linkedin.com/in/pradyun-ramesh-017307171/
   duration:
     start: Aug 2022
@@ -130,6 +141,8 @@
 - name: Sayan Ghosh
   info: PhD Student
   title: phd
+  now: "AWS"
   link: https://sgdgp.github.io
   duration:
     start: Jan 2020
+    end: 2025

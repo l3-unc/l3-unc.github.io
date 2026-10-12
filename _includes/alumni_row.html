@@ -1,0 +1,10 @@
+{%- comment -%} One alumni line. Usage: include alumni_row.html a=alumnus {%- endcomment -%}
+{%- assign a = include.a -%}
+{%- assign y0 = a.duration.start | split: ' ' | last -%}
+{%- assign y1 = a.duration.end | split: ' ' | last -%}
+<li class="alumnus{% if a.title == 'phd' %} is-phd{% endif %}">
+  <span class="deg">{{ a.info | remove: ' Student' }}</span>
+  <span class="al-name">{% if a.link %}<a href="{{ a.link }}">{{ a.name }}</a>{% else %}{{ a.name }}{% endif %}</span>
+  <span class="al-yrs">{% if a.duration.end %}{% if y0 == y1 %}{{ y0 }}{% else %}{{ y0 }}&ndash;{{ y1 }}{% endif %}{% else %}from {{ y0 }}{% endif %}</span>
+  {%- if a.now %}<span class="al-now">&rarr; {{ a.now }}</span>{% endif %}
+</li>

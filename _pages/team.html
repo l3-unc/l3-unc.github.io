@@ -30,13 +30,16 @@ description: Members and alumni of the Learning from Language Lab at UNC Chapel 
 {%- endfor %}
 <section class="row">
   <h2 class="label">Alumni</h2>
-  <ul class="alumni">
-    {%- for a in site.data.alumni %}
-    {%- assign y0 = a.duration.start | split: ' ' | last -%}
-    {%- assign y1 = a.duration.end | split: ' ' | last -%}
-    <li>{% if a.link %}<a href="{{ a.link }}">{{ a.name }}</a>{% else %}{{ a.name }}{% endif %} <span class="yrs">{% if a.duration.end %}{% if y0 == y1 %}{{ y0 }}{% else %}{{ y0 }}&ndash;{{ y1 }}{% endif %}{% else %}from {{ y0 }}{% endif %}{% if a.now %}, now {{ a.now }}{% endif %}</span></li>
-    {%- endfor %}
-  </ul>
+  <div>
+    <ul class="alumni-list alumni-phd-list">
+      {%- assign phd_alumni = site.data.alumni | where: 'title', 'phd' -%}
+      {%- for a in phd_alumni %}{% include alumni_row.html a=a %}{% endfor -%}
+    </ul>
+    <ul class="alumni-list alumni-cols">
+      {%- assign other_alumni = site.data.alumni | where_exp: 'a', "a.title != 'phd'" -%}
+      {%- for a in other_alumni %}{% include alumni_row.html a=a %}{% endfor -%}
+    </ul>
+  </div>
 </section>
 <section class="row">
   <h2 class="label">Join</h2>
