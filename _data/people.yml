@@ -8,7 +8,6 @@
 #   period:
 #     start: Year they joined
 #   title:  pi | phd | masters | bachelors
-#   email:  Preferred contact email (not displayed publicly)
 #   bio:    (optional) Short blurb, shown for the PI
 #   earlier: (optional) Earlier role in the lab, shown under the current one, e.g. "Previously undergrad intern, 2024–2026" (keep it short; it sits under the role line)
 
@@ -19,7 +18,6 @@
   period:
     start: 2020
   title: pi
-  email: ssrivastava@cs.unc.edu
   bio: >-
     Shashank is an Assistant Professor of Computer Science at UNC Chapel Hill. Before joining UNC he was a researcher at Microsoft Research in Redmond. He received his PhD in Machine Learning from Carnegie Mellon University, working with Tom Mitchell. His work explores the connection between natural language and machine intelligence, with a focus on explainability, alignment, and interactive learning.
 
@@ -30,7 +28,6 @@
   period:
     start: 2022
   title: phd
-  email: kzaman@cs.unc.edu
 
 - name: Scott Merrill
   link: https://smerrillunc.github.io/
@@ -39,7 +36,6 @@
   period:
     start: 2025
   title: phd
-  email: smerrill@cs.unc.edu
 
 - name: Rajeev Ambati
   link: https://www.arajeev.com/
@@ -48,7 +44,6 @@
   period:
     start: 2024
   title: phd
-  email: ambati@cs.unc.edu
 
 - name: Yuvraj Jain
   link: https://www.linkedin.com/in/jain-yuvraj/
@@ -57,7 +52,6 @@
   period:
     start: 2024
   title: masters
-  email: yjain@unc.edu
 
 - name: Rishabhdev Potti
   link: https://www.linkedin.com/in/rishabhdev-potti-09312624b
@@ -66,7 +60,6 @@
   period:
     start: 2026
   title: masters
-  email: rishp@cs.unc.edu
 
 - name: Anika Sharma
   link: https://www.linkedin.com/in/anika-sharma26/
@@ -75,7 +68,6 @@
   period:
     start: 2023
   title: bachelors
-  email: anika17@unc.edu
 
 - name: Advaith Malladi
   link: https://www.linkedin.com/in/advaith-malladi-30175326b/
@@ -85,7 +77,6 @@
     start: 2026
   earlier: "Previously undergrad intern, 2024–2026"
   title: phd
-  email: advaithmalladi02@gmail.com
 
 - name: Hengli Wang
   link: https://github.com/henry653
@@ -94,7 +85,6 @@
   period:
     start: 2026
   title: bachelors
-  email: hengli@ad.unc.edu
 
 - name: Jahnavi Kari
   link: https://www.linkedin.com/in/jahnavi-kari/
@@ -103,5 +93,4 @@
   period:
     start: 2026
   title: bachelors
-  email: jkari@unc.edu
 
