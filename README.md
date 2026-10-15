@@ -1,6 +1,6 @@
 # Learning from Language Lab website
 
-Source for the lab website at <https://l3-unc.github.io>, built with [Jekyll](https://jekyllrb.com) and hosted on GitHub Pages.
+Source for the lab website at <https://l3.cs.unc.edu> (also reachable at l3-unc.github.io, which redirects), built with [Jekyll](https://jekyllrb.com) and hosted on GitHub Pages.
 There is no CSS framework and no JavaScript dependency: the design lives in
 [`assets/css/style.css`](assets/css/style.css) and [`assets/js/site.js`](assets/js/site.js).
 

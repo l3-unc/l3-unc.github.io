@@ -8,7 +8,8 @@ description: >-
   interaction, and intelligence: interpretability and explainability of large language models,
   faithful reasoning, and models that learn from language and from people.
 
-url: "https://l3-unc.github.io"
+# Custom domain (the CNAME file at the repo root must contain the same host). l3-unc.github.io redirects here.
+url: "https://l3.cs.unc.edu"
 baseurl: ""
 
 # Contact (shown in the footer and on the Join page)
